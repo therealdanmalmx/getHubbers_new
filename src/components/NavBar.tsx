@@ -21,7 +21,11 @@ const NavBar = () => {
       </div>
       <div>
         <Link to="/">
-          <img className="w-full" src={gethubberslogo} alt="GetHubber's logo" />
+          <img
+            className="h-20 w-full"
+            src={gethubberslogo}
+            alt="GetHubber's logo"
+          />
         </Link>
       </div>
     </div>
