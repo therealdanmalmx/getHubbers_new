@@ -3,6 +3,7 @@ import c from "../../public/icons/c.svg";
 import csharp from "../../public/icons/c#.svg";
 import cplusplus from "../../public/icons/c++.svg";
 import django from "../../public/icons/django.svg";
+import express from "../../public/icons/express.svg";
 import go from "../../public/icons/go.svg";
 import java from "../../public/icons/java.svg";
 import javascript from "../../public/icons/javascript.svg";
@@ -56,114 +57,120 @@ const iconsData = [
   },
   {
     id: 6,
+    name: "express",
+    icon: express,
+    type: "framework",
+  },
+  {
+    id: 7,
     name: "go",
     icon: go,
     type: "language",
   },
   {
-    id: 7,
+    id: 8,
     name: "java",
     icon: java,
     type: "language",
   },
   {
-    id: 8,
+    id: 9,
     name: "javascript",
     icon: javascript,
     type: "language",
   },
   {
-    id: 9,
+    id: 10,
     name: "kotlin",
     icon: kotlin,
     type: "language",
   },
   {
-    id: 10,
+    id: 11,
     name: "laravel",
     icon: laravel,
     type: "framework",
   },
   {
-    id: 11,
+    id: 12,
     name: "dotnet",
     icon: dotnet,
     type: "framework",
   },
   {
-    id: 12,
+    id: 13,
     name: "dotnetcore",
     icon: dotnetcore,
     type: "framework",
   },
   {
-    id: 13,
+    id: 14,
     name: "node",
     icon: node,
     type: "framework",
   },
   {
-    id: 14,
+    id: 15,
     name: "php",
     icon: php,
     type: "language",
   },
   {
-    id: 15,
+    id: 16,
     name: "python",
     icon: python,
     type: "language",
   },
   {
-    id: 16,
+    id: 17,
     name: "rails",
     icon: rails,
     type: "framework",
   },
   {
-    id: 17,
+    id: 18,
     name: "react",
     icon: react,
     type: "framework",
   },
   {
-    id: 18,
+    id: 19,
     name: "ruby",
     icon: ruby,
     type: "language",
   },
   {
-    id: 19,
+    id: 20,
     name: "rust",
     icon: rust,
     type: "language",
   },
   {
-    id: 20,
+    id: 21,
     name: "spring",
     icon: spring,
     type: "framework",
   },
   {
-    id: 21,
+    id: 22,
     name: "svelte",
     icon: svelte,
     type: "framework",
   },
   {
-    id: 22,
+    id: 23,
     name: "swift",
     icon: swift,
     type: "language",
   },
   {
-    id: 23,
+    id: 24,
     name: "typescript",
     icon: typescript,
     type: "language",
   },
   {
-    id: 24,
+    id: 25,
     name: "vue",
     icon: vue,
     type: "framework",
