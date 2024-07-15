@@ -1,6 +1,6 @@
 // import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import gethubberslogo from "/logos/gethubberslogo_s.svg";
+import gethubberslogo from "../../public/logos/gethubberslogo_s.png";
 
 const NavBar = () => {
   //   const { t } = useTranslation();
