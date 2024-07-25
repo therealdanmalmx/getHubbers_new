@@ -1,18 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import iconsData from "../data/iconsData";
+import { SearchContext } from "../Context/SearchContext";
 
 const SearchBar = () => {
-  const [selectedIcons, setSelectedIcons] = useState<string[]>([]);
-
-  const toggleIcon = (icon: string) => {
-    setSelectedIcons((prevIcons) => {
-      if (prevIcons.includes(icon)) {
-        return prevIcons.filter((i) => i !== icon);
-      } else {
-        return [...prevIcons, icon];
-      }
-    });
-  };
+  const { selectedIcons, toggleIcon } = useContext(SearchContext);
 
   return (
     <div className="fixed top-32 flex h-16 w-full flex-auto flex-wrap items-center justify-between bg-gray-500/80 px-4">
