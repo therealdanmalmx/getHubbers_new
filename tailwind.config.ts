@@ -7,6 +7,10 @@ export default {
         "logo-text": "#D7DBDD",
         navbar: "#212F3D",
       },
+      textColor: {
+        "!text-green-500": "#10B981 !important",
+        "!text-white": "#FFFFFF !important",
+      },
     },
   },
   plugins: [],

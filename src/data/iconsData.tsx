@@ -1,178 +1,136 @@
-import angular from "../../public/icons/angular.svg";
-import c from "../../public/icons/c.svg";
-import csharp from "../../public/icons/c#.svg";
-import cplusplus from "../../public/icons/c++.svg";
-import django from "../../public/icons/django.svg";
-import express from "../../public/icons/express.svg";
-import go from "../../public/icons/go.svg";
-import java from "../../public/icons/java.svg";
-import javascript from "../../public/icons/javascript.svg";
-import kotlin from "../../public/icons/kotlin.svg";
-import laravel from "../../public/icons/laravel.svg";
-import dotnet from "../../public/icons/.NET.svg";
-import dotnetcore from "../../public/icons/.NETcore.svg";
-import node from "../../public/icons/.node.svg";
-import php from "../../public/icons/.php.svg";
-import python from "../../public/icons/.python.svg";
-import rails from "../../public/icons/.rails.svg";
-import react from "../../public/icons/.react.svg";
-import ruby from "../../public/icons/.ruby.svg";
-import rust from "../../public/icons/.rust.svg";
-import spring from "../../public/icons/.spring.svg";
-import svelte from "../../public/icons/.svelte.svg";
-import swift from "../../public/icons/.swift.svg";
-import typescript from "../../public/icons/.typescript.svg";
-import vue from "../../public/icons/.vue.svg";
-
+import Angular from "../assets/icons/Angular";
 const iconsData = [
   {
     id: 1,
     name: "angular",
-    icon: angular,
+    value: "angular",
+    icon: Angular,
     type: "framework",
   },
   {
     id: 2,
-    name: "c",
-    icon: c,
+    name: "csharp",
+    value: "c#",
     type: "language",
   },
   {
     id: 3,
-    name: "c#",
-    icon: csharp,
+    name: "cplusplus",
+    value: "c++",
     type: "language",
   },
   {
     id: 4,
-    name: "c++",
-    icon: cplusplus,
+    name: "django",
+    value: "django",
+    type: "framework",
+  },
+  // {
+  //   id: 5,
+  //   name: "express",
+  //   value: "express",
+  //   type: "framework",
+  // },
+  {
+    id: 6,
+    name: "go",
+    value: "go",
     type: "language",
   },
   {
-    id: 5,
-    name: "django",
-    icon: django,
-    type: "framework",
-  },
-  {
-    id: 6,
-    name: "express",
-    icon: express,
-    type: "framework",
-  },
-  {
     id: 7,
-    name: "go",
-    icon: go,
+    name: "java",
+    value: "java",
     type: "language",
   },
   {
     id: 8,
-    name: "java",
-    icon: java,
+    name: "javascript",
+    value: "javascript",
     type: "language",
   },
   {
     id: 9,
-    name: "javascript",
-    icon: javascript,
+    name: "kotlin",
+    value: "kotlin",
     type: "language",
   },
   {
     id: 10,
-    name: "kotlin",
-    icon: kotlin,
-    type: "language",
+    name: "laravel",
+    value: "laravel",
+    type: "framework",
   },
   {
     id: 11,
-    name: "laravel",
-    icon: laravel,
+    name: "dot-net",
+    value: ".net",
     type: "framework",
   },
   {
     id: 12,
-    name: "dotnet",
-    icon: dotnet,
+    name: "dotnetcore",
+    value: ".net core",
     type: "framework",
   },
   {
     id: 13,
-    name: "dotnetcore",
-    icon: dotnetcore,
+    name: "nodejs",
+    value: "node",
     type: "framework",
   },
   {
     id: 14,
-    name: "node",
-    icon: node,
-    type: "framework",
+    name: "php",
+    value: "php",
+    type: "language",
   },
   {
     id: 15,
-    name: "php",
-    icon: php,
+    name: "python",
+    value: "python",
     type: "language",
   },
   {
     id: 16,
-    name: "python",
-    icon: python,
-    type: "language",
-  },
-  {
-    id: 17,
-    name: "rails",
-    icon: rails,
+    name: "react",
+    value: "react",
     type: "framework",
   },
   {
+    id: 17,
+    name: "rust",
+    value: "rust",
+    type: "language",
+  },
+  {
     id: 18,
-    name: "react",
-    icon: react,
+    name: "spring",
+    value: "spring",
     type: "framework",
   },
   {
     id: 19,
-    name: "ruby",
-    icon: ruby,
-    type: "language",
+    name: "svelte",
+    value: "svelte",
+    type: "framework",
   },
   {
     id: 20,
-    name: "rust",
-    icon: rust,
+    name: "swift",
+    value: "swift",
     type: "language",
   },
   {
     id: 21,
-    name: "spring",
-    icon: spring,
-    type: "framework",
+    name: "typescript",
+    value: "typescript",
+    type: "language",
   },
   {
     id: 22,
-    name: "svelte",
-    icon: svelte,
-    type: "framework",
-  },
-  {
-    id: 23,
-    name: "swift",
-    icon: swift,
-    type: "language",
-  },
-  {
-    id: 24,
-    name: "typescript",
-    icon: typescript,
-    type: "language",
-  },
-  {
-    id: 25,
-    name: "vue",
-    icon: vue,
+    name: "vuejs",
+    value: "vue",
     type: "framework",
   },
 ];

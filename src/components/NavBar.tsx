@@ -1,11 +1,11 @@
 // import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import gethubberslogo from "../../public/logos/gethubberslogo_s.png";
+import gethubberslogo from "../assets/logos/gethubberslogo_s.png";
 
 const NavBar = () => {
   //   const { t } = useTranslation();
   return (
-    <div className="fixed top-0 z-10 flex h-40 max-h-32 w-full items-center justify-between bg-navbar px-8 py-2">
+    <div className="fixed top-0 z-10 flex h-32 w-full items-center justify-between bg-navbar px-4 py-2">
       <div>
         <Link to="/" className="navbar">
           <div>
