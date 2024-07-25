@@ -32,12 +32,16 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const getSearchText = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const textSearch = (
+    let textSearch = (
       (e.target as HTMLButtonElement).previousElementSibling as HTMLInputElement
     )?.value;
     if (textSearch) {
-      setSearchText(textSearch);
+      setSearchText(textSearch.trim());
       console.log({ searchText });
+      (
+        (e.target as HTMLButtonElement)
+          .previousElementSibling as HTMLInputElement
+      ).value = "";
     }
   };
 
