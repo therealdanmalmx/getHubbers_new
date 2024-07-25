@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import iconsData from "../data/iconsData";
 
 const SearchBar = () => {
@@ -33,9 +33,7 @@ const SearchBar = () => {
                 type="checkbox"
                 value={icon.value}
                 id={icon.value}
-                onChange={() => toggleIcon(icon.value)}
                 className="appearance-none"
-                checked={isSelected}
               />
               {icon.value && (
                 <i

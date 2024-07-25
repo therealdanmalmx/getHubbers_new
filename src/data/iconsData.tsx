@@ -1,10 +1,8 @@
-import Angular from "../assets/icons/Angular";
 const iconsData = [
   {
     id: 1,
     name: "angular",
     value: "angular",
-    icon: Angular,
     type: "framework",
   },
   {
