@@ -9,7 +9,7 @@ const SearchField = () => {
       <input
         type="text"
         placeholder="search"
-        className="border-2 border-r-0 border-gray-500 p-4"
+        className="border-2 border-r-0 border-gray-500 p-4 outline-none"
       />
       <button
         onClick={getSearchText}

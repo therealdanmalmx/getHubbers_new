@@ -5,14 +5,14 @@ import gethubberslogo from "../assets/logos/gethubberslogo_s.png";
 const NavBar = () => {
   //   const { t } = useTranslation();
   return (
-    <div className="fixed top-0 z-10 flex h-32 w-full items-center justify-between bg-navbar px-4 py-2">
+    <div className="fixed top-0 z-10 flex h-32 w-full items-center justify-center bg-navbar py-2 md:justify-between md:px-4">
       <div>
         <Link to="/" className="navbar">
           <div>
-            <h1 className="m-0 p-0 text-left text-6xl font-bold uppercase text-logo-text">
+            <h1 className="m-0 p-0 text-center text-5xl font-bold uppercase text-logo-text md:text-left md:text-6xl">
               GetHubbers
             </h1>
-            <p className="m-0 p-0 text-left text-2xl uppercase text-logo-text">
+            <p className="m-0 p-0 text-center text-xl uppercase text-logo-text md:text-left md:text-2xl">
               {/* {t("logoText")} */}
               Find Coders Where Coders Are
             </p>
@@ -22,7 +22,7 @@ const NavBar = () => {
       <div>
         <Link to="/">
           <img
-            className="h-20 w-full"
+            className="hidden h-20 w-full md:block"
             src={gethubberslogo}
             alt="GetHubber's logo"
           />
