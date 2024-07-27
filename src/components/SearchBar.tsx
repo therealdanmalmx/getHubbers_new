@@ -7,12 +7,12 @@ const SearchBar = () => {
 
   // console.log({ selectedIcons });
   return (
-    <div className="fixed top-32 flex h-16 w-full flex-auto flex-wrap items-center justify-between bg-gray-500/80 px-4">
+    <div className="fixed top-32 grid h-20 w-full grid-flow-col grid-rows-2 items-center justify-center gap-[10px] bg-gray-500/80 px-4 md:h-16 md:grid-rows-1 md:justify-between md:gap-0">
       {iconsData.map((icon) => {
         let isSelected = selectedIcons.includes(icon.value);
         const iconColor =
           `devicon-${icon.name}-plain` +
-          (isSelected ? " text-green-500" : " text-white") +
+          (isSelected ? " text-yellow-400" : " text-white") +
           (icon.name === "express"
             ? " devicon-" + icon.name + "-original"
             : "") +

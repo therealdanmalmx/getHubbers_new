@@ -23,12 +23,12 @@ const iconsData = [
     value: "django",
     type: "framework",
   },
-  // {
-  //   id: 5,
-  //   name: "express",
-  //   value: "express",
-  //   type: "framework",
-  // },
+  {
+    id: 5,
+    name: "express",
+    value: "express",
+    type: "framework",
+  },
   {
     id: 6,
     name: "go",
