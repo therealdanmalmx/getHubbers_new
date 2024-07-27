@@ -1,5 +1,6 @@
 "use client";
 import { FC, ReactNode, createContext, useState } from "react";
+import axios from "axios";
 
 type SearchContextType = {
   selectedIcons: string[];
@@ -39,7 +40,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
     )?.value.trim();
     if (textSearch) {
       setSearchText(textSearch);
-      getHubberProfiles(textSearch);
+      getHubberProfiles(selectedIcons, textSearch);
       setTimeout(() => {
         (
           (e.target as HTMLButtonElement)
@@ -55,11 +56,11 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   // };
 
-  const getHubberProfiles = async (searchText: string[], city: string) => {
+  const getHubberProfiles = async (selectedIcons: string[], city: string) => {
     if (city || city === "") {
       // const res = await axios.get(`https://api.github.com/search/users?q=language:${langList && frameList ? `${langList}+${frameList}` : langList ? `${langList}` : frameList ? `${frameList}` : `${langList}+${frameList}`}+location:${region ? region : 'sweden'}&client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`)
       const res = await axios.get(
-        `https://api.github.com/search/users?q=language:${codeList ?? codeList}+location:${region ? region : countryName}&client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`,
+        `https://api.github.com/search/users?q=language:${selectedIcons ?? selectedIcons}+location:${city ? city : "Sweden"}&client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`,
       );
       if (res.data.items < 1) {
         showAlert("Inga profiler hittades baserat på dina val");
@@ -69,7 +70,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
     }
   };
 
-  const getProfile = async (login) => {
+  const getProfile = async (login: string) => {
     const res = await axios.get(
       `https://api.github.com/users/${login}?client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`,
     );
