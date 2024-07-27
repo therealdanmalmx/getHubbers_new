@@ -3,8 +3,9 @@ import iconsData from "../data/iconsData";
 import { SearchContext } from "../Context/SearchContext";
 
 const SearchBar = () => {
-  const { selectedIcons, toggleIcon } = useContext(SearchContext);
+  const { selectedIcons, toggleChosenIcons } = useContext(SearchContext);
 
+  // console.log({ selectedIcons });
   return (
     <div className="fixed top-32 flex h-16 w-full flex-auto flex-wrap items-center justify-between bg-gray-500/80 px-4">
       {iconsData.map((icon) => {
@@ -30,7 +31,7 @@ const SearchBar = () => {
                 <i
                   className={iconColor}
                   title={icon.value}
-                  onClick={() => toggleIcon(icon.value)}
+                  onClick={() => toggleChosenIcons(icon.value)}
                 ></i>
               )}
             </label>
