@@ -12,7 +12,7 @@ const SearchBar = () => {
         let isSelected = selectedIcons.includes(icon.value);
         const iconColor =
           `devicon-${icon.name}-plain` +
-          (isSelected ? " text-yellow-400" : " text-white") +
+          (isSelected ? " text-green-500" : " text-white") +
           (icon.name === "express"
             ? " devicon-" + icon.name + "-original"
             : "") +
