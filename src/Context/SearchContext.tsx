@@ -1,6 +1,5 @@
 "use client";
 import { FC, ReactNode, createContext, useState } from "react";
-import axios from "axios";
 
 type SearchContextType = {
   selectedIcons: string[];

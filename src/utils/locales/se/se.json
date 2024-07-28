@@ -17,5 +17,7 @@
   "opendropdown": "Tryck för att",
   "opendropdownopen": "öppna",
   "opendropdownclose": "stänga",
-  "noprofilesfound": "No profiles were found based on your search criteria."
+  "noprofilesfound": "Inga profiler hittades baserat på dina val.",
+  "searchFieldHeading": "Sök efter en stad eller lämna tomt för att söka i hela landet",
+  "searchFieldPlaceholder": "Ange stad / lämna tomt"
 }

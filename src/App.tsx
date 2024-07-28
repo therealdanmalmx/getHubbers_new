@@ -7,10 +7,12 @@ import { SearchProvider } from "./Context/SearchContext";
 function App() {
   return (
     <SearchProvider>
-      <div>
+      <div className="flex h-screen flex-col justify-center">
         <NavBar />
         <SearchBar />
-        <SearchField />
+        <div className="h-[calc(h-screen - 192px)] flex items-center justify-center">
+          <SearchField />
+        </div>
       </div>
     </SearchProvider>
   );

@@ -1,9 +1,10 @@
 // import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import gethubberslogo from "../assets/logos/gethubberslogo_s.png";
+import { useTranslation } from "react-i18next";
 
 const NavBar = () => {
-  //   const { t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="fixed top-0 z-10 flex h-32 w-full items-center justify-center bg-navbar py-2 md:justify-between md:px-4">
       <div>
@@ -13,8 +14,7 @@ const NavBar = () => {
               GetHubbers
             </h1>
             <p className="m-0 p-0 text-center text-xl uppercase text-logo-text md:text-left md:text-2xl">
-              {/* {t("logoText")} */}
-              Find Coders Where Coders Are
+              {t("logoText")}
             </p>
           </div>
         </Link>

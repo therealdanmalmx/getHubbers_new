@@ -2,6 +2,7 @@
 import { FC, ReactNode, createContext, useContext, useState } from "react";
 import axios from "axios";
 import { AlertContext } from "./AlertContext";
+import { useTranslation } from "react-i18next";
 
 type FetchContextType = {
   profiles: string[];
@@ -20,6 +21,7 @@ export const FetchContext = createContext<FetchContextType>({
 const [profiles, setProfiles] = useState([]);
 const [profile, setProfile] = useState({});
 const { alert, setAlert } = useContext(AlertContext);
+const { t } = useTranslation();
 
 const getHubberProfiles = async (selectedIcons: string[], city: string) => {
   if (city || city === "") {
@@ -28,7 +30,7 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
       `https://api.github.com/search/users?q=language:${selectedIcons ?? selectedIcons}+location:${city ? city : "Sweden"}&client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`,
     );
     if (res.data.items < 1) {
-      setAlert("Inga profiler hittades baserat på dina val");
+      setAlert(t("noprofilesfound"));
     } else {
       setProfiles(res.data.items);
     }

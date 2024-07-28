@@ -1,5 +1,5 @@
 {
-  "logoText": "Find coders, where coders are",
+  "logoText": "Find coders where coders are",
   "chooseCode": "Choose",
   "searchCoders": "Search for coders",
   "searchButton": "Search",
@@ -9,13 +9,15 @@
   "citiesList_1": "City. Empty for whole country.",
   "citiesList_2": "largest cities in",
   "citiesList_3": "Empty searches the whole country.",
-  "chooseCountry": "Choose country",
+  "chooseCountry": "Escolhe um país",
   "sweden": "Sweden",
   "portugal": "Portugal",
-  "uk": "United Kingdom",
+  "uk": "Great Britain",
   "worksat": "Works at",
   "opendropdown": "Click to",
   "opendropdownopen": "open",
   "opendropdownclose": "close",
-  "noprofilesfound": "No profiles were found based on your search criteria."
+  "noprofilesfound": "No profiles were found based on your search criteria.",
+  "searchFieldHeading": "Search for a city or leave blank to search the entire country",
+  "searchFieldPlaceholder": "City or leave blank"
 }
