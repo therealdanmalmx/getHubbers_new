@@ -1,0 +1,21 @@
+{
+  "logoText": "Find coders, where coders are",
+  "chooseCode": "Choose",
+  "searchCoders": "Search for coders",
+  "searchButton": "Search",
+  "showAlertCode": "Choose at least one language / framework",
+  "showAlertRegion_1": "is not on of the 20:est largest cities in",
+  "showAlertRegion_2": "Or it might be misspelled.",
+  "citiesList_1": "City. Empty for whole country.",
+  "citiesList_2": "largest cities in",
+  "citiesList_3": "Empty searches the whole country.",
+  "chooseCountry": "Choose country",
+  "sweden": "Sweden",
+  "portugal": "Portugal",
+  "uk": "United Kingdom",
+  "worksat": "Works at",
+  "opendropdown": "Click to",
+  "opendropdownopen": "open",
+  "opendropdownclose": "close",
+  "noprofilesfound": "No profiles were found based on your search criteria."
+}

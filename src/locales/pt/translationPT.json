@@ -1,0 +1,20 @@
+{
+    "logoText": "Onde programmadores estão",
+    "chooseCode": "Escolhe",
+    "searchCoders": "Encontrar programadores",
+    "searchButton": "Pescuiçar",
+    "showAlertCode" : "Escolhe pelo menos uma lingua / framework",
+    "showAlertRegion_1":  "não é uma das maiores 20 cidades em",
+    "showAlertRegion_2":  "Ou está mal escrito.",
+    "citiesList_1": "Cidade. Vazio pelo país inteiro.",
+    "citiesList_2": "cidades em",
+    "citiesList_3": "Deixa vazio por o país inteiro.",
+    "chooseCountry": "Escolhe país",
+    "sweden": "Suécia",
+    "portugal": "Portugal",
+    "uk": "Reino Unido",
+    "worksat": "Trabalhe na",
+    "opendropdown": "Clique para",
+    "opendropdownopen": "abrir",
+    "opendropdownclose": "fechar"
+}
