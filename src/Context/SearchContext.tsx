@@ -24,7 +24,6 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [selectedIcons, setSelectedIcons] = useState<string[]>([]);
   const [searchText, setSearchText] = useState("");
 
-  console.log(selectedIcons.length);
   const toggleChosenIcons = (icon: string) => {
     setSelectedIcons((prevIcons) => {
       if (prevIcons.includes(icon)) {

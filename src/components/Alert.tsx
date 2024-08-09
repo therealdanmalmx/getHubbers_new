@@ -4,17 +4,13 @@ import { AlertContext } from "../Context/AlertContext";
 const Alert = () => {
   const { alertText, setShowAlert, showAlert } = useContext(AlertContext);
 
-  console.log({ alertText });
-
   if (!showAlert) {
     return null;
   }
 
-  // setTimeout(() => {
-  //   setShowAlert(false);
-  // }, 5000);
-
-  // setAlertText("This is an alert message");
+  setTimeout(() => {
+    setShowAlert(false);
+  }, 5000);
 
   return (
     <div className="flex h-14 w-full items-center justify-between bg-red-600 px-8 text-white">
