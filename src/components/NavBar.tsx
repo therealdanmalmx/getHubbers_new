@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const NavBar = () => {
   const { t } = useTranslation();
   return (
-    <div className="fixed top-0 z-10 flex h-32 w-full items-center justify-center bg-navbar py-2 md:justify-between md:px-4">
+    <div className="z-10 flex h-32 w-full items-center justify-center bg-navbar py-2 md:justify-between md:px-4">
       <div>
         <Link to="/" className="navbar">
           <div>

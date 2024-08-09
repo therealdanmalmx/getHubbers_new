@@ -2,19 +2,32 @@
 import { FC, ReactNode, createContext, useState } from "react";
 
 type AlertContextType = {
-  alert: string;
-  setAlert: (msg: string) => void;
+  alertText: string;
+  showAlert: boolean;
+  setAlertText: (msg: string) => void;
+  setShowAlert: (close: boolean) => void;
 };
 
 export const AlertContext = createContext<AlertContextType>({
-  alert: "",
-  setAlert: () => {},
+  alertText: "",
+  showAlert: false,
+  setAlertText: () => {},
+  setShowAlert: () => {},
 });
-const [alert, setAlert] = useState("");
 
 export const AlertProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const [alertText, setAlertText] = useState<string>("");
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+
   return (
-    <AlertContext.Provider value={{ alert, setAlert }}>
+    <AlertContext.Provider
+      value={{
+        alertText,
+        showAlert,
+        setAlertText,
+        setShowAlert,
+      }}
+    >
       {children}
     </AlertContext.Provider>
   );

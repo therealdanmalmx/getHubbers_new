@@ -1,5 +1,6 @@
 "use client";
-import { FC, ReactNode, createContext, useState } from "react";
+import { FC, ReactNode, createContext, useContext, useState } from "react";
+import { AlertContext } from "./AlertContext";
 
 type SearchContextType = {
   selectedIcons: string[];
@@ -18,11 +19,12 @@ export const SearchContext = createContext<SearchContextType>({
 });
 
 export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const { setShowAlert, setAlertText } = useContext(AlertContext);
+
   const [selectedIcons, setSelectedIcons] = useState<string[]>([]);
   const [searchText, setSearchText] = useState("");
 
-  console.log({ selectedIcons });
-
+  console.log(selectedIcons.length);
   const toggleChosenIcons = (icon: string) => {
     setSelectedIcons((prevIcons) => {
       if (prevIcons.includes(icon)) {
@@ -34,17 +36,23 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const getSearchText = (e: React.MouseEvent<HTMLButtonElement>) => {
-    let textSearch = (
-      (e.target as HTMLButtonElement).previousElementSibling as HTMLInputElement
-    )?.value.trim();
-    if (textSearch) {
-      setSearchText(textSearch);
-      setTimeout(() => {
-        (
-          (e.target as HTMLButtonElement)
-            .previousElementSibling as HTMLInputElement
-        ).value = "";
-      }, 100);
+    if (selectedIcons.length === 0) {
+      setAlertText("Please select at minimum of one icon first");
+      setShowAlert(true);
+    } else {
+      let textSearch = (
+        (e.target as HTMLButtonElement)
+          .previousElementSibling as HTMLInputElement
+      )?.value.trim();
+      if (textSearch) {
+        setSearchText(textSearch);
+        setTimeout(() => {
+          (
+            (e.target as HTMLButtonElement)
+              .previousElementSibling as HTMLInputElement
+          ).value = "";
+        }, 100);
+      }
     }
   };
 

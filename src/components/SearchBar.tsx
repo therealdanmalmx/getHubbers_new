@@ -1,13 +1,12 @@
-import { useContext, useState } from "react";
-import iconsData from "../data/iconsData";
+import { useContext } from "react";
 import { SearchContext } from "../Context/SearchContext";
+import iconsData from "../data/iconsData";
 
 const SearchBar = () => {
   const { selectedIcons, toggleChosenIcons } = useContext(SearchContext);
 
-  // console.log({ selectedIcons });
   return (
-    <div className="fixed top-32 grid h-20 w-full grid-flow-col grid-rows-2 items-center justify-center gap-x-[10px] bg-gray-500/80 md:h-16 md:grid-rows-1 md:justify-between md:gap-0 md:px-4">
+    <div className="grid h-20 w-full grid-flow-col grid-rows-2 items-center justify-center gap-x-[10px] bg-gray-500/80 md:h-16 md:grid-rows-1 md:justify-between md:gap-0 md:px-4">
       {iconsData.map((icon) => {
         let isSelected = selectedIcons.includes(icon.value);
         const iconColor =
