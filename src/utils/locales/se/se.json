@@ -19,5 +19,6 @@
   "opendropdownclose": "stänga",
   "noprofilesfound": "Inga profiler hittades baserat på dina val.",
   "searchFieldHeading": "Sök efter en stad eller lämna tomt för att söka i hela landet",
-  "searchFieldPlaceholder": "Ange stad / lämna tomt"
+  "searchFieldPlaceholder": "Ange stad / lämna tomt",
+  "missingIconAlert": "Välj minst ett språk / ramverk"
 }

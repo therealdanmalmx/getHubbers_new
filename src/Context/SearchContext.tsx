@@ -1,6 +1,7 @@
 "use client";
 import { FC, ReactNode, createContext, useContext, useState } from "react";
 import { AlertContext } from "./AlertContext";
+import { useTranslation } from "react-i18next";
 
 type SearchContextType = {
   selectedIcons: string[];
@@ -20,6 +21,7 @@ export const SearchContext = createContext<SearchContextType>({
 
 export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { setShowAlert, setAlertText } = useContext(AlertContext);
+  const { t } = useTranslation();
 
   const [selectedIcons, setSelectedIcons] = useState<string[]>([]);
   const [searchText, setSearchText] = useState("");
@@ -36,7 +38,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const getSearchText = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (selectedIcons.length === 0) {
-      setAlertText("Please select at minimum of one icon first");
+      setAlertText(t("missingIconAlert"));
       setShowAlert(true);
     } else {
       let textSearch = (

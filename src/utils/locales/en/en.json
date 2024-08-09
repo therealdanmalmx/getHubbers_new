@@ -19,5 +19,6 @@
   "opendropdownclose": "close",
   "noprofilesfound": "No profiles were found based on your search criteria.",
   "searchFieldHeading": "Search for a city or leave blank to search the entire country",
-  "searchFieldPlaceholder": "City or leave blank"
+  "searchFieldPlaceholder": "City or leave blank",
+  "missingIconAlert": "Chose at least one language / framework"
 }
