@@ -31,7 +31,7 @@ const Alert = () => {
   }
 
   return (
-    <div className="flex h-14 w-full items-center justify-between bg-red-600 px-8 text-white">
+    <div className="flex h-14 w-full items-center justify-between bg-red-600 px-8 text-white transition duration-1000 ease-in-out">
       <div>{alertText}</div>
       <div className="cursor-pointer" onClick={closeTheThing}>
         X
