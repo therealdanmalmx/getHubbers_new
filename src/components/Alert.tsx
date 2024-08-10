@@ -31,9 +31,9 @@ const Alert = () => {
   }
 
   return (
-    <div className="flex h-14 w-full items-center justify-between bg-red-600 px-8 text-white transition duration-1000 ease-in-out">
-      <div>{alertText}</div>
-      <div className="cursor-pointer" onClick={closeTheThing}>
+    <div className="flex h-14 w-full items-center justify-between bg-red-600 px-6 text-white transition duration-1000 ease-in-out md:justify-center">
+      <div className="md:flex-1 md:text-center">{alertText}</div>
+      <div className="cursor-pointer md:mx-auto" onClick={closeTheThing}>
         X
       </div>
     </div>
