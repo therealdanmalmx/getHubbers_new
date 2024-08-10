@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { AlertContext } from "../Context/AlertContext";
+import CloseIcon from "~icons/uiw/circle-close";
 
 const Alert = () => {
   const { alertText, setShowAlert, showAlert } = useContext(AlertContext);
@@ -34,7 +35,7 @@ const Alert = () => {
     <div className="flex h-14 w-full items-center justify-between bg-red-600 px-6 text-white transition duration-1000 ease-in-out md:justify-center">
       <div className="md:flex-1 md:text-center">{alertText}</div>
       <div className="cursor-pointer md:mx-auto" onClick={closeTheThing}>
-        X
+        <CloseIcon className="h-6 w-6" />
       </div>
     </div>
   );
