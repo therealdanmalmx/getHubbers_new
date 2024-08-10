@@ -13,8 +13,9 @@ function App() {
         <div className="flex h-screen flex-col justify-start">
           <NavBar />
           <Alert />
+
           <SearchBar />
-          <div className="h-[calc(h-dvh - 192px)] flex items-center justify-center">
+          <div className="flex h-96 items-center justify-center">
             <SearchField />
           </div>
         </div>
