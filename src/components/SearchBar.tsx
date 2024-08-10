@@ -48,7 +48,11 @@ const SearchBar = () => {
                 ? ".NET Core"
                 : icon === "php"
                   ? "PHP"
-                  : icon.charAt(0).toUpperCase() + icon.slice(1),
+                  : icon === "javascript"
+                    ? "JavaScript"
+                    : icon === "typescript"
+                      ? "TypeScript"
+                      : icon.charAt(0).toUpperCase() + icon.slice(1),
           )
           .join(", ")}
       </div>
