@@ -15,7 +15,6 @@ function App() {
           <div className="flex h-screen flex-col justify-start">
             <NavBar />
             <Alert />
-
             <SearchBar />
             <div className="flex h-96 items-center justify-center">
               <SearchField />

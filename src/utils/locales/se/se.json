@@ -4,8 +4,7 @@
   "searchCoders": "Leta efter kodare",
   "searchButton": "Sök",
   "showAlertCode": "Välj minst ett språk / ramverk",
-  "showAlertRegion_1": "är inte en av de 20 största städerna i",
-  "showAlertRegion_2": "Eller så är det felstavat.",
+  "showAlertCity": "{{textSearch}} verkar inte vara en av de 100 största oterna i {{formattedCountry}}. Eller så kan det vara felstavat.",
   "citiesList_1": "Stad. Tomt för hela landet.",
   "citiesList_2": "största städerna i",
   "citiesList_3": "Eller lämna tomt för hela landet.",
@@ -18,7 +17,7 @@
   "opendropdownopen": "öppna",
   "opendropdownclose": "stänga",
   "noprofilesfound": "Inga profiler hittades baserat på dina val.",
-  "searchFieldHeading": "Sök efter en stad eller lämna tomt för att söka i hela landet",
+  "searchFieldHeading": "Sök efter en ort eller lämna tomt för att söka i hela landet",
   "searchFieldPlaceholder": "Ange stad / lämna tomt",
   "missingIconAlert": "Välj minst ett språk / ramverk"
 }

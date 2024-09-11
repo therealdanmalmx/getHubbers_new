@@ -1,6 +1,4 @@
 "use client";
-import { count } from "console";
-import { use } from "i18next";
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
 
 type CountryContextType = {

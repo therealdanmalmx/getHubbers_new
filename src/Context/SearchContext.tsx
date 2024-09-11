@@ -3,6 +3,7 @@ import { FC, ReactNode, createContext, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AlertContext } from "./AlertContext";
 import { CountryContext } from "./CountryContext";
+import { SwedenCities } from "../utils/cities";
 
 type SearchContextType = {
   selectedIcons: string[];
@@ -49,7 +50,17 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       )?.value.trim();
 
       if (textSearch.length) {
-        setSearchText(textSearch);
+        if (SwedenCities.includes(textSearch)) {
+          setSearchText(textSearch);
+        } else {
+          setAlertText(
+            t("showAlertCity", {
+              textSearch,
+              formattedCountry,
+            }),
+          );
+          setShowAlert(true);
+        }
       } else {
         setSearchText(formattedCountry);
       }
