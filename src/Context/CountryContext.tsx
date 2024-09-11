@@ -1,5 +1,6 @@
 "use client";
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type CountryContextType = {
   formattedCountry: string;
@@ -12,6 +13,7 @@ export const CountryContext = createContext<CountryContextType>({
 export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [country, setCountry] = useState<string>("");
   const [formattedCountry, setFormattedCountry] = useState<string>("");
+  const { t } = useTranslation();
 
   const getUserCountry = async () => {
     try {
@@ -27,22 +29,22 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const getCountry = () => {
     switch (country) {
       case "se":
-        setFormattedCountry("Sweden");
+        setFormattedCountry(t("sweden"));
         break;
       case "pt":
-        setFormattedCountry("Portugal");
+        setFormattedCountry(t("portugal"));
         break;
       case "en":
-        setFormattedCountry("United Kingdom");
+        setFormattedCountry(t("uk"));
         break;
       case "fr":
-        setFormattedCountry("France");
+        setFormattedCountry(t("fr"));
         break;
       case "de":
-        setFormattedCountry("Germany");
+        setFormattedCountry(t("de"));
         break;
       default:
-        setFormattedCountry("United Kingdom");
+        setFormattedCountry(t("uk"));
         break;
     }
   };
