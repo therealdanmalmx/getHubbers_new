@@ -20,7 +20,7 @@ export const FetchContext = createContext<FetchContextType>({
 
 const [profiles, setProfiles] = useState([]);
 const [profile, setProfile] = useState({});
-const { alert, setAlert } = useContext(AlertContext);
+const { alertText, setAlertText } = useContext(AlertContext);
 const { t } = useTranslation();
 
 const getHubberProfiles = async (selectedIcons: string[], city: string) => {
@@ -30,7 +30,7 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
       `https://api.github.com/search/users?q=language:${selectedIcons ?? selectedIcons}+location:${city ? city : "Sweden"}&client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`,
     );
     if (res.data.items < 1) {
-      setAlert(t("noprofilesfound"));
+      setAlertText(t("noprofilesfound"));
     } else {
       setProfiles(res.data.items);
     }

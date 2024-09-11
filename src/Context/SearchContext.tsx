@@ -1,13 +1,14 @@
 "use client";
 import { FC, ReactNode, createContext, useContext, useState } from "react";
-import { AlertContext } from "./AlertContext";
 import { useTranslation } from "react-i18next";
+import { AlertContext } from "./AlertContext";
+import { CountryContext } from "./CountryContext";
 
 type SearchContextType = {
   selectedIcons: string[];
   setSelectedIcons: (value: string[]) => void;
   toggleChosenIcons: (icon: string) => void;
-  getSearchText: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  getSearchCity: (e: React.MouseEvent<HTMLButtonElement>) => void;
   searchText: string;
 };
 
@@ -15,12 +16,13 @@ export const SearchContext = createContext<SearchContextType>({
   selectedIcons: [],
   setSelectedIcons: () => {},
   toggleChosenIcons: () => {},
-  getSearchText: () => {},
+  getSearchCity: () => {},
   searchText: "",
 });
 
 export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { setShowAlert, setAlertText } = useContext(AlertContext);
+  const { formattedCountry } = useContext(CountryContext);
   const { t } = useTranslation();
 
   const [selectedIcons, setSelectedIcons] = useState<string[]>([]);
@@ -36,23 +38,22 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
     });
   };
 
-  const getSearchText = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const getSearchCity = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (selectedIcons.length === 0) {
-      setAlertText(t("missingIconAlert"));
+      setAlertText(t("showAlertCode"));
       setShowAlert(true);
     } else {
       let textSearch = (
         (e.target as HTMLButtonElement)
           .previousElementSibling as HTMLInputElement
       )?.value.trim();
-      if (textSearch) {
+
+      if (textSearch === "" || textSearch.length === 0) {
+        setSearchText(formattedCountry);
+        console.log({ formattedCountry });
+      } else {
         setSearchText(textSearch);
-        setTimeout(() => {
-          (
-            (e.target as HTMLButtonElement)
-              .previousElementSibling as HTMLInputElement
-          ).value = "";
-        }, 100);
+        console.log({ searchText });
       }
     }
   };
@@ -63,7 +64,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
         selectedIcons,
         setSelectedIcons,
         toggleChosenIcons,
-        getSearchText,
+        getSearchCity,
         searchText,
       }}
     >

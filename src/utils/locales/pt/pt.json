@@ -3,7 +3,7 @@
   "chooseCode": "Escolhe",
   "searchCoders": "Encontrar programadores",
   "searchButton": "Pescuiçar",
-  "showAlertCode": "Escolhe pelo menos uma lingua / framework",
+  "showAlertCode": "Escolhe pelo menos uma lingua / biblioteca",
   "showAlertRegion_1": "não é uma das maiores 20 cidades em",
   "showAlertRegion_2": "Ou está mal escrito.",
   "citiesList_1": "Cidade. Vazio pelo país inteiro.",
@@ -19,6 +19,5 @@
   "opendropdownclose": "fechar",
   "noprofilesfound": "Não foi encontrado nenhum perfil com base nos seus critérios de pesquisa",
   "searchFieldHeading": "Pesquise uma cidade ou deixe em branco para pesquisar em todo o país",
-  "searchFieldPlaceholder": "Cidade ou em branco",
-  "missingIconAlert": "Escolhe pelo menos uma lingua / framework"
+  "searchFieldPlaceholder": "Cidade ou em branco"
 }

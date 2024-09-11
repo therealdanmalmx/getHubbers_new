@@ -3,7 +3,7 @@ import { SearchContext } from "../Context/SearchContext";
 import { useTranslation } from "react-i18next";
 
 const SearchField = () => {
-  const { getSearchText } = useContext(SearchContext);
+  const { getSearchCity } = useContext(SearchContext);
   const { t } = useTranslation();
 
   return (
@@ -18,7 +18,7 @@ const SearchField = () => {
           className="w-5/6 border-2 border-r-0 border-gray-500 p-4 outline-none md:w-96"
         />
         <button
-          onClick={getSearchText}
+          onClick={getSearchCity}
           className="border-2 border-l-0 border-black bg-black p-4 text-white"
         >
           {t("searchButton")}

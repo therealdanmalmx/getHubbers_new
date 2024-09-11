@@ -4,23 +4,26 @@ import NavBar from "./components/NavBar";
 import SearchBar from "./components/SearchBar";
 import SearchField from "./components/SearchField";
 import { AlertProvider } from "./Context/AlertContext";
+import { CountryProvider } from "./Context/CountryContext";
 import { SearchProvider } from "./Context/SearchContext";
 
 function App() {
   return (
-    <AlertProvider>
-      <SearchProvider>
-        <div className="flex h-screen flex-col justify-start">
-          <NavBar />
-          <Alert />
+    <CountryProvider>
+      <AlertProvider>
+        <SearchProvider>
+          <div className="flex h-screen flex-col justify-start">
+            <NavBar />
+            <Alert />
 
-          <SearchBar />
-          <div className="flex h-96 items-center justify-center">
-            <SearchField />
+            <SearchBar />
+            <div className="flex h-96 items-center justify-center">
+              <SearchField />
+            </div>
           </div>
-        </div>
-      </SearchProvider>
-    </AlertProvider>
+        </SearchProvider>
+      </AlertProvider>
+    </CountryProvider>
   );
 }
 
