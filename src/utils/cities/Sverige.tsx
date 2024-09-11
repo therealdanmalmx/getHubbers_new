@@ -1,4 +1,4 @@
-export const SwedenCities = [
+const Sverige = [
   "Alingsås",
   "Arvika",
   "Avesta",
@@ -97,10 +97,4 @@ export const SwedenCities = [
   "Östersund",
 ];
 
-export const Countries = {
-  se: "Sweden",
-  pt: "Portugal",
-  en: "United Kingdom",
-  fr: "France",
-  de: "Germany",
-};
+export default Sverige;

@@ -20,7 +20,7 @@ const Alert = () => {
     };
   }, [showAlert, setShowAlert]);
 
-  const closeTheThing = () => {
+  const closeAlert = () => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
@@ -32,9 +32,9 @@ const Alert = () => {
   }
 
   return (
-    <div className="flex h-14 w-full items-center justify-between bg-red-600 px-6 text-white transition duration-1000 ease-in-out md:justify-center">
+    <div className="flex h-24 w-full items-center justify-between bg-red-600 px-6 text-white transition duration-1000 ease-in-out md:justify-center xl:h-14">
       <div className="md:flex-1 md:text-center">{alertText}</div>
-      <div className="cursor-pointer md:mx-auto" onClick={closeTheThing}>
+      <div className="cursor-pointer md:mx-auto" onClick={closeAlert}>
         <CloseIcon className="size-6 transition duration-300 hover:size-5" />
       </div>
     </div>
