@@ -48,12 +48,10 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           .previousElementSibling as HTMLInputElement
       )?.value.trim();
 
-      if (textSearch === "" || textSearch.length === 0) {
-        setSearchText(formattedCountry);
-        console.log({ formattedCountry });
-      } else {
+      if (textSearch.length) {
         setSearchText(textSearch);
-        console.log({ searchText });
+      } else {
+        setSearchText(formattedCountry);
       }
     }
   };
