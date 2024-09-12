@@ -1,4 +1,4 @@
-const Sverige = [
+const cities = [
   "Alingsås",
   "Arvika",
   "Avesta",
@@ -97,4 +97,4 @@ const Sverige = [
   "Östersund",
 ];
 
-export default Sverige;
+export default cities;
