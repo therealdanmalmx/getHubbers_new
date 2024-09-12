@@ -52,7 +52,6 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   useEffect(() => {
     if (cityCache.has(formattedCountry)) {
       setCityList(cityCache.get(formattedCountry)!);
-      console.log({ cityList });
     } else {
       import(`../utils/cities/${formattedCountry}`)
         .then((module) => {
@@ -77,7 +76,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       )?.value.trim();
 
       if (textSearch.length) {
-        if (cityList?.includes(textSearch)) {
+        if (cityList && new Set(cityList).has(textSearch)) {
           setSearchText(textSearch);
         } else {
           setAlertText(
