@@ -1,9 +1,16 @@
 "use client";
-import { FC, ReactNode, createContext, useContext, useState } from "react";
+import {
+  FC,
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { useTranslation } from "react-i18next";
 import { AlertContext } from "./AlertContext";
 import { CountryContext } from "./CountryContext";
-import { SwedenCities } from "../utils/cities";
+// import { SwedenCities } from "../utils/cities";
 
 type SearchContextType = {
   selectedIcons: string[];
@@ -28,6 +35,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const [selectedIcons, setSelectedIcons] = useState<string[]>([]);
   const [searchText, setSearchText] = useState("");
+  const [cityList, setCityList] = useState<string[]>([]);
 
   const toggleChosenIcons = (icon: string) => {
     setSelectedIcons((prevIcons) => {
@@ -38,6 +46,25 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       }
     });
   };
+
+  const cityCache = new Map<string, string[]>();
+
+  useEffect(() => {
+    if (cityCache.has(formattedCountry)) {
+      setCityList(cityCache.get(formattedCountry)!);
+      console.log({ cityList });
+    } else {
+      import(`../utils/cities/${formattedCountry}`)
+        .then((module) => {
+          cityCache.set(formattedCountry, module.default);
+          setCityList(module.default);
+        })
+        .catch((error) => {
+          console.error("Error loading cities:", error);
+          setCityList([]);
+        });
+    }
+  }, [formattedCountry]);
 
   const getSearchCity = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (selectedIcons.length === 0) {
@@ -50,7 +77,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       )?.value.trim();
 
       if (textSearch.length) {
-        if (SwedenCities.includes(textSearch)) {
+        if (cityList?.includes(textSearch)) {
           setSearchText(textSearch);
         } else {
           setAlertText(
