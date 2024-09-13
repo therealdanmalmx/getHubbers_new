@@ -1,4 +1,4 @@
-const Portugal = [
+const cities = [
   "Abrantes",
   "Águeda",
   "Albufeira",
@@ -96,4 +96,4 @@ const Portugal = [
   "Viseu",
 ];
 
-export default Portugal;
+export default cities;

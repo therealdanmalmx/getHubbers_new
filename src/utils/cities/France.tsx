@@ -1,4 +1,4 @@
-const France = [
+const cities = [
   "Aix-en-Provence",
   "Ajaccio",
   "Amiens",
@@ -94,4 +94,4 @@ const France = [
   "Villeurbanne",
 ];
 
-export default France;
+export default cities;

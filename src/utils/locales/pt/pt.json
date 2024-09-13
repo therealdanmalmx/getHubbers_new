@@ -11,12 +11,14 @@
   "chooseCountry": "Escolhe país",
   "sweden": "Suécia",
   "portugal": "Portugal",
-  "uk": "Reino Unido",
+  "united kingdom": "Reino Unido",
+  "france": "França",
+  "germany": "Deutschland",
   "worksat": "Trabalhe na",
   "opendropdown": "Clique para",
   "opendropdownopen": "abrir",
   "opendropdownclose": "fechar",
   "noprofilesfound": "Não foi encontrado nenhum perfil com base nos seus critérios de pesquisa",
-  "searchFieldHeading": "Pesquise uma cidade ou deixe em branco para pesquisar em todo o país",
-  "searchFieldPlaceholder": "Cidade ou em branco"
+  "searchFieldHeading": "Pesquise uma cidade ou deixe em branco para pesquisar em todo {{formattedCountry}}",
+  "searchFieldPlaceholder": "Cidade / em branco"
 }

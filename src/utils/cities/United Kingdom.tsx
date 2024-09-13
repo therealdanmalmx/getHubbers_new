@@ -1,4 +1,4 @@
-const UnitedKingdom = [
+const cities = [
   "Aberdeen",
   "Basingstoke",
   "Basildon",
@@ -96,4 +96,4 @@ const UnitedKingdom = [
   "York",
 ];
 
-export default UnitedKingdom;
+export default cities;

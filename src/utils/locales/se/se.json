@@ -11,13 +11,15 @@
   "chooseCountry": "Välj land",
   "sweden": "Sverige",
   "portugal": "Portugal",
-  "uk": "Storbrittanien",
+  "united kingdom": "Storbrittanien",
+  "france": "Frankrike",
+  "germany": "Tyskland",
   "worksat": "Jobbar på",
   "opendropdown": "Tryck för att",
   "opendropdownopen": "öppna",
   "opendropdownclose": "stänga",
   "noprofilesfound": "Inga profiler hittades baserat på dina val.",
-  "searchFieldHeading": "Sök efter en ort eller lämna tomt för att söka i hela landet",
+  "searchFieldHeading": "Sök efter en ort eller lämna tomt för att söka i hela {{formattedCountry}}",
   "searchFieldPlaceholder": "Ange stad / lämna tomt",
   "missingIconAlert": "Välj minst ett språk / ramverk"
 }

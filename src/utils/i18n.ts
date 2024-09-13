@@ -4,6 +4,8 @@ import { initReactI18next } from "react-i18next";
 import en from "./locales/en/en.json";
 import pt from "./locales/pt/pt.json";
 import se from "./locales/se/se.json";
+import de from "./locales/de/de.json";
+import fr from "./locales/fr/fr.json";
 
 const country = localStorage.getItem("country");
 
@@ -16,6 +18,12 @@ const resources = {
   },
   pt: {
     translation: pt,
+  },
+  de: {
+    translation: de,
+  },
+  fr: {
+    translation: fr,
   },
 };
 

@@ -1,4 +1,4 @@
-const Deutschland = [
+const cities = [
   "Aachen",
   "Augsburg",
   "Berlin",
@@ -104,4 +104,4 @@ const Deutschland = [
   "Zwickau",
 ];
 
-export default Deutschland;
+export default cities;

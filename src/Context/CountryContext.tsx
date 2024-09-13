@@ -35,16 +35,16 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
         setFormattedCountry(t("portugal"));
         break;
       case "en":
-        setFormattedCountry(t("uk"));
+        setFormattedCountry(t("united kingdom"));
         break;
       case "fr":
-        setFormattedCountry(t("fr"));
+        setFormattedCountry(t("france"));
         break;
       case "de":
-        setFormattedCountry(t("de"));
+        setFormattedCountry(t("germany"));
         break;
       default:
-        setFormattedCountry(t("uk"));
+        setFormattedCountry(t("united kingdom"));
         break;
     }
   };

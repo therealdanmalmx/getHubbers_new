@@ -1,15 +1,20 @@
 import { useContext } from "react";
 import { SearchContext } from "../Context/SearchContext";
 import { useTranslation } from "react-i18next";
+import { CountryContext } from "../Context/CountryContext";
 
 const SearchField = () => {
   const { getSearchCity } = useContext(SearchContext);
+  const { formattedCountry } = useContext(CountryContext);
+
   const { t } = useTranslation();
 
   return (
     <div>
-      <h1 className="m-4 mx-2 text-balance text-center text-2xl">
-        {t("searchFieldHeading")}
+      <h1 className="m-4 mx-2 w-full text-balance text-center text-2xl xl:w-[500px]">
+        {t("searchFieldHeading", {
+          formattedCountry,
+        })}
       </h1>
       <div className="mx-4 flex items-center justify-center md:mx-0">
         <input
