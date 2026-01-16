@@ -12,6 +12,7 @@ import { AlertContext } from "./AlertContext";
 import { CountryContext } from "./CountryContext";
 // import { SwedenCities } from "../utils/cities";
 
+
 type SearchContextType = {
   selectedIcons: string[];
   setSelectedIcons: (value: string[]) => void;
@@ -53,7 +54,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
     if (cityCache.has(formattedCountry)) {
       setCityList(cityCache.get(formattedCountry)!);
     } else {
-      import(`../utils/cities/${formattedCountry}`)
+      import( /* @vite-ignore */ `../utils/cities/${formattedCountry}`)
         .then((module) => {
           cityCache.set(formattedCountry, module.default);
           setCityList(module.default);
