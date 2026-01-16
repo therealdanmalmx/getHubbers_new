@@ -1,30 +1,38 @@
 "use client";
+import { count } from "console";
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 type CountryContextType = {
   formattedCountry: string;
+  country: string
 };
 
 export const CountryContext = createContext<CountryContextType>({
   formattedCountry: "",
+  country: ""
 });
 
 export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const { t } = useTranslation();
+
   const [country, setCountry] = useState<string>("");
   const [formattedCountry, setFormattedCountry] = useState<string>("");
-  const { t } = useTranslation();
 
   const getUserCountry = async () => {
     try {
-      const response = await fetch("https://ipapi.co/json/");
+      const response = await fetch(`https://api.ipinfo.io/lite/me?token=59d2b2549dc467`);
       const data = await response.json();
-      setCountry(data.country.toLowerCase());
+
+      console.log(data.country.toLowerCase());
+      localStorage.setItem("country", data.country_code);
+      setCountry(data.country_code.toLowerCase());
     } catch (error) {
       console.error("Error detecting country:", error);
       return null;
     }
   };
+  console.log({country})
 
   const getCountry = () => {
     switch (country) {
@@ -60,7 +68,7 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, [country]);
 
   return (
-    <CountryContext.Provider value={{ formattedCountry }}>
+    <CountryContext.Provider value={{ formattedCountry, country }}>
       {children}
     </CountryContext.Provider>
   );
