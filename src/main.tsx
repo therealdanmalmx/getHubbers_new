@@ -4,13 +4,28 @@ import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./utils/i18n.ts";
+import Profile from "./views/Profile.tsx";
+import { AlertProvider } from "./Context/AlertContext.tsx";
+import { FetchProvider } from "./Context/FetchContext.tsx";
+import { CountryProvider } from "./Context/CountryContext.tsx";
+import { SearchProvider } from "./Context/SearchContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-      </Routes>
+        <AlertProvider>
+          <FetchProvider>
+            <CountryProvider>
+              <SearchProvider>
+                <Routes>
+                  <Route path="/" element={<App />} />
+                  <Route path="/profiles" element={<Profile />} />
+                </Routes>
+                </SearchProvider>
+              </CountryProvider>
+            </FetchProvider>
+          </AlertProvider>
     </BrowserRouter>
+
   </React.StrictMode>,
 );
