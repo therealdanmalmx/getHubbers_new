@@ -10,8 +10,6 @@ import {
 import { useTranslation } from "react-i18next";
 import { AlertContext } from "./AlertContext";
 import { CountryContext } from "./CountryContext";
-// import { SwedenCities } from "../utils/cities";
-
 
 type SearchContextType = {
   selectedIcons: string[];
