@@ -1,8 +1,8 @@
 "use client";
-import { FC, ReactNode, createContext, useContext, useState } from "react";
 import axios from "axios";
-import { AlertContext } from "./AlertContext";
+import { FC, ReactNode, createContext, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { AlertContext } from "./AlertContext";
 
 type FetchContextType = {
   profiles: string[];
@@ -20,7 +20,7 @@ export const FetchContext = createContext<FetchContextType>({
 
 const [profiles, setProfiles] = useState([]);
 const [profile, setProfile] = useState({});
-const { alertText, setAlertText } = useContext(AlertContext);
+const { setAlertText } = useContext(AlertContext);
 const { t } = useTranslation();
 
 const getHubberProfiles = async (selectedIcons: string[], city: string) => {
