@@ -1,5 +1,4 @@
 "use client";
-import { count } from "console";
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -21,7 +20,7 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const getUserCountry = async () => {
     try {
-      const response = await fetch(`https://api.ipinfo.io/lite/me?token=59d2b2549dc467`);
+      const response = await fetch(`https://api.ipinfo.io/lite/me?token=${import.meta.env.VITE_IP_INFO_TOKEN}`);
       const data = await response.json();
 
       console.log(data.country.toLowerCase());
