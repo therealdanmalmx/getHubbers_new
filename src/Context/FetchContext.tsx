@@ -27,11 +27,12 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
   if (city || city === "") {
     // const res = await axios.get(`https://api.github.com/search/users?q=language:${langList && frameList ? `${langList}+${frameList}` : langList ? `${langList}` : frameList ? `${frameList}` : `${langList}+${frameList}`}+location:${region ? region : 'sweden'}&client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`)
     const res = await axios.get(
-      `https://api.github.com/search/users?q=language:${selectedIcons ?? selectedIcons}+location:${city ? city : "Sweden"}&client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`,
+      `https://api.github.com/search/users?q=language:${selectedIcons ?? selectedIcons}+location:${city ? city : "Sweden"}&client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
     );
     if (res.data.items < 1) {
       setAlertText(t("noprofilesfound"));
     } else {
+      console.log(res.data.items)
       setProfiles(res.data.items);
     }
   }
@@ -39,7 +40,7 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
 
 const getIndividualProfile = async (login: string) => {
   const res = await axios.get(
-    `https://api.github.com/users/${login}?client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`,
+    `https://api.github.com/users/${login}?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
   );
   setProfile(res.data);
 };
