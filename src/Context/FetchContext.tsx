@@ -1,51 +1,63 @@
-"use client";
 import axios from "axios";
-import { FC, ReactNode, createContext, useContext, useState } from "react";
+import { FC, ReactNode, createContext, useCallback, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AlertContext } from "./AlertContext";
 
 type FetchContextType = {
   profiles: string[];
-  profile: {};
-  getHubberProfiles: (selectedIcons: string[], city: string) => void;
-  getIndividualProfile: (login: string) => void;
+  profile: Record<string, any>;
+  getHubberProfiles: (selectedIcons: string[], city: string) => Promise<void>;
+  getIndividualProfile: (login: string) => Promise<void>;
 };
 
 export const FetchContext = createContext<FetchContextType>({
   profiles: [],
   profile: {},
-  getHubberProfiles: () => {},
-  getIndividualProfile: () => {},
+  getHubberProfiles: async () => {},
+  getIndividualProfile: async () => {},
 });
 
-const [profiles, setProfiles] = useState([]);
-const [profile, setProfile] = useState({});
-const { setAlertText } = useContext(AlertContext);
-const { t } = useTranslation();
+export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
-const getHubberProfiles = async (selectedIcons: string[], city: string) => {
-  if (city || city === "") {
-    // const res = await axios.get(`https://api.github.com/search/users?q=language:${langList && frameList ? `${langList}+${frameList}` : langList ? `${langList}` : frameList ? `${frameList}` : `${langList}+${frameList}`}+location:${region ? region : 'sweden'}&client_id=${process.env.REACT_APP_GH_CID}&client_secret=${process.env.REACT_APP_GH_CSC}`)
-    const res = await axios.get(
-      `https://api.github.com/search/users?q=language:${selectedIcons ?? selectedIcons}+location:${city ? city : "Sweden"}&client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
-    );
-    if (res.data.items < 1) {
-      setAlertText(t("noprofilesfound"));
-    } else {
-      console.log(res.data.items)
-      setProfiles(res.data.items);
+  const [profiles, setProfiles] = useState<string[]>([]);
+  const [profile, setProfile] = useState<Record<string, any>>({});
+  const { setAlertText } = useContext(AlertContext);
+  const { t } = useTranslation();
+
+const getHubberProfiles = useCallback(async (selectedIcons: string[], city: string) => {
+  if (city !== undefined) {
+    try {
+      const query = `language:${selectedIcons.join("+")}+location:${city || "Sweden"}`
+      const res = await axios.get(
+        `https://api.github.com/search/users?q=${query}&client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
+      );
+
+      if (res.data.items.length === 0) {
+        setAlertText(t("noprofilesfound"));
+      } else {
+        setProfiles(res.data);
+      }
+
+    } catch (error) {
+        console.error("Fetch error:", error);
+        setAlertText(t("fetcherror"));
     }
   }
-};
+}, [setAlertText, t]);
 
-const getIndividualProfile = async (login: string) => {
-  const res = await axios.get(
-    `https://api.github.com/users/${login}?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
-  );
-  setProfile(res.data);
-};
+const getIndividualProfile = useCallback(async (login: string) => {
+  try {
+    const res = await axios.get(
+      `https://api.github.com/users/${login}?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
+    );
+    setProfile(await res.data);
 
-export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  } catch (error) {
+      console.error("Profile fetch error:", error);
+      setAlertText(t("profileerror"));
+  }
+}, [setAlertText, t]);
+
   return (
     <FetchContext.Provider
       value={{
