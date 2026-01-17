@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AlertContext } from "./AlertContext";
 import { CountryContext } from "./CountryContext";
@@ -19,6 +20,7 @@ type SearchContextType = {
   searchText: string;
 };
 
+
 export const SearchContext = createContext<SearchContextType>({
   selectedIcons: [],
   setSelectedIcons: () => {},
@@ -28,6 +30,7 @@ export const SearchContext = createContext<SearchContextType>({
 });
 
 export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const navigate = useNavigate();
   const { setShowAlert, setAlertText } = useContext(AlertContext);
   const { formattedCountry } = useContext(CountryContext);
   const { t } = useTranslation();
@@ -47,14 +50,15 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const cityCache = new Map<string, string[]>();
+  const country = localStorage.getItem("country");
 
   useEffect(() => {
-    if (cityCache.has(formattedCountry)) {
-      setCityList(cityCache.get(formattedCountry)!);
+    if (cityCache.has(country!)) {
+      setCityList(cityCache.get(country!)!);
     } else {
-      import( /* @vite-ignore */ `../utils/cities/${formattedCountry}`)
+      import( /* @vite-ignore */ `../utils/cities/${country}`)
         .then((module) => {
-          cityCache.set(formattedCountry, module.default);
+          cityCache.set(country!, module.default);
           setCityList(module.default);
         })
         .catch((error) => {
@@ -62,9 +66,10 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           setCityList([]);
         });
     }
-  }, [formattedCountry]);
+  }, [country]);
 
   const getSearchCity = (e: React.MouseEvent<HTMLButtonElement>) => {
+
     if (selectedIcons.length === 0) {
       setAlertText(t("showAlertCode"));
       setShowAlert(true);
@@ -77,6 +82,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       if (textSearch.length) {
         if (cityList && new Set(cityList).has(textSearch)) {
           setSearchText(textSearch);
+          navigate("/profile");
         } else {
           setAlertText(
             t("showAlertCity", {
@@ -88,6 +94,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
         }
       } else {
         setSearchText(formattedCountry);
+        navigate("/profile");
       }
     }
   };
