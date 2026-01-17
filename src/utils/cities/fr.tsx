@@ -1,3 +1,4 @@
+
 const cities = [
   "Aix-en-Provence",
   "Ajaccio",
