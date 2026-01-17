@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { AlertContext } from "./AlertContext";
 import { CountryContext } from "./CountryContext";
+import { FetchContext } from "./FetchContext";
 
 type SearchContextType = {
   selectedIcons: string[];
@@ -30,6 +31,8 @@ export const SearchContext = createContext<SearchContextType>({
 });
 
 export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const { getHubberProfiles } = useContext(FetchContext);
+
   const navigate = useNavigate();
   const { setShowAlert, setAlertText } = useContext(AlertContext);
   const { formattedCountry } = useContext(CountryContext);
@@ -82,7 +85,8 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       if (textSearch.length) {
         if (cityList && new Set(cityList).has(textSearch)) {
           setSearchText(textSearch);
-          navigate("/profile");
+          getHubberProfiles(selectedIcons, searchText);
+          navigate("/profiles");
         } else {
           setAlertText(
             t("showAlertCity", {
@@ -94,7 +98,8 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
         }
       } else {
         setSearchText(formattedCountry);
-        navigate("/profile");
+        getHubberProfiles(selectedIcons, searchText);
+        navigate("/profiles");
       }
     }
   };
