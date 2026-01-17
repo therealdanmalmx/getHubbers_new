@@ -85,7 +85,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       if (textSearch.length) {
         if (cityList && new Set(cityList).has(textSearch)) {
           setSearchText(textSearch);
-          getHubberProfiles(selectedIcons, searchText);
+          getHubberProfiles(selectedIcons, textSearch);
           navigate("/profiles");
         } else {
           setAlertText(
