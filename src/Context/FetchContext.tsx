@@ -76,7 +76,7 @@ const getIndividualProfile = useCallback(async (login: string) => {
     const res = await axios.get(
       `https://api.github.com/users/${login}?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
     );
-    setProfile(await res.data);
+    setProfile(res.data);
 
   } catch (error) {
       console.error("Profile fetch error:", error);
