@@ -31,7 +31,7 @@ export const SearchContext = createContext<SearchContextType>({
 });
 
 export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const { getHubberProfiles } = useContext(FetchContext);
+  const { getHubberProfiles, profiles } = useContext(FetchContext);
 
   const navigate = useNavigate();
   const { setShowAlert, setAlertText } = useContext(AlertContext);
@@ -86,7 +86,14 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
         if (cityList && new Set(cityList).has(textSearch)) {
           setSearchText(textSearch);
           getHubberProfiles(selectedIcons, textSearch);
-          navigate("/profiles");
+          console.log("profile", profiles.items.length);
+          if (profiles.items.length === 0) {
+            setAlertText(t("noprofilesfound"));
+            setShowAlert(true);
+
+          } else {
+            navigate("/profiles");
+          }
         } else {
           setAlertText(
             t("showAlertCity", {
@@ -99,7 +106,13 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       } else {
         setSearchText(formattedCountry);
         getHubberProfiles(selectedIcons, searchText);
-        navigate("/profiles");
+          if (profiles.items.length === 0) {
+            setAlertText(t("noprofilesfound"));
+            setShowAlert(true);
+
+          } else {
+            navigate("/profiles");
+          }
       }
     }
   };
