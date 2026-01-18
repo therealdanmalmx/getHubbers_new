@@ -8,11 +8,16 @@ const Profile = () => {
 
   useEffect(() => {
     getIndividualProfile(login!);
-    console.log({profile});
-  }, [login, profile]);
+  }, [login]);
 
+  console.log({profile})
   return (
-    <div>Profile</div>
+    <div>
+      <div>Profile</div>
+      <img src={profile.avatar_url} alt="" />
+      <p>{profile.name}</p>
+      <p>{profile.company}</p>
+    </div>
   )
 }
 
