@@ -21,7 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                 <Routes>
                   <Route path="/" element={<App />} />
                   <Route path="/profiles" element={<Profiles />} />
-                  <Route path="/profile/:id" element={<Profile />} />
+                  <Route path="/profile/:login" element={<Profile />} />
                 </Routes>
                 </SearchProvider>
               </CountryProvider>
