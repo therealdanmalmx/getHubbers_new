@@ -61,7 +61,7 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
       if (res.data.items.length === 0) {
         setAlertText(t("noprofilesfound"));
       } else {
-        setProfiles(res.data);
+        setProfiles(await res.data);
       }
 
     } catch (error) {
@@ -71,18 +71,19 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
   }
 };
 
-const getIndividualProfile = useCallback(async (login: string) => {
+const getIndividualProfile = async (login: string) => {
   try {
     const res = await axios.get(
       `https://api.github.com/users/${login}?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
     );
-    setProfile(res.data);
+    setProfile(await res.data);
+    return await res.data;
 
   } catch (error) {
       console.error("Profile fetch error:", error);
       setAlertText(t("profileerror"));
   }
-}, [setAlertText, t]);
+};
 
   return (
     <FetchContext.Provider
