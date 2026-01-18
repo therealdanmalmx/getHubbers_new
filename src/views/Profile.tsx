@@ -1,23 +1,19 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FetchContext } from "../Context/FetchContext";
+import { useParams } from "react-router";
 
 const Profile = () => {
-  const { profiles } = useContext(FetchContext)
-  console.log({profiles});
+  const { login } = useParams();
+  const {profile, getIndividualProfile } = useContext(FetchContext)
+
+  useEffect(() => {
+    getIndividualProfile(login!);
+    console.log({profile});
+  }, [login, profile]);
 
   return (
-    <div>
-      <div>Profile</div>
-        {profiles?.items?.map((profile) => (
-        <div key={profile.id}>
-            <img src={profile.avatar_url} alt={profile.login} />
-            {profile.login}
-        </div>
-        ))}
-
-    </div>
+    <div>Profile</div>
   )
 }
-
 
 export default Profile
