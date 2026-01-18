@@ -4,11 +4,12 @@ import App from "./App.tsx";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./utils/i18n.ts";
-import Profile from "./views/Profile.tsx";
+import Profiles from "./views/Profiles.tsx";
 import { AlertProvider } from "./Context/AlertContext.tsx";
 import { FetchProvider } from "./Context/FetchContext.tsx";
 import { CountryProvider } from "./Context/CountryContext.tsx";
 import { SearchProvider } from "./Context/SearchContext.tsx";
+import Profile from "./views/Profile.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -19,7 +20,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <SearchProvider>
                 <Routes>
                   <Route path="/" element={<App />} />
-                  <Route path="/profiles" element={<Profile />} />
+                  <Route path="/profiles" element={<Profiles />} />
+                  <Route path="/profile/:id" element={<Profile />} />
                 </Routes>
                 </SearchProvider>
               </CountryProvider>
