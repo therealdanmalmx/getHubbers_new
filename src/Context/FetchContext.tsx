@@ -59,10 +59,10 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
       );
 
       if (!res.data.items.length) {
-
         setAlertText(t("noprofilesfound"));
       } else {
         setProfiles(await res.data);
+        return await res.data;
       }
 
     } catch (error) {
