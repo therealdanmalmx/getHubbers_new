@@ -21,7 +21,6 @@ type SearchContextType = {
   searchText: string;
 };
 
-
 export const SearchContext = createContext<SearchContextType>({
   selectedIcons: [],
   setSelectedIcons: () => {},
@@ -31,11 +30,11 @@ export const SearchContext = createContext<SearchContextType>({
 });
 
 export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const { getHubberProfiles, profiles } = useContext(FetchContext);
+  const { getHubberProfiles } = useContext(FetchContext);
 
   const navigate = useNavigate();
   const { setShowAlert, setAlertText } = useContext(AlertContext);
-  const { formattedCountry } = useContext(CountryContext);
+  const { formattedCountry, country } = useContext(CountryContext);
   const { t } = useTranslation();
 
   const [selectedIcons, setSelectedIcons] = useState<string[]>([]);
@@ -53,15 +52,15 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   };
 
   const cityCache = new Map<string, string[]>();
-  const country = localStorage.getItem("country");
+  const countryCode = localStorage.getItem("country_code");
 
   useEffect(() => {
-    if (cityCache.has(country!)) {
-      setCityList(cityCache.get(country!)!);
+    if (cityCache.has(countryCode!)) {
+      setCityList(cityCache.get(countryCode!)!);
     } else {
-      import( /* @vite-ignore */ `../utils/cities/${country}`)
+      import( /* @vite-ignore */ `../utils/cities/${countryCode}`)
         .then((module) => {
-          cityCache.set(country!, module.default);
+          cityCache.set(countryCode!, module.default);
           setCityList(module.default);
         })
         .catch((error) => {
@@ -69,49 +68,45 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           setCityList([]);
         });
     }
-  }, [country]);
+  }, [countryCode]);
 
-  const getSearchCity = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const getSearchCity = async (e: React.MouseEvent<HTMLButtonElement>) => {
 
     if (selectedIcons.length === 0) {
       setAlertText(t("showAlertCode"));
       setShowAlert(true);
     } else {
-      let textSearch = (
+      let searchCity = (
         (e.target as HTMLButtonElement)
           .previousElementSibling as HTMLInputElement
       )?.value.trim();
 
-      if (textSearch.length) {
-        if (cityList && new Set(cityList).has(textSearch)) {
-          setSearchText(textSearch);
-          getHubberProfiles(selectedIcons, textSearch);
-          console.log("profile", profiles.items.length);
-          if (!profiles.items.length) {
-            console.log("triggered - city");
+      if (searchCity.length) {
+        if (cityList && new Set(cityList).has(searchCity)) {
+          const result: any = await getHubberProfiles(selectedIcons, searchCity);
+          if (!result)
+          {
             setAlertText(t("noprofilesfound"));
             setShowAlert(true);
-
           } else {
             navigate("/profiles");
           }
+
         } else {
           setAlertText(
             t("showAlertCity", {
-              textSearch,
+              searchCity,
               formattedCountry,
             }),
           );
           setShowAlert(true);
         }
       } else {
-        setSearchText(formattedCountry);
-        getHubberProfiles(selectedIcons, formattedCountry);
-        if (!profiles.items.length) {
-            console.log("triggered  - no country");
+          const result: any = await getHubberProfiles(selectedIcons, searchCity);
+          if (!result)
+          {
             setAlertText(t("noprofilesfound"));
             setShowAlert(true);
-
           } else {
             navigate("/profiles");
           }
