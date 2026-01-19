@@ -87,7 +87,8 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           setSearchText(textSearch);
           getHubberProfiles(selectedIcons, textSearch);
           console.log("profile", profiles.items.length);
-          if (profiles.items.length === 0) {
+          if (!profiles.items.length) {
+            console.log("triggered - city");
             setAlertText(t("noprofilesfound"));
             setShowAlert(true);
 
@@ -105,8 +106,9 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
         }
       } else {
         setSearchText(formattedCountry);
-        getHubberProfiles(selectedIcons, searchText);
-          if (profiles.items.length === 0) {
+        getHubberProfiles(selectedIcons, formattedCountry);
+        if (!profiles.items.length) {
+            console.log("triggered  - no country");
             setAlertText(t("noprofilesfound"));
             setShowAlert(true);
 
