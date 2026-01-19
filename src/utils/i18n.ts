@@ -7,7 +7,7 @@ import se from "./locales/se/se.json";
 import de from "./locales/de/de.json";
 import fr from "./locales/fr/fr.json";
 
-const country = localStorage.getItem("country");
+const country = localStorage.getItem("country_code");
 
 const resources = {
   en: {
