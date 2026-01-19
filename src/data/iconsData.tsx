@@ -55,8 +55,8 @@ const iconsData = [
   },
   {
     id: 10,
-    name: "dotnetcore",
-    value: ".net core",
+    name: "dot-net",
+    value: ".net",
     type: "framework",
   },
   {
