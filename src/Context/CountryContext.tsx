@@ -4,22 +4,26 @@ import { useTranslation } from "react-i18next";
 
 type CountryContextType = {
   formattedCountry: string;
+  country: string;
 };
 
 export const CountryContext = createContext<CountryContextType>({
   formattedCountry: "",
+  country: ""
 });
 
 export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { t } = useTranslation();
 
   const [formattedCountry, setFormattedCountry] = useState<string>("");
+  const [country, setCountry] = useState<string>("");
 
   const getUserCountry = async () => {
     try {
       const response = await fetch(`https://api.ipinfo.io/lite/me?token=${import.meta.env.VITE_IP_INFO_TOKEN}`);
       const data = await response.json();
-      localStorage.setItem("country", data.country_code.toLowerCase());
+      localStorage.setItem("country_code", data.country_code.toLowerCase());
+      setCountry(data.country);
     } catch (error) {
       console.error("Error detecting country:", error);
       return null;
@@ -28,7 +32,7 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   console.log({formattedCountry})
 
   const getCountry = () => {
-    switch (localStorage.getItem("country")) {
+    switch (localStorage.getItem("country_code")) {
       case "se":
         setFormattedCountry(t("sweden"));
         break;
@@ -55,13 +59,13 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("country")) {
+    if (localStorage.getItem("country_code")) {
       getCountry();
     }
-  }, [localStorage.getItem("country")]);
+  }, [localStorage.getItem("country_code")]);
 
   return (
-    <CountryContext.Provider value={{ formattedCountry }}>
+    <CountryContext.Provider value={{ formattedCountry, country }}>
       {children}
     </CountryContext.Provider>
   );
