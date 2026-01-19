@@ -58,7 +58,8 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
         `https://api.github.com/search/users?q=${query}&client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
       );
 
-      if (res.data.items.length === 0) {
+      if (!res.data.items.length) {
+
         setAlertText(t("noprofilesfound"));
       } else {
         setProfiles(await res.data);
