@@ -4,7 +4,7 @@
   "searchCoders": "Nach Entwicklern suchen",
   "searchButton": "Suchen",
   "showAlertCode": "Wähle mindestens eine Sprache/Framework aus",
-  "showAlertCity": "{{textSearch}} scheint nicht eine der 100 größten Städte in {{formattedCountry}} zu sein. Oder es könnte falsch geschrieben sein.",
+  "showAlertCity": "{{searchCity}} scheint nicht eine der 100 größten Städte in {{formattedCountry}} zu sein. Oder es könnte falsch geschrieben sein.",
   "citiesList_1": "Stadt. Leer für das ganze Land.",
   "citiesList_2": "größten Städte in",
   "citiesList_3": "Leere Suche durchsucht das ganze Land.",

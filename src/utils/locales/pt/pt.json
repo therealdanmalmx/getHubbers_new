@@ -4,7 +4,7 @@
   "searchCoders": "Encontrar programadores",
   "searchButton": "Pescuiçar",
   "showAlertCode": "Escolhe pelo menos uma lingua / biblioteca",
-  "showAlertCity": "{{textSearch}} não parece ser uma das 100 maiores cidades em {{formattedCountry}}. Ou pode estar mal escrito.",
+  "showAlertCity": "{{searchCity}} não parece ser uma das 100 maiores cidades em {{formattedCountry}}. Ou pode estar mal escrito.",
   "citiesList_1": "Cidade. Vazio pelo país inteiro.",
   "citiesList_2": "cidades em",
   "citiesList_3": "Deixa vazio por o país inteiro.",

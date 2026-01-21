@@ -4,7 +4,7 @@
   "searchCoders": "Leta efter kodare",
   "searchButton": "Sök",
   "showAlertCode": "Välj minst ett språk / ramverk",
-  "showAlertCity": "{{textSearch}} verkar inte vara en av de 100 största oterna i {{formattedCountry}}. Eller så kan det vara felstavat.",
+  "showAlertCity": "{{searchCity}} verkar inte vara en av de 100 största oterna i {{formattedCountry}}. Eller så kan det vara felstavat.",
   "citiesList_1": "Stad. Tomt för hela landet.",
   "citiesList_2": "största städerna i",
   "citiesList_3": "Eller lämna tomt för hela landet.",

@@ -4,7 +4,7 @@
   "searchCoders": "Rechercher des codeurs",
   "searchButton": "Rechercher",
   "showAlertCode": "Choisissez au moins un langage / framework",
-  "showAlertCity": "{{textSearch}} ne semble pas être l'une des 100 plus grandes villes en {{formattedCountry}}. Ou cela pourrait être mal orthographié.",
+  "showAlertCity": "{{searchCity}} ne semble pas être l'une des 100 plus grandes villes en {{formattedCountry}}. Ou cela pourrait être mal orthographié.",
   "citiesList_1": "Ville. Laissez vide pour tout le pays.",
   "citiesList_2": "plus grandes villes en",
   "citiesList_3": "Les recherches vides concernent tout le pays.",

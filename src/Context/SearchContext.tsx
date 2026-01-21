@@ -38,7 +38,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { t } = useTranslation();
 
   const [selectedIcons, setSelectedIcons] = useState<string[]>([]);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState<string>("");
   const [cityList, setCityList] = useState<string[]>([]);
 
   const toggleChosenIcons = (icon: string) => {
@@ -103,8 +103,8 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           setShowAlert(true);
         }
       } else {
-          setSearchText(searchCity);
-          const result: any = await getHubberProfiles(selectedIcons, searchCity);
+          setSearchText(country);
+          const result: any = await getHubberProfiles(selectedIcons, country);
           if (!result)
           {
             setAlertText(t("noprofilesfound"));

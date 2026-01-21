@@ -4,7 +4,7 @@
   "searchCoders": "Search for coders",
   "searchButton": "Search",
   "showAlertCode": "Choose at least one language / framework",
-  "showAlertCity": "{{textSearch}} does not seem to be one of the 100 largest cities in {{formattedCountry}}. Or it migt be misspelled.",
+  "showAlertCity": "{{searchCity}} does not seem to be one of the 100 largest cities in {{formattedCountry}}. Or it migt be misspelled.",
   "citiesList_1": "City. Empty for whole country.",
   "citiesList_2": "largest cities in",
   "citiesList_3": "Empty searches the whole country.",
