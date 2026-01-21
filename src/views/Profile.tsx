@@ -1,35 +1,51 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FetchContext } from "../Context/FetchContext";
 import { useParams } from "react-router";
-import { FaGithub } from "react-icons/fa";
-import { FaBlog } from "react-icons/fa";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaGithub, FaBlog, FaCheckCircle, FaLockOpen, FaUserLock } from "react-icons/fa";
+import { GoXCircleFill } from "react-icons/go";
+import { IoIosMail } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { login } = useParams();
-  const {profile, getIndividualProfile } = useContext(FetchContext)
+  const {profile, repos, getIndividualProfile, getIndividualRepos } = useContext(FetchContext)
 
   useEffect(() => {
     getIndividualProfile(login!);
+    getIndividualRepos(login!);
   }, [login]);
 
-  console.log({profile})
+
+
+  console.log({repos})
   return (
     <div className="m-4">
-      <div className="w-11/12 p-2 border-2 mx-auto h-4/6 flex flex-col lg:flex-row">
+      <div className="w-full lg:w-10/12 p-2 border-2 mx-auto h-4/6 flex justify-start flex-col lg:flex-row">
         <img src={profile.avatar_url} alt="" className="h-full w-full lg:w-1/3 object-cover"/>
-        <div className="mx-4 flex flex-col justify-between">
-          <div>
-            <p className="mx-auto text-2xl font-bold">{profile.name} {profile.company && <span>|  {profile.company}</span>}</p>
-            {profile.bio && <p className="text-xl">{profile.bio}</p>}
-            {profile.location && <p className="text-xl">{profile.location}</p>}
+        <div className="flex lg:flex-row flex-col w-full justify-between">
+          <div className="mx-4 flex flex-col items-start justify-between">
+            <div>
+              <div className="flex items-center">
+                <p className="text-2xl font-bold">{profile.name}</p>
+                {profile.hireable ? <FaCheckCircle className="size-8 text-green-700 mx-4" title="available for hire"/> : <GoXCircleFill className="size-8 text-red-700 mx-4" title="not available for hire" />}
+              </div>
+              {profile.company && <p className="text-xl"> {profile.company}</p>}
+              {profile.location && <p className="text-xl">{profile.location} </p>}
+              {profile.bio && <p className="text-xl mt-12 w-10/12">{profile.bio}</p>}
+
+              {repos.map((repo) => (
+                repo.language &&
+                <i className={`devicon-${repo?.language?.toLowerCase()}-plain text-3xl mx-2`}></i>
+                )
+              )}
+            </div>
+          </div>
+          <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email ? "justify-center gap-4 lg:justify-between" : "justify-start gap-12"}`}>
+            <a href={profile.html_url} target="_blank" title="github profile"><FaGithub className="size-12 lg:size-24"/></a>
+            {profile.blog && <Link to={`${profile.blog}`} target="_blank" title="blog"><FaBlog className="size-12 lg:size-24" /></Link>}
+            {profile.email && <a href={`emailto:${profile.email}`} target="_blank" title="blog"><IoIosMail className="size-12 lg:size-24" /></a>}
           </div>
         </div>
-          <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.hireable ? "justify-between" : "justify-start gap-12"}`}>
-            <a href={profile.html_url} target="_blank" title="github profile"><FaGithub className="size-12 lg:size-24"/></a>
-            {profile.blog && <a href={`https://${profile.blog}`} target="_blank" title="blog"><FaBlog className="size-12 lg:size-24" /></a>}
-            {profile.hireable && <FaCheckCircle className="size-12 lg:size-24"/>}
-          </div>
       </div>
     </div>
   )

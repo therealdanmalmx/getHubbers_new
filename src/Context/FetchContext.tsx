@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FC, ReactNode, createContext, useCallback, useContext, useState } from "react";
+import { FC, ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AlertContext } from "./AlertContext";
 
@@ -33,20 +33,25 @@ type GithubProfilesResponse = {
 type FetchContextType = {
   profiles: GithubProfilesResponse;
   profile: Record<string, any>;
+  repos: any[];
   getHubberProfiles: (selectedIcons: string[], city: string) => Promise<void>;
   getIndividualProfile: (login: string) => Promise<void>;
+  getIndividualRepos: (login: string) => Promise<void>;
 };
 
 export const FetchContext = createContext<FetchContextType>({
   profiles: { items: [], total_count: 0, incomplete_results: false },
   profile: {},
+  repos: [],
   getHubberProfiles: async () => {},
   getIndividualProfile: async () => {},
+  getIndividualRepos: async () => {},
 });
 
 export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
 const [profiles, setProfiles] = useState<GithubProfilesResponse>({ items: [], total_count: 0, incomplete_results: false });  const [profile, setProfile] = useState<Record<string, any>>({});
+const [repos, setRepos] = useState([]);
   const { setAlertText } = useContext(AlertContext);
   const { t } = useTranslation();
 
@@ -86,13 +91,46 @@ const getIndividualProfile = async (login: string) => {
   }
 };
 
+const getIndividualRepos = async (login: string) => {
+  try {
+    const res = await axios.get(
+      `https://api.github.com/users/${login}/repos?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
+    );
+    setRepos(await res.data);
+    return await res.data;
+
+  } catch (error) {
+      console.error("Repo fetch error:", error);
+      setAlertText(t("profileerror"));
+  }
+};
+
+// useEffect(async () => {
+//   // Octokit.js
+// // https://github.com/octokit/core.js#readme
+//   const octokit = new Octokit({
+//     auth: 'YOUR-TOKEN'
+//   })
+
+//   await octokit.request('PATCH /user', {
+//     blog: 'https://github.com/blog',
+//     name: 'monalisa octocat',
+//     headers: {
+//       'X-GitHub-Api-Version': '2022-11-28'
+//     }
+//   })
+// })
+
   return (
     <FetchContext.Provider
       value={{
         profiles,
         profile,
+        repos,
         getHubberProfiles,
         getIndividualProfile,
+        getIndividualRepos,
+
       }}
     >
       {children}
