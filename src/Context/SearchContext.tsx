@@ -83,6 +83,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
       if (searchCity.length) {
         if (cityList && new Set(cityList).has(searchCity)) {
+          setSearchText(searchCity);
           const result: any = await getHubberProfiles(selectedIcons, searchCity);
           if (!result)
           {
@@ -102,6 +103,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           setShowAlert(true);
         }
       } else {
+          setSearchText(searchCity);
           const result: any = await getHubberProfiles(selectedIcons, searchCity);
           if (!result)
           {
