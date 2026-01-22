@@ -19,6 +19,33 @@ const Profile = () => {
 
   const uniqueLanguages = new Set(repoFiltered);
 
+  const switchLangage = (language: any) => {
+    switch (language) {
+      case "css":
+        language = "css3"
+        break;
+      case "c#":
+        language = "csharp"
+        break;
+      case "c++":
+        language = "cplusplus"
+        break;
+      case "vue":
+        language = "vuejs"
+        break;
+      case "html":
+        language = "html5"
+        break;
+      case "objective-c":
+        language = "objectivec"
+        break;
+      default:
+        break;
+    }
+
+    return language
+  }
+
   useEffect(() => {
     getIndividualProfile(login!);
     getIndividualRepos(login!);
@@ -44,10 +71,10 @@ const Profile = () => {
             </div>
               <div className="">
                 {Array.from(uniqueLanguages).map((language) => (
-                language !== undefined &&
-                <i className={`devicon-${language}-plain colored text-2xl lg:text-5xl mx-2`} title={`${language}`}></i>
-                )
-                )}
+                  language !== undefined && (
+                    <i className={`devicon-${switchLangage(language)}-plain colored text-2xl lg:text-5xl mx-2`} title={`${language}`}></i>
+                  )
+                ))}
               </div>
           </div>
           <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email ? "justify-center gap-4 lg:justify-between" : "justify-start gap-12"}`}>
