@@ -19,7 +19,7 @@ const Profile = () => {
 
   const uniqueLanguages = new Set(repoFiltered);
 
-  const switchLangage = (language: any) => {
+  const switchLanguage = (language: any) => {
     switch (language) {
       case "css":
         language = "css3"
@@ -39,12 +39,23 @@ const Profile = () => {
       case "objective-c":
         language = "objectivec"
         break;
+      case "jupyter notebook":
+        language = "jupyter"
+        break;
+      case "shell":
+        language = "powershell"
+        break;
+      case "f#":
+        language = "fsharp"
+        break;
       default:
         break;
     }
 
     return language
   }
+
+  const langugaesWithNoLogo: any[] = ["actionscript", "shaderlab", "jinja", "hcl", "openscad", "nix", "renderscript", "scss", "ejs"];
 
   useEffect(() => {
     getIndividualProfile(login!);
@@ -66,18 +77,18 @@ const Profile = () => {
               <div className="space-y-4 lg:space-y-0">
                 {profile.company && <p className="text-xl"> {profile.company}</p>}
                 {profile.location && <p className="text-xl">{profile.location} </p>}
-                {profile.bio && <p className="text-base lg:text-xl lg:pt-24 max-w-full">{profile.bio}</p>}
+                {profile.bio && <p className="text-base lg:text-xl lg:pt-24 lg:max-w-full w-full">{profile.bio}</p>}
               </div>
             </div>
-              <div className="">
+              <div className="mx-auto lg:mx-0">
                 {Array.from(uniqueLanguages).map((language) => (
-                  language !== undefined && (
-                    <i className={`devicon-${switchLangage(language)}-plain colored text-2xl lg:text-5xl mx-2`} title={`${language}`}></i>
+                  language === undefined || langugaesWithNoLogo.includes(language) ? <span className="m-0" /> :
+                    <i className={`devicon-${switchLanguage(language)}-plain colored text-2xl lg:text-5xl mx-2`} title={`${language}`}></i>
                   )
-                ))}
+                )}
               </div>
           </div>
-          <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email ? "justify-center gap-4 lg:justify-between" : "justify-start gap-12"}`}>
+          <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
             <a href={profile.html_url} target="_blank" title="github profile"><FaGithub className="size-12 lg:size-24"/></a>
             {profile.blog && <Link to={`${profile.blog}`} target="_blank" title="website"><IoIosGlobe className="size-12 lg:size-24" /></Link>}
             {profile.email && <a href={`emailto:${profile.email}`} target="_blank" title="blog"><IoIosMail className="size-12 lg:size-24" /></a>}
