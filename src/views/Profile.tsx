@@ -10,14 +10,22 @@ const Profile = () => {
   const { login } = useParams();
   const {profile, repos, getIndividualProfile, getIndividualRepos } = useContext(FetchContext)
 
+  const repoFiltered: any = [];
+
+  repos.forEach((repo) => {
+    repoFiltered.push(repo?.language?.toLowerCase());
+  })
+
+  const uniqueLanguages = new Set(repoFiltered);
+
+  console.log({uniqueLanguages})
+
   useEffect(() => {
     getIndividualProfile(login!);
     getIndividualRepos(login!);
   }, [login]);
 
 
-
-  console.log({repos})
   return (
     <div className="m-4">
       <div className="w-full lg:w-10/12 p-2 border-2 mx-auto h-4/6 flex justify-start flex-col lg:flex-row">
@@ -31,13 +39,13 @@ const Profile = () => {
               </div>
               {profile.company && <p className="text-xl"> {profile.company}</p>}
               {profile.location && <p className="text-xl">{profile.location} </p>}
-              {profile.bio && <p className="text-xl mt-12 w-10/12">{profile.bio}</p>}
+              {profile.bio && <p className="text-xl mt-12 max-w-full">{profile.bio}</p>}
 
-              {repos.map((repo) => (
-                repo.language &&
-                <i className={`devicon-${repo?.language?.toLowerCase()}-plain text-3xl mx-2`}></i>
+                {Array.from(uniqueLanguages).map((language) => (
+                language === undefined ? "" :
+                <i className={`devicon-${language}-plain text-3xl mx-2`} title={`${language}`}></i>
                 )
-              )}
+                )}
             </div>
           </div>
           <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email ? "justify-center gap-4 lg:justify-between" : "justify-start gap-12"}`}>
