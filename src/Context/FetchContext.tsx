@@ -2,6 +2,7 @@ import axios from "axios";
 import { FC, ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AlertContext } from "./AlertContext";
+import { CountryContext } from "./CountryContext";
 
 type GithubProfilesResponse = {
   incomplete_results: boolean;
@@ -52,13 +53,14 @@ export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
 const [profiles, setProfiles] = useState<GithubProfilesResponse>({ items: [], total_count: 0, incomplete_results: false });  const [profile, setProfile] = useState<Record<string, any>>({});
 const [repos, setRepos] = useState([]);
-  const { setAlertText } = useContext(AlertContext);
-  const { t } = useTranslation();
+const { setAlertText } = useContext(AlertContext);
+const {formattedCountry, country } = useContext(CountryContext)
+const { t } = useTranslation();
 
 const getHubberProfiles = async (selectedIcons: string[], city: string) => {
   if (city !== undefined) {
     try {
-      const query = `language:${selectedIcons.join("+")}+location:${city ? city : "Sweden" }`
+      const query = `language:${selectedIcons.join("+")}+location:${city ? city : formattedCountry }`
       const res = await axios.get(
         `https://api.github.com/search/users?q=${query}&client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
       );
