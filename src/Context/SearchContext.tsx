@@ -103,7 +103,6 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           setShowAlert(true);
         }
       } else {
-          setSearchText(country);
           const result: any = await getHubberProfiles(selectedIcons, country);
           if (!result)
           {
