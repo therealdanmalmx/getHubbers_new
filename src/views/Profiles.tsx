@@ -1,13 +1,19 @@
 import { useContext } from "react";
 import { Link } from 'react-router-dom';
 import { FetchContext } from "../Context/FetchContext";
+import { SearchContext } from "../Context/SearchContext";
+import { CountryContext } from "../Context/CountryContext";
+import { useTranslation } from "react-i18next";
 
 const Profiles = () => {
   const { profiles } = useContext(FetchContext)
-  console.log({profiles});
+  const {selectedIcons, searchText} = useContext(SearchContext)
+  const {formattedCountry} = useContext(CountryContext)
+  const { t } = useTranslation();
 
   return (
     <div>
+      {profiles.items.length > 0 && <div className="text-center text-2xl lg:text-5xl font-bold uppercase my-4">{selectedIcons.join(", ")} {t("developers")} | {searchText ? searchText : formattedCountry} </div>}
       <div className="flex justify-center flex-wrap gap-8 p-8">
         {profiles?.items?.map((profile) => (
           <div
