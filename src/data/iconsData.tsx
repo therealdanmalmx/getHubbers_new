@@ -119,12 +119,6 @@ const iconsData = [
     value: "vue",
     type: "framework",
   },
-  {
-    id: 21,
-    name: "php",
-    value: "php",
-    type: "language",
-  },
 ];
 
 export default iconsData;
