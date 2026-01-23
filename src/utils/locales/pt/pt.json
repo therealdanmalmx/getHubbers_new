@@ -20,5 +20,7 @@
   "opendropdownclose": "fechar",
   "noprofilesfound": "Não foi encontrado nenhum perfil com base nos seus critérios de pesquisa",
   "searchFieldHeading": "Pesquise uma cidade ou deixe em branco para pesquisar em todo {{formattedCountry}}",
-  "searchFieldPlaceholder": "Cidade / em branco"
+  "searchFieldPlaceholder": "Cidade / em branco",
+  "developers": "programadores"
+
 }

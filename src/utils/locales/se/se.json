@@ -21,5 +21,6 @@
   "noprofilesfound": "Inga profiler hittades baserat på dina val.",
   "searchFieldHeading": "Sök efter en ort eller lämna tomt för att söka i hela {{formattedCountry}}",
   "searchFieldPlaceholder": "Ange stad / lämna tomt",
-  "missingIconAlert": "Välj minst ett språk / ramverk"
+  "missingIconAlert": "Välj minst ett språk / ramverk",
+  "developers": "utvecklare"
 }
