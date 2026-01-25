@@ -115,11 +115,11 @@ const Profile = () => {
                 )}
               </div>
           </div>
-          <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
+          <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email && profile.twitter_username ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
             {profile.html_url && <Link to={profile.html_url} target="_blank" title="github profile"><FaGithub className="size-12 lg:size-24"/></Link>}
-            {profile.blog && <Link to={`${profile.blog}`} target="_blank" title="website"><IoIosGlobe className="size-12 lg:size-24" /></Link>}
+            {profile.blog && <Link to={`https://${profile.blog}`} target="_blank" title="website"><IoIosGlobe className="size-12 lg:size-24" /></Link>}
             {profile.email && <a href={`emailto:${profile.email}`} target="_blank" title="blog"><IoIosMail className="size-12 lg:size-24" /></a>}
-            {profile.twitter_username && <Link to={`${profile.twitter_username}`} target="_blank" title="website"><FaXTwitter className="size-12 lg:size-24" /></Link>}
+            {profile.twitter_username && <Link to={`https://x.com/${profile.twitter_username}`} target="_blank" title="website"><FaXTwitter className="size-12 lg:size-24" /></Link>}
           </div>
         </div>
       </div>
