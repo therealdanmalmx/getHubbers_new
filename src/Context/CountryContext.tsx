@@ -29,7 +29,6 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
       return null;
     }
   };
-  console.log({formattedCountry})
 
   const getCountry = () => {
     switch (localStorage.getItem("country_code")) {

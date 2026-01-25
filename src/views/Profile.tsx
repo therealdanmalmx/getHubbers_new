@@ -12,8 +12,6 @@ const Profile = () => {
   const { login } = useParams();
   const {profile, repos, getIndividualProfile, getIndividualRepos } = useContext(FetchContext)
 
-  console.log({profile});
-
   const repoFiltered: any = [];
 
   repos.forEach((repo) => {
@@ -107,8 +105,8 @@ const Profile = () => {
             </div>
               <div className="flex mx-auto flex-wrap lg:mx-0">
                 {Array.from(uniqueLanguages).map((language) => (
-                  language === undefined || langugaesWithNoLogo.includes(language) ? <span className="m-0" /> :
-                  language === "less" ?
+                    language === undefined || langugaesWithNoLogo.includes(language) ? <span className="m-0" /> :
+                    language === "less" ?
                     <i className={`devicon-less-plain-wordmark colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
                     language == "emacs lisp" ?
                     <i className={`devicon-emacs-original colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
@@ -118,11 +116,10 @@ const Profile = () => {
               </div>
           </div>
           <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
-            {profile.html_url && <a href={profile.html_url} target="_blank" title="github profile"><FaGithub className="size-12 lg:size-24"/></a>}
+            {profile.html_url && <Link to={profile.html_url} target="_blank" title="github profile"><FaGithub className="size-12 lg:size-24"/></Link>}
             {profile.blog && <Link to={`${profile.blog}`} target="_blank" title="website"><IoIosGlobe className="size-12 lg:size-24" /></Link>}
             {profile.email && <a href={`emailto:${profile.email}`} target="_blank" title="blog"><IoIosMail className="size-12 lg:size-24" /></a>}
-            {profile.twitter_usrname && <Link to={`${profile.twitter_usrname}`} target="_blank" title="website"><FaXTwitter className="size-12 lg:size-24" /></Link>}
-            {profile.twitter_username && <p>{profile.homepage}</p>}
+            {profile.twitter_username && <Link to={`${profile.twitter_username}`} target="_blank" title="website"><FaXTwitter className="size-12 lg:size-24" /></Link>}
           </div>
         </div>
       </div>
