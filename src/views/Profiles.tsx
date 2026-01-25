@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { Link } from 'react-router-dom';
+import { useContext, useEffect } from "react";
+import { Link, useRoutes } from 'react-router-dom';
 import { FetchContext } from "../Context/FetchContext";
 import { SearchContext } from "../Context/SearchContext";
 import { CountryContext } from "../Context/CountryContext";
@@ -10,6 +10,9 @@ const Profiles = () => {
   const {selectedIcons, searchText} = useContext(SearchContext)
   const {formattedCountry} = useContext(CountryContext)
   const { t } = useTranslation();
+
+  useEffect(() => {
+  }, [profiles]);
 
   return (
     <div>
