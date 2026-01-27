@@ -8,7 +8,7 @@ const iconsData = [
   {
     id: 2,
     name: "csharp",
-    value: "c#",
+    value: "csharp",
     type: "language",
   },
   {
