@@ -11,9 +11,11 @@
   "chooseCountry": "Choisissez un pays",
   "sweden": "Suède",
   "portugal": "Portugal",
-  "united kingdom": "Royaume-Uni",
+  "united kingdom": "Grande-Bretagne",
   "france": "France",
-  "germany": "Allemagne",
+  "deutschland": "Allemagne",
+  "espanha": "Espagne",
+  "nederland": "Pays-Bas",
   "worksat": "Travaille chez",
   "opendropdown": "Cliquez pour",
   "opendropdownopen": "ouvrir",
@@ -21,5 +23,7 @@
   "noprofilesfound": "Aucun profil trouvé selon vos critères de recherche.",
   "searchFieldHeading": "Recherchez une ville ou laissez vide pour rechercher tout le pays",
   "searchFieldPlaceholder": "Ville ou laissez vide",
-  "missingIconAlert": "Choisissez au moins un langage / framework"
+  "missingIconAlert": "Choisissez au moins un langage / framework",
+  "developers": "développeurs"
+
 }

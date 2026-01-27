@@ -13,13 +13,15 @@
   "portugal": "Portugal",
   "united kingdom": "Reino Unido",
   "france": "França",
-  "germany": "Alemanha",
+  "deutschland": "Alemanha",
+  "espanha": "Espanha",
+  "nederland": "Países Baixos",
   "worksat": "Trabalhe na",
   "opendropdown": "Clique para",
   "opendropdownopen": "abrir",
   "opendropdownclose": "fechar",
   "noprofilesfound": "Não foi encontrado nenhum perfil com base nos seus critérios de pesquisa",
-  "searchFieldHeading": "Pesquise uma cidade ou deixe em branco para pesquisar em todo {{formattedCountry}}",
+  "searchFieldHeading": "Pesquise uma cidade ou deixe em branco para pesquisar em todo o país",
   "searchFieldPlaceholder": "Cidade / em branco",
   "developers": "programadores"
 

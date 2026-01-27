@@ -13,7 +13,9 @@
   "portugal": "Portugal",
   "united kingdom": "United Kingdom",
   "france": "France",
-  "germany": "Germany",
+  "deutschland": "Germany",
+  "espanha": "Spain",
+  "nederland": "Netherlands",
   "worksat": "Works at",
   "opendropdown": "Click to",
   "opendropdownopen": "open",
@@ -21,5 +23,7 @@
   "noprofilesfound": "No profiles were found based on your search criteria.",
   "searchFieldHeading": "Search for a city or leave blank to search the entire country",
   "searchFieldPlaceholder": "City or leave blank",
-  "missingIconAlert": "Chose at least one language / framework"
+  "missingIconAlert": "Chose at least one language / framework",
+  "developers": "developers"
+
 }

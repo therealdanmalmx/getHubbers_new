@@ -13,13 +13,17 @@
   "portugal": "Portugal",
   "united kingdom": "Vereinigtes Königreich",
   "france": "Frankreich",
-  "germany": "Deutschland",
+  "deutschland": "Deutschland",
+  "espanha": "Spanien",
+  "nederland": "Niederlande",
   "worksat": "Arbeitet bei",
   "opendropdown": "Klicken, um",
   "opendropdownopen": "zu öffnen",
   "opendropdownclose": "zu schließen",
   "noprofilesfound": "Es wurden keine Profile basierend auf Ihren Suchkriterien gefunden.",
-  "searchFieldHeading": "Suche nach einer Stadt oder lasse das Feld leer, um ganze {{formattedCountry}} zu durchsuchen",
+  "searchFieldHeading": "Suche nach einer Stadt oder lasse das Feld leer, um ganze land zu durchsuchen",
   "searchFieldPlaceholder": "Stadt oder leer lassen",
-  "missingIconAlert": "Wähle mindestens eine Sprache / Framework aus"
+  "missingIconAlert": "Wähle mindestens eine Sprache / Framework aus",
+  "developers": "Entwickler"
+
 }
