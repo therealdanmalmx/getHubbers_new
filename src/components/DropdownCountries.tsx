@@ -1,4 +1,3 @@
-import { SE, FR, PT, ES, DE, GB } from 'country-flag-icons/react/3x2'
 import CountryIcon from './CountryIcon';
 
 
