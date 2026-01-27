@@ -43,7 +43,7 @@ const Profile = () => {
       case "jupyter notebook":
         language = "jupyter"
         break;
-      case "shell":
+      case "powershell":
         language = "powershell"
         break;
       case "f#":
@@ -51,6 +51,9 @@ const Profile = () => {
         break;
       case "dockerfile":
         language = "docker"
+        break;
+      case "vba":
+        language = "visualbasic"
         break;
       default:
         break;
@@ -77,7 +80,10 @@ const Profile = () => {
     "starlark",
     "nsis",
     "viml",
-    "assembly"
+    "assembly",
+    "pike",
+    "moonscript",
+    "shell"
   ];
 
   useEffect(() => {
@@ -107,7 +113,7 @@ const Profile = () => {
                 {Array.from(uniqueLanguages).map((language) => (
                     language === undefined || langugaesWithNoLogo.includes(language) ? <span className="m-0" /> :
                     language === "less" ?
-                    <i className={`devicon-less-plain-wordmark colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
+                    <i className={`devicon-less-plain-wordmark colored text-3xl lg:text-5xl m-2`} title={`${language}`}></i> :
                     language == "emacs lisp" ?
                     <i className={`devicon-emacs-original colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
                     <i className={`devicon-${switchLanguage(language)}-plain colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i>
