@@ -60,6 +60,7 @@ const { t } = useTranslation();
 const getHubberProfiles = async (selectedIcons: string[], city: string) => {
   if (city !== undefined) {
     try {
+      // Check if country is better to use
       const query = `language:${selectedIcons.join("+")}+location:${city ? city : formattedCountry }`
       const res = await axios.get(
         `https://api.github.com/search/users?q=${query}&client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
