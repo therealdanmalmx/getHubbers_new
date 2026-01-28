@@ -1,12 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { FetchContext } from "../Context/FetchContext";
-import { useParams } from "react-router";
-import { FaGithub, FaBlog, FaCheckCircle, FaLockOpen, FaUserLock } from "react-icons/fa";
-import { IoIosGlobe } from "react-icons/io";
+import { useContext, useEffect } from "react";
+import { FaCheckCircle, FaGithub } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { GoXCircleFill } from "react-icons/go";
-import { IoIosMail } from "react-icons/io";
-import { FaXTwitter } from "react-icons/fa6"
+import { IoIosGlobe, IoIosMail } from "react-icons/io";
+import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { FetchContext } from "../Context/FetchContext";
 
 const Profile = () => {
   const { login } = useParams();
@@ -83,7 +82,18 @@ const Profile = () => {
     "assembly",
     "pike",
     "moonscript",
-    "shell"
+    "shell",
+    "jsonnet",
+    "makefile",
+    "cue",
+    "smarty",
+    "gdscript",
+    "gherkin",
+    "meson",
+    "verilog",
+    "isabelle",
+    "agda",
+    "plpgsql"
   ];
 
   useEffect(() => {
@@ -123,7 +133,7 @@ const Profile = () => {
           </div>
           <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email && profile.twitter_username ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
             {profile.html_url && <Link to={profile.html_url} target="_blank" title="github profile"><FaGithub className="size-12 lg:size-24"/></Link>}
-            {profile.blog && <Link to={`https://${profile.blog}`} target="_blank" title="website"><IoIosGlobe className="size-12 lg:size-24" /></Link>}
+            {profile.blog && <Link to={profile.blog.includes("https") || profile.blog.includes("http") ? profile.blog : `https://${profile.blog}`} target="_blank" title="website"><IoIosGlobe className="size-12 lg:size-24" /></Link>}
             {profile.email && <a href={`emailto:${profile.email}`} target="_blank" title="blog"><IoIosMail className="size-12 lg:size-24" /></a>}
             {profile.twitter_username && <Link to={`https://x.com/${profile.twitter_username}`} target="_blank" title="website"><FaXTwitter className="size-12 lg:size-24" /></Link>}
           </div>
