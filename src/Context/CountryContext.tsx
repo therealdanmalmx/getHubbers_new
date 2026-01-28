@@ -5,11 +5,15 @@ import { useTranslation } from "react-i18next";
 type CountryContextType = {
   formattedCountry: string;
   country: string;
+  countryCode: string;
+  setCountryCode: (code: string) => void;
 };
 
 export const CountryContext = createContext<CountryContextType>({
   formattedCountry: "",
-  country: ""
+  country: "",
+  countryCode: "",
+  setCountryCode: () => {}
 });
 
 export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
@@ -17,54 +21,73 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const [formattedCountry, setFormattedCountry] = useState<string>("");
   const [country, setCountry] = useState<string>("");
+  const [countryCode, setCountryCode] = useState<string>("");
+
+  console.log({formattedCountry})
 
   const getUserCountry = async () => {
     try {
+      const storedCountryCode = localStorage.getItem("country_code");
+
+      if (storedCountryCode) {
+        setCountryCode(storedCountryCode);
+        return;
+      }
+
       const response = await fetch(`https://api.ipinfo.io/lite/me?token=${import.meta.env.VITE_IP_INFO_TOKEN}`);
       const data = await response.json();
-      localStorage.setItem("country_code", data.country_code.toLowerCase());
+
+      const newCountryCode = data.country_code.toLowerCase();
       setCountry(data.country);
+      setCountryCode(newCountryCode);
+
     } catch (error) {
       console.error("Error detecting country:", error);
       return null;
     }
   };
+  console.log({country})
 
   const getCountry = () => {
-    switch (localStorage.getItem("country_code")) {
+    switch (countryCode) {
       case "se":
         setFormattedCountry(t("sweden"));
-        break;
+      break;
       case "pt":
         setFormattedCountry(t("portugal"));
-        break;
-      case "en":
+      break;
+      case "gb":
         setFormattedCountry(t("united kingdom"));
-        break;
+      break;
+      case "es":
+        setFormattedCountry(t("spain"));
+      break;
       case "fr":
         setFormattedCountry(t("france"));
-        break;
+      break;
+      case "nl":
+        setFormattedCountry(t("netherlands"));
+      break;
       case "de":
         setFormattedCountry(t("germany"));
-        break;
+      break;
       default:
-        setFormattedCountry(t("united kingdom"));
-        break;
+        setFormattedCountry(t(country));
+      break;
     }
   };
 
   useEffect(() => {
     getUserCountry();
-  }, []);
+  }, [country]);
 
   useEffect(() => {
-    if (localStorage.getItem("country_code")) {
-      getCountry();
-    }
-  }, [localStorage.getItem("country_code")]);
+    getCountry();
+    setCountryCode(countryCode);
+  }, [countryCode]);
 
   return (
-    <CountryContext.Provider value={{ formattedCountry, country }}>
+    <CountryContext.Provider value={{ formattedCountry, country, countryCode, setCountryCode }}>
       {children}
     </CountryContext.Provider>
   );
