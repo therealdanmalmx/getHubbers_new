@@ -11,7 +11,7 @@ const SearchField = () => {
 
   return (
     <div>
-      <h1 className="m-4 mx-2 w-full text-balance text-center text-2xl xl:w-[500px]">
+      <h1 className="m-4 mx-2 w-full h-full text-balance text-center text-2xl xl:w-[500px]">
         {t("searchFieldHeading", {
           formattedCountry,
         })}
