@@ -1,17 +1,20 @@
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
-import en from "./locales/en/en.json";
+
+import gb from "./locales/gb/gb.json";
 import pt from "./locales/pt/pt.json";
 import se from "./locales/se/se.json";
 import de from "./locales/de/de.json";
 import fr from "./locales/fr/fr.json";
+import es from "./locales/es/es.json";
+import nl from "./locales/nl/nl.json";
 
 const country = localStorage.getItem("country_code");
 
 const resources = {
-  en: {
-    translation: en,
+  gb: {
+    translation: gb,
   },
   se: {
     translation: se,
@@ -25,6 +28,12 @@ const resources = {
   fr: {
     translation: fr,
   },
+  es: {
+    translation: es,
+  },
+  nl: {
+    translation: nl,
+  },
 };
 
 i18n
@@ -32,8 +41,8 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: "en",
-    lng: country || "en",
+    fallbackLng: "gb",
+    lng: country || "gb",
     interpolation: {
       escapeValue: false,
     },
