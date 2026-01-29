@@ -1,22 +1,45 @@
 import { useContext, useEffect } from "react";
-import { Link, useRoutes } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+import { Link, useNavigate } from 'react-router-dom';
+import { CountryContext } from "../Context/CountryContext";
 import { FetchContext } from "../Context/FetchContext";
 import { SearchContext } from "../Context/SearchContext";
-import { CountryContext } from "../Context/CountryContext";
-import { useTranslation } from "react-i18next";
+import { FaChevronCircleLeft } from "react-icons/fa";
+
 
 const Profiles = () => {
   const { profiles } = useContext(FetchContext)
   const {selectedIcons, searchText} = useContext(SearchContext)
-  const {formattedCountry} = useContext(CountryContext)
+  const {formattedCountry, country} = useContext(CountryContext)
   const { t } = useTranslation();
+  const navigate = useNavigate()
+
+  const country_code = localStorage.getItem("country_code") ?? "";
+
+  const counrySentence = (country_code: string, icons: string) => {
+      let sentence:string = "";
+
+      switch(country_code)
+      {
+        case "es":
+        case "pt":
+        case "fr":
+        case "it":
+          return sentence = `${t("developers")} ${icons}`
+        default:
+          return sentence = `${icons} ${t("developers")}`
+      }
+  }
 
   useEffect(() => {
   }, [profiles]);
 
   return (
     <div>
-      {profiles.items.length > 0 && <div className="text-center text-2xl lg:text-5xl font-bold uppercase my-4">{selectedIcons.map((icon => icon === "csharp" ? "C#" : icon)).join(", ")} {t("developers")} | {searchText ? searchText : formattedCountry} </div>}
+      <div className="flex flex-col lg:flex-row justify-center items-center">
+      <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto mt-8 lg:mx-0 lg:ml-24 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
+        {profiles.items.length > 0 && <div className="lg:flex-1 text-center text-2xl lg:text-5xl font-bold uppercase my-4">{counrySentence(country_code, selectedIcons.map((icon => icon === "csharp" ? "C#" : icon)).join(", "))} | {searchText ? searchText : formattedCountry} </div>}
+      </div>
       <div className="flex justify-center flex-wrap gap-8 p-8">
         {profiles?.items?.map((profile) => (
           <div

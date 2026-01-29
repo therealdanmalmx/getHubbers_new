@@ -10,13 +10,13 @@ const SearchField = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
-      <h1 className="m-4 mx-2 w-full h-full text-balance text-center text-2xl xl:w-[500px]">
+    <div className="flex flex-col justify-start mt-8 lg:mt-24 h-[50vh] space-y-4 items-center mx-auto">
+      <h1 className="w-full text-balance text-center text-lg lg:text-2xl xl:w-[500px]">
         {t("searchFieldHeading", {
           formattedCountry,
         })}
       </h1>
-      <div className="mx-4 flex items-center justify-center md:mx-0">
+      <div className="flex items-center justify-center w-11/12 lg:w-full">
         <input
           type="text"
           placeholder={t("searchFieldPlaceholder", {

@@ -3,9 +3,9 @@ import DropdownCountries from './DropdownCountries'
 
 const Footer = () => {
   return (
-    <div className='h-36 flex flex-col lg:flex-row justify-start lg:justify-between px-12 bg-navbar w-full fixed bottom-0 items-center content-center'>
-        <div>Hello</div>
-        <div>NO</div>
+    <div className='h-36 py-4 flex flex-col lg:flex-row justify-start lg:justify-between px-12 bg-navbar w-full bottom-0 items-center content-center'>
+        <div></div>
+        <div></div>
         <DropdownCountries />
     </div>
   )
