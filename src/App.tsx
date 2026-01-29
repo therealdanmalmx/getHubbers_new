@@ -7,7 +7,7 @@ import SearchField from "./components/SearchField";
 
 function App() {
   return (
-    <div className="flex h-screen flex-col justify-start">
+    <div className="flex h-full flex-col justify-start">
         <NavBar />
         <Alert />
         <SearchBar />
