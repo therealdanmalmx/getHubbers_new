@@ -48,7 +48,7 @@ const DropdownCountries = () => {
 
             {isOpen && (
             <div className="absolute bottom-full mb-2 w-full border-2 border-slate-400 bg-white z-50 max-h-60 overflow-y-auto">
-                {[...countryList].sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())).map((country) => (
+                {[...countryList].sort((a, b) => t(a.name.toLowerCase()).localeCompare(t(b.name.toLowerCase()))).map((country) => (
                 <div
                     key={country.code}
                     onClick={() => {
