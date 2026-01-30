@@ -110,6 +110,7 @@ const Profile = () => {
     "protocol buffer",
     "mustache",
     "systemverilog",
+    "typst",
   ];
 
   useEffect(() => {
