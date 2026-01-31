@@ -7,7 +7,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <div className="grid h-20 w-full grid-flow-col grid-rows-2 items-center justify-center gap-x-[15px] bg-gray-500/80 md:h-16 md:grid-rows-1 md:justify-between md:gap-0 md:gap-x-[10px] md:px-4">
+      <div className="grid max-h-36 w-full grid-flow-col grid-rows-2 items-center justify-between bg-gray-500/80 lg:h-20 lg:grid-rows-1 lg:gap-0 lg:gap-x-[10px] px-4">
         {iconsData.map((icon) => {
           let isSelected = selectedIcons.includes(icon.value);
           const iconColor =
@@ -39,7 +39,7 @@ const SearchBar = () => {
           );
         })}
       </div>
-      <div className="mt-2 h-6 text-center">
+      <div>
         {selectedIcons
           .flatMap((icon) =>
             icon === ".net"
