@@ -39,7 +39,7 @@ const SearchBar = () => {
           );
         })}
       </div>
-      <div>
+      <div className="text-center">
         {selectedIcons
           .flatMap((icon) =>
             icon === ".net"
