@@ -36,11 +36,11 @@ const Profiles = () => {
 
   return (
     <div>
-      <div className="flex flex-col lg:flex-row justify-center items-center">
-      <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto mt-8 lg:mx-0 lg:ml-24 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
-        {profiles.items.length > 0 && <div className="lg:flex-1 text-center text-2xl lg:text-5xl font-bold uppercase my-4">{counrySentence(country_code, selectedIcons.map((icon => icon === "csharp" ? "C#" : icon)).join(", "))} | {searchText ? searchText : formattedCountry} </div>}
+      <div className="flex flex-col lg:flex-row justify-center items-center my-4">
+        <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-2 lg:mx-16 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
+          {profiles.items.length > 0 && <div className="lg:flex-1 text-center text-2xl lg:text-5xl font-bold uppercase">{counrySentence(country_code, selectedIcons.map((icon => icon === "csharp" ? "C#" : icon)).join(", "))} | {searchText ? searchText : formattedCountry} </div>}
       </div>
-      <div className="flex justify-center flex-wrap gap-8 p-8">
+      <div className="flex justify-center flex-wrap gap-8">
         {profiles?.items?.map((profile) => (
           <div
             key={profile.id}
