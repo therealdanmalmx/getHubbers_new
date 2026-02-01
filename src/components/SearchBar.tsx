@@ -7,7 +7,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <div className="grid max-h-36 w-full grid-flow-col grid-rows-2 items-center justify-between bg-gray-500/80 lg:h-20 lg:grid-rows-1 lg:gap-0 lg:gap-x-[10px] px-4">
+      <div className="grid h-20 w-full grid-flow-col grid-rows-2 items-center justify-between bg-gray-500/80 lg:h-20 lg:grid-rows-1 lg:gap-0 lg:gap-x-[10px] px-4">
         {iconsData.map((icon) => {
           let isSelected = selectedIcons.includes(icon.value);
           const iconColor =
