@@ -111,6 +111,7 @@ const Profile = () => {
     "mustache",
     "systemverilog",
     "typst",
+    "blade"
   ];
 
   useEffect(() => {
@@ -121,7 +122,7 @@ const Profile = () => {
 
   return (
     <div className="m-4">
-      <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-8 lg:mx-0 lg:ml-40 cursor-pointer transition-all duration-300 ease-in-out hover:bg-slate-500 hover:rounded-full"/></div>
+      <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
       <div className="w-full lg:w-10/12 p-2 border-2 mx-auto h-4/6 flex justify-start flex-col lg:flex-row">
         <img src={profile.avatar_url} alt="" className="h-full w-full lg:w-1/2 object-cover"/>
         <div className="flex lg:flex-row flex-col w-full justify-between">
