@@ -27,10 +27,10 @@ const SearchField = () => {
         <button
           onClick={getSearchCity}
           className="border-2 border-l-0 border-black bg-black p-4 text-white"
-        >
-          {t("searchButton", {
+        > Search
+          {/* {t("searchButton", {
           formattedCountry,
-        })}
+        })} */}
         </button>
       </div>
     </div>
