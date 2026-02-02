@@ -5,9 +5,10 @@ import iconsData from "../data/iconsData";
 const SearchBar = () => {
   const { selectedIcons, toggleChosenIcons } = useContext(SearchContext);
 
+
   return (
     <div>
-      <div className="grid h-20 w-full grid-flow-col grid-rows-2 items-center justify-between bg-gray-500/80 lg:h-16 lg:grid-rows-1 lg:gap-0 lg:gap-x-[10px] px-4">
+      <div className="grid h-20 w-full grid-flow-col grid-rows-2 items-center justify-between bg-gray-500/80 md:h-32 lg:h-16 lg:grid-rows-1 lg:gap-0 lg:gap-x-[10px] px-4">
         {iconsData.map((icon) => {
           let isSelected = selectedIcons.includes(icon.value);
           const iconColor =
