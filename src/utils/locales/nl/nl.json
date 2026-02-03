@@ -30,5 +30,7 @@
   "searchFieldHeading": "Zoek naar een stad of laat leeg om in heel laand te zoeken",
   "searchFieldPlaceholder": "Voer stad in / laat leeg",
   "missingIconAlert": "Kies minstens één taal / framework",
-  "developers": "ontwikkelaars"
+  "developers": "ontwikkelaars",
+  "savedProfiles": "Je opgeslagen profielen"
+
 }

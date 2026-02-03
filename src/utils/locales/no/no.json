@@ -30,5 +30,7 @@
   "searchFieldHeading": "Søk etter et sted eller la stå tomt for å søke i hele landet",
   "searchFieldPlaceholder": "Skriv inn by / la stå tomt",
   "missingIconAlert": "Velg minst ett språk / rammeverk",
-  "developers": "utviklere"
+  "developers": "utviklere",
+  "savedProfiles": "Dine lagrede profiler"
+
 }

@@ -30,5 +30,6 @@
     "searchFieldHeading": "Busca una ciudad o deja en blanco para buscar en todo el país",
     "searchFieldPlaceholder": "Ciudad o deja en blanco",
     "missingIconAlert": "Elige al menos un lenguaje / framework",
-    "developers": "desarrolladores"
+    "developers": "desarrolladores",
+    "savedProfiles": "Tus perfiles guardados"
 }

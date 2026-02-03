@@ -30,6 +30,7 @@
   "searchFieldHeading": "Search for a city or leave blank to search the entire country",
   "searchFieldPlaceholder": "City or leave blank",
   "missingIconAlert": "Chose at least one language / framework",
-  "developers": "developers"
+  "developers": "developers",
+  "savedProfiles": "Your saved profiles"
 
 }

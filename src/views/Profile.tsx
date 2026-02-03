@@ -1,11 +1,13 @@
 import { useContext, useEffect } from "react";
 import { FaCheckCircle, FaChevronCircleLeft, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaListUl } from "react-icons/fa";
 import { GoXCircleFill } from "react-icons/go";
 import { IoIosGlobe, IoIosMail } from "react-icons/io";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { FetchContext } from "../Context/FetchContext";
+import { profileList } from "../utils/ProfileList";
 
 const Profile = () => {
   const { login } = useParams();
@@ -17,9 +19,20 @@ const Profile = () => {
 
   repos.forEach((repo) => {
     repoFiltered.push(repo?.language?.toLowerCase());
-  })
+  });
 
   const uniqueLanguages = new Set(repoFiltered);
+
+  const addProfileToList = (id: number) => {
+    const profileExists = profileList.some((p) => p.id === id);
+    if (!profileExists) {
+      profileList.push(profile);
+    }
+    else {
+      console.log("Already in list")
+    }
+    profileList.forEach((profile) => console.log(profile))
+  };
 
   const switchLanguage = (language: any) => {
     switch (language) {
@@ -121,8 +134,11 @@ const Profile = () => {
 
 
   return (
-    <div className="m-4">
-      <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
+    <div className="space-y-4 m-4 lg:m-0">
+      <div className="flex justify-between">
+        <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
+        {profileList.length > 0 && <Link to="/list"><div><FaListUl className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div></Link>}
+      </div>
       <div className="w-full lg:w-10/12 p-2 border-2 mx-auto h-4/6 flex justify-start flex-col lg:flex-row">
         <img src={profile.avatar_url} alt="" className="h-full w-full lg:w-1/2 object-cover"/>
         <div className="flex lg:flex-row flex-col w-full justify-between">
@@ -152,13 +168,16 @@ const Profile = () => {
                 )}
               </div>
           </div>
-          <div className={`flex flex-row lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email && profile.twitter_username ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
+          <div className={`flex flex-row-reverse lg:flex-col mt-12 lg:mt-0 ${profile.blog && profile.email && profile.twitter_username ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
             {profile.html_url && <Link to={profile.html_url} target="_blank" title={`GitHub profile: ${profile.html_url}`}><FaGithub className="size-12 lg:size-24"/></Link>}
             {profile.blog && <Link to={profile.blog.includes("https") || profile.blog.includes("http") ? profile.blog : `https://${profile.blog}`} target="_blank" title={`Website: ${profile.blog}`}><IoIosGlobe className="size-12 lg:size-24" /></Link>}
             {profile.twitter_username && <Link to={`https://x.com/${profile.twitter_username}`} target="_blank" title={`X profile: ${profile.twitter_username}`}  aria-label={`See X profile: ${profile.twitter_username}`}><FaXTwitter className="size-12 lg:size-24" /></Link>}
             {profile.email && <a href={`mailto:${profile.email}`} title={`Email: ${profile.email}`} aria-label={`Send email to ${profile.email}`}><IoIosMail className="size-12 lg:size-24" /></a>}
           </div>
         </div>
+      </div>
+      <div className="flex justify-center">
+        <button onClick={() => addProfileToList(profile.id)} className="w-full lg:w-10/12 text-center py-4 transition-colors duration-300 ease-in-out bg-slate-500 hover:bg-slate-400 text-white">Add to list</button>
       </div>
     </div>
   )

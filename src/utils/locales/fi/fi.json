@@ -30,5 +30,6 @@
   "searchFieldHeading": "Etsi paikkaa tai jätä tyhjäksi etsiäksesi koko maasta",
   "searchFieldPlaceholder": "Kirjoita kaupunki / jätä tyhjäksi",
   "missingIconAlert": "Valitse vähintään yksi kieli / kehys",
-  "developers": "kehittäjää"
+  "developers": "kehittäjää",
+  "savedProfiles": "Tallennetut profiilit"
 }
