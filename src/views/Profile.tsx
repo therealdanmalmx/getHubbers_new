@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaCheckCircle, FaChevronCircleLeft, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaListUl } from "react-icons/fa";
@@ -12,8 +12,14 @@ import { profileList } from "../utils/ProfileList";
 const Profile = () => {
   const { login } = useParams();
   const {profile, repos, getIndividualProfile, getIndividualRepos } = useContext(FetchContext)
-
+  const [savedList, setSavedList] = useState<Record<string, any>>();
   const navigate = useNavigate()
+  useEffect(() => {
+    const storedList = localStorage.getItem("profileList");
+    if (storedList) {
+      setSavedList(JSON.parse(storedList));
+    }
+  }, []);
 
   const repoFiltered: any = [];
 
@@ -26,6 +32,7 @@ const Profile = () => {
   const addProfileToList = (id: number) => {
     const profileExists = profileList.some((p) => p.id === id);
     if (!profileExists) {
+      setSavedList(profile);
       profileList.push(profile);
     }
     else {
@@ -137,7 +144,7 @@ const Profile = () => {
     <div className="space-y-4 m-4 lg:m-0">
       <div className="flex justify-between">
         <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
-        {profileList.length > 0 && <Link to="/list"><div><FaListUl className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div></Link>}
+        {profileList.length && <Link to="/list"><div><FaListUl className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div></Link>}
       </div>
       <div className="w-full lg:w-10/12 p-2 border-2 mx-auto h-4/6 flex justify-start flex-col lg:flex-row">
         <img src={profile.avatar_url} alt="" className="h-full w-full lg:w-1/2 object-cover"/>
