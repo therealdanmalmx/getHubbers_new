@@ -1,22 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./utils/i18n.ts";
-import Profiles from "./views/Profiles.tsx";
-import { AlertProvider } from "./Context/AlertContext.tsx";
-import { FetchProvider } from "./Context/FetchContext.tsx";
-import { CountryProvider } from "./Context/CountryContext.tsx";
-import { SearchProvider } from "./Context/SearchContext.tsx";
-import Profile from "./views/Profile.tsx";
-import SavedList from "./views/SavedList.tsx";
 import { Toaster } from "react-hot-toast";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import App from "./App.tsx";
+import { CountryProvider } from "./Context/CountryContext.tsx";
+import { FetchProvider } from "./Context/FetchContext.tsx";
+import { SearchProvider } from "./Context/SearchContext.tsx";
+import "./index.css";
+import "./utils/i18n.ts";
+import Profile from "./views/Profile.tsx";
+import Profiles from "./views/Profiles.tsx";
+import SavedList from "./views/SavedList.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Toaster />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+            className: 'p-4 text-xl',
+            duration: 5000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+            },
+          }} />
       <FetchProvider>
         <CountryProvider>
           <SearchProvider>
