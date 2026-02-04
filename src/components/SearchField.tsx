@@ -1,8 +1,7 @@
 import { useContext } from "react";
-import { SearchContext } from "../Context/SearchContext";
 import { useTranslation } from "react-i18next";
 import { CountryContext } from "../Context/CountryContext";
-import { CgWindows } from "react-icons/cg";
+import { SearchContext } from "../Context/SearchContext";
 
 const SearchField = () => {
   const { getSearchCity } = useContext(SearchContext);

@@ -11,25 +11,24 @@ import { CountryProvider } from "./Context/CountryContext.tsx";
 import { SearchProvider } from "./Context/SearchContext.tsx";
 import Profile from "./views/Profile.tsx";
 import SavedList from "./views/SavedList.tsx";
+import { Toaster } from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-        <AlertProvider>
-          <FetchProvider>
-            <CountryProvider>
-              <SearchProvider>
-                <Routes>
-                  <Route path="/" element={<App />} />
-                  <Route path="/profiles" element={<Profiles />} />
-                  <Route path="/profile/:login" element={<Profile />} />
-                  <Route path="/profile-list/" element={<SavedList />} />
-                </Routes>
-                </SearchProvider>
-              </CountryProvider>
-            </FetchProvider>
-          </AlertProvider>
+      <Toaster />
+      <FetchProvider>
+        <CountryProvider>
+          <SearchProvider>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route path="/profiles" element={<Profiles />} />
+              <Route path="/profile/:login" element={<Profile />} />
+              <Route path="/profile-list/" element={<SavedList />} />
+            </Routes>
+            </SearchProvider>
+          </CountryProvider>
+        </FetchProvider>
     </BrowserRouter>
-
   </React.StrictMode>,
 );

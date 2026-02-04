@@ -7,9 +7,9 @@ import {
   useEffect,
   useState,
 } from "react";
-import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { AlertContext } from "./AlertContext";
+import { useNavigate } from "react-router-dom";
 import { CountryContext } from "./CountryContext";
 import { FetchContext } from "./FetchContext";
 
@@ -33,7 +33,6 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { getHubberProfiles } = useContext(FetchContext);
 
   const navigate = useNavigate();
-  const { setShowAlert, setAlertText } = useContext(AlertContext);
   const { formattedCountry, country } = useContext(CountryContext);
   const { t } = useTranslation();
 
@@ -73,8 +72,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const getSearchCity = async (e: React.MouseEvent<HTMLButtonElement>) => {
 
     if (selectedIcons.length === 0) {
-      setAlertText(t("showAlertCode"));
-      setShowAlert(true);
+      toast.error(t("showAlertCode"))
     } else {
       let searchCity = (
         (e.target as HTMLButtonElement)
@@ -87,27 +85,23 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           const result: any = await getHubberProfiles(selectedIcons, searchCity);
           if (!result)
           {
-            setAlertText(t("noprofilesfound"));
-            setShowAlert(true);
+            toast.error(t("noprofilesfound"));
           } else {
             navigate("/profiles");
           }
 
         } else {
-          setAlertText(
+          toast.error(
             t("showAlertCity", {
-              searchCity,
-              formattedCountry,
-            }),
-          );
-          setShowAlert(true);
+            searchCity,
+            formattedCountry,
+            }));
         }
       } else {
           const result: any = await getHubberProfiles(selectedIcons, country);
           if (!result)
           {
-            setAlertText(t("noprofilesfound"));
-            setShowAlert(true);
+            toast.error(t("noprofilesfound"));
           } else {
             navigate("/profiles");
           }

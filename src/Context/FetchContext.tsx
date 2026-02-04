@@ -1,7 +1,7 @@
 import axios from "axios";
-import { FC, ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
+import { FC, ReactNode, createContext, useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { AlertContext } from "./AlertContext";
 import { CountryContext } from "./CountryContext";
 
 type GithubProfilesResponse = {
@@ -53,8 +53,7 @@ export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
 const [profiles, setProfiles] = useState<GithubProfilesResponse>({ items: [], total_count: 0, incomplete_results: false });  const [profile, setProfile] = useState<Record<string, any>>({});
 const [repos, setRepos] = useState([]);
-const { setAlertText } = useContext(AlertContext);
-const {formattedCountry, country } = useContext(CountryContext)
+const { country } = useContext(CountryContext)
 const { t } = useTranslation();
 
 console.log({country})
@@ -68,7 +67,7 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
       );
 
       if (!res.data.items.length) {
-        setAlertText(t("noprofilesfound"));
+        toast.error(t("noprofilesfound"))
       } else {
         setProfiles(await res.data);
         return await res.data;
@@ -76,7 +75,8 @@ const getHubberProfiles = async (selectedIcons: string[], city: string) => {
 
     } catch (error) {
         console.error("Fetch error:", error);
-        setAlertText(t("fetcherror"));
+        toast.error(t("fetcherror"))
+
     }
   }
 };
@@ -91,7 +91,7 @@ const getIndividualProfile = async (login: string) => {
 
   } catch (error) {
       console.error("Profile fetch error:", error);
-      setAlertText(t("profileerror"));
+      toast.error(t("profileerror"))
   }
 };
 
@@ -105,7 +105,7 @@ const getIndividualRepos = async (login: string) => {
 
   } catch (error) {
       console.error("Repo fetch error:", error);
-      setAlertText(t("profileerror"));
+      toast.error(t("profileerror"))
   }
 };
 

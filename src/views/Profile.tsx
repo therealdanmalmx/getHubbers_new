@@ -1,22 +1,21 @@
+import { t } from "i18next";
 import { useContext, useEffect, useState } from "react";
-import { FaCheckCircle, FaChevronCircleLeft, FaGithub, FaBookmark } from "react-icons/fa";
+import toast from "react-hot-toast";
+import { FaBookmark, FaCheckCircle, FaChevronCircleLeft, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { GoXCircleFill } from "react-icons/go";
 import { IoIosGlobe, IoIosMail } from "react-icons/io";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { FetchContext } from "../Context/FetchContext";
-import { profileList } from "../utils/ProfileList";
 import { langugaesWithNoLogo, switchLanguage } from "../utils/Helpers";
-import { AlertContext } from "../Context/AlertContext";
-import { t } from "i18next";
+import { profileList } from "../utils/ProfileList";
 
 const Profile = () => {
   const { login } = useParams();
   const {profile, repos, getIndividualProfile, getIndividualRepos } = useContext(FetchContext)
   const [_, setSavedList] = useState<Record<string, any>>();
   const navigate = useNavigate();
-  const {setAlertText, setShowAlert } = useContext(AlertContext)
 
   useEffect(() => {
     const storedList = localStorage.getItem("profileList");
@@ -42,9 +41,7 @@ const Profile = () => {
       profileList.push(profile);
     }
     else {
-      setAlertText(t("alreadyInList"))
-      setShowAlert(true);
-      console.log("Already in list")
+      toast.error(t("alreadyInList"));
     }
     profileList.forEach((profile) => console.log(profile))
   };
