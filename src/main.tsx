@@ -18,13 +18,14 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Toaster
         position="top-center"
         toastOptions={{
-            className: 'p-4 text-xl',
-            duration: 5000,
-            style: {
-              background: '#363636',
-              color: '#fff',
-            },
-          }} />
+          className: 'p-4 text-xl',
+          duration: 5000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          }
+        }}
+      />
       <FetchProvider>
         <CountryProvider>
           <SearchProvider>
