@@ -31,5 +31,6 @@
   "searchFieldPlaceholder": "Ange stad / lämna tomt",
   "missingIconAlert": "Välj minst ett språk / ramverk",
   "developers": "utvecklare",
-  "savedProfiles": "Dina sparade profiler"
+  "savedProfiles": "Dina sparade profiler",
+  "alreadyInList": "Profil redan tillagd"
 }
