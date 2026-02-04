@@ -101,7 +101,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           const result: any = await getHubberProfiles(selectedIcons, country);
           if (!result)
           {
-            toast.error(t("noprofilesfound"));
+            return;
           } else {
             navigate("/profiles");
           }
