@@ -1,25 +1,31 @@
 import { useContext, useEffect, useState } from "react";
-import { FaCheckCircle, FaChevronCircleLeft, FaGithub } from "react-icons/fa";
+import { FaCheckCircle, FaChevronCircleLeft, FaGithub, FaBookmark } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaListUl } from "react-icons/fa";
 import { GoXCircleFill } from "react-icons/go";
 import { IoIosGlobe, IoIosMail } from "react-icons/io";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { FetchContext } from "../Context/FetchContext";
 import { profileList } from "../utils/ProfileList";
+import { langugaesWithNoLogo, switchLanguage } from "../utils/Helpers";
+import { AlertContext } from "../Context/AlertContext";
+import { t } from "i18next";
 
 const Profile = () => {
   const { login } = useParams();
   const {profile, repos, getIndividualProfile, getIndividualRepos } = useContext(FetchContext)
-  const [savedList, setSavedList] = useState<Record<string, any>>();
-  const navigate = useNavigate()
+  const [_, setSavedList] = useState<Record<string, any>>();
+  const navigate = useNavigate();
+  const {setAlertText, setShowAlert } = useContext(AlertContext)
+
   useEffect(() => {
     const storedList = localStorage.getItem("profileList");
     if (storedList) {
       setSavedList(JSON.parse(storedList));
     }
   }, []);
+
+  console.log({repos});
 
   const repoFiltered: any = [];
 
@@ -36,103 +42,13 @@ const Profile = () => {
       profileList.push(profile);
     }
     else {
+      setAlertText(t("alreadyInList"))
+      setShowAlert(true);
       console.log("Already in list")
     }
     profileList.forEach((profile) => console.log(profile))
   };
 
-  const switchLanguage = (language: any) => {
-    switch (language) {
-      case "css":
-        language = "css3"
-        break;
-      case "c#":
-        language = "csharp"
-        break;
-      case "c++":
-        language = "cplusplus"
-        break;
-      case "vue":
-        language = "vuejs"
-        break;
-      case "html":
-        language = "html5"
-        break;
-      case "objective-c":
-        language = "objectivec"
-        break;
-      case "jupyter notebook":
-        language = "jupyter"
-        break;
-      case "powershell":
-        language = "powershell"
-        break;
-      case "f#":
-        language = "fsharp"
-        break;
-      case "dockerfile":
-        language = "docker"
-        break;
-      case "vba":
-        language = "visualbasic"
-        break;
-      case "vim script":
-      case "viml":
-        language = "vim"
-        break;
-      case "tsql":
-        language = "microsoftsqlserver"
-      break;
-      case "asp":
-        language = "dot-net"
-      break;
-      default:
-        break;
-    }
-
-    return language
-  }
-
-  const langugaesWithNoLogo: any[] = [
-    "actionscript",
-    "shaderlab",
-    "jinja",
-    "hcl",
-    "openscad",
-    "nix",
-    "renderscript",
-    "scss",
-    "ejs",
-    "supercollider",
-    "mdx",
-    "d",
-    "dtrace",
-    "batchfile",
-    "starlark",
-    "nsis",
-    "assembly",
-    "pike",
-    "moonscript",
-    "shell",
-    "jsonnet",
-    "makefile",
-    "cue",
-    "smarty",
-    "gdscript",
-    "gherkin",
-    "meson",
-    "verilog",
-    "isabelle",
-    "agda",
-    "plpgsql",
-    "cuda",
-    "nunjucks",
-    "protocol buffer",
-    "mustache",
-    "systemverilog",
-    "typst",
-    "blade"
-  ];
 
   useEffect(() => {
     getIndividualProfile(login!);
@@ -143,8 +59,17 @@ const Profile = () => {
   return (
     <div className="space-y-4 m-4 lg:m-0">
       <div className="flex justify-between">
-        <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
-        {profileList.length && <Link to="/list"><div><FaListUl className="size-12 mx-auto my-4 lg:mx-36 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div></Link>}
+        <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-4 lg:mx-36 duration-300 ease-in-out cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
+        <Link to="/profile-list">
+          <div className="flex flex-col items-center justify-center size-12 mx-auto my-4 lg:mx-36 cursor-pointer">
+            {profileList.length > 0 &&
+            <div className="relative flex items-start justify-center duration-300 ease-in-out hover:text-slate-500 cursor-pointer">
+              <FaBookmark className="size-12 cursor-pointer"/>
+              <span className="absolute pt-1 text-white cursor-pointer font-bold text-xl">{profileList.length}</span>
+            </div>
+            }
+          </div>
+        </Link>
       </div>
       <div className="w-full lg:w-10/12 p-2 border-2 mx-auto h-4/6 flex justify-start flex-col lg:flex-row">
         <img src={profile.avatar_url} alt="" className="h-full w-full lg:w-1/2 object-cover"/>
