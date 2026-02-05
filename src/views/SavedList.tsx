@@ -15,7 +15,6 @@ const SavedList = () => {
     const index = profileList.findIndex((p) => p.id === id);
     if (index > -1) {
       profileList.splice(index, 1);
-      profiles.splice(index, 1);
       setProfiles(profiles.filter((p) => p.id !== id));
   }
 }
