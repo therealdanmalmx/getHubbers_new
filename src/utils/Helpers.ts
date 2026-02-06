@@ -42,7 +42,9 @@
     "reason",
     "autohotkey",
     "qml",
-    "nwscript"
+    "nwscript",
+    "rpgle",
+    "vcl"
   ];
 
 export const switchLanguage = (language: any) => {
@@ -85,7 +87,8 @@ export const switchLanguage = (language: any) => {
         language = "vim"
         break;
     case "tsql":
-        language = "microsoftsqlserver"
+    case "plpgsql":
+        language = "azuresqldatabase"
     break;
     case "asp":
         language = "dot-net"
