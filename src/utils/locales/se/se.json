@@ -32,5 +32,6 @@
   "missingIconAlert": "Välj minst ett språk / ramverk",
   "developers": "utvecklare",
   "savedProfiles": "Dina sparade profiler",
-  "alreadyInList": "Profil redan tillagd"
+  "alreadyInList": "Profil redan tillagd",
+  "profileerror": "Kunde inte ladda profilen just nu. Försök igen senare"
 }
