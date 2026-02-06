@@ -43,6 +43,8 @@ const SearchBar = () => {
       <div className="h-1 text-center">
         {selectedIcons
           .flatMap((icon) =>
+            icon === "azuresqldatabase"
+              ? "SQL" :
             icon === ".net"
               ? ".NET"
               : icon === ".net core"
