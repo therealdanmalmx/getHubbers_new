@@ -44,7 +44,9 @@
     "qml",
     "nwscript",
     "rpgle",
-    "vcl"
+    "vcl",
+    "angelscript",
+    "nemerle"
   ];
 
 export const switchLanguage = (language: any) => {
@@ -83,6 +85,7 @@ export const switchLanguage = (language: any) => {
         language = "visualbasic"
         break;
     case "vim script":
+    case "vim snippet":
     case "viml":
         language = "vim"
         break;
@@ -91,6 +94,7 @@ export const switchLanguage = (language: any) => {
         language = "azuresqldatabase"
     break;
     case "asp":
+    case "visual basic .net":
         language = "dot-net"
     break;
     default:
