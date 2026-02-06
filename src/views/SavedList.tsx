@@ -25,7 +25,7 @@ useEffect(() => {
   {
     navigate("/profiles")
   }
-}, [profileList]);
+}, [profiles]);
 
 return (
   <div>
