@@ -20,6 +20,11 @@ const SavedList = () => {
 }
 
 useEffect(() => {
+
+  if(!profiles.length)
+  {
+    navigate("/profiles")
+  }
 }, [profileList]);
 
 return (
