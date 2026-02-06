@@ -24,7 +24,6 @@ const Profile = () => {
     }
   }, []);
 
-  console.log({repos});
 
   const repoFiltered: any = [];
 
@@ -50,6 +49,10 @@ const Profile = () => {
   useEffect(() => {
     getIndividualProfile(login!);
     getIndividualRepos(login!);
+
+    if (Object.keys(profile).length === 0) {
+      navigate("/profiles");
+    }
   }, [login]);
 
 
