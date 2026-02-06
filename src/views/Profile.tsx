@@ -92,7 +92,7 @@ const Profile = () => {
                     <i className={`devicon-emacs-original colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
                     language === "purescript" ?
                     <i className={`devicon-purescript-original colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
-                    <i className={`devicon-${switchLanguage(language)}-plain colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i>
+                    <i className={`devicon-${switchLanguage(language)}-plain colored text-2xl lg:text-5xl m-2`} title={`${language === "azuresqldatabase" ? "sql" : language}`}></i>
                   )
                 )}
               </div>
