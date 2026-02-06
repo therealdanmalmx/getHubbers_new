@@ -105,7 +105,8 @@ const getIndividualRepos = async (login: string) => {
 
   } catch (error) {
       console.error("Repo fetch error:", error);
-      toast.error(t("profileerror"))
+      return;
+      // toast.error(t("profileerror"))
   }
 };
 
