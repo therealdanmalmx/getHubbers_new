@@ -56,7 +56,6 @@ const [repos, setRepos] = useState([]);
 const { country } = useContext(CountryContext)
 const { t } = useTranslation();
 
-console.log({country})
 const getHubberProfiles = async (selectedIcons: string[], city: string) => {
   if (city !== undefined) {
     try {
