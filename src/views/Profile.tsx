@@ -25,6 +25,7 @@ const Profile = () => {
   }, []);
 
 
+
   const repoFiltered: any = [];
 
   repos.forEach((repo) => {
@@ -46,13 +47,14 @@ const Profile = () => {
   };
 
 
+  if (Object.keys(profile).length === 0) {
+    navigate("/profiles");
+  }
+
   useEffect(() => {
     getIndividualProfile(login!);
     getIndividualRepos(login!);
 
-    if (Object.keys(profile).length === 0) {
-      navigate("/profiles");
-    }
   }, [login]);
 
 
