@@ -10,25 +10,28 @@ import { FaChevronCircleLeft } from "react-icons/fa";
 const Profiles = () => {
   const { profiles } = useContext(FetchContext)
   const {selectedIcons, searchText} = useContext(SearchContext)
-  const {formattedCountry, country} = useContext(CountryContext)
+  const {formattedCountry} = useContext(CountryContext)
   const { t } = useTranslation();
   const navigate = useNavigate()
 
   const country_code = localStorage.getItem("country_code") ?? "";
 
   const counrySentence = (country_code: string, icons: string) => {
-      let sentence:string = "";
 
-      switch(country_code)
-      {
+    let sentence:string = "";
+    switch(country_code)
+    {
         case "es":
         case "pt":
         case "fr":
         case "it":
-          return sentence = `${t("developers")} ${icons}`
+          sentence = `${t("developers")} ${icons}`
+        break;
         default:
-          return sentence = `${icons} ${t("developers")}`
+          sentence = `${icons} ${t("developers")}`
+        break
       }
+      return sentence;
   }
 
   useEffect(() => {
@@ -37,7 +40,7 @@ const Profiles = () => {
   return (
     <div>
       <div className="flex flex-col lg:flex-row justify-center items-center my-4">
-        <div onClick={() => navigate(-1 || "/")}><FaChevronCircleLeft className="size-12 mx-auto my-2 lg:mx-16 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
+        <div onClick={() => navigate("/")}><FaChevronCircleLeft className="size-12 mx-auto my-2 lg:mx-16 cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
           {profiles.items.length > 0 && <div className="lg:flex-1 text-center text-2xl lg:text-5xl font-bold uppercase">{counrySentence(country_code, selectedIcons.map((icon => icon === "csharp" ? "C#" : icon)).join(", "))} | {searchText ? searchText : formattedCountry} </div>}
       </div>
       <div className="flex justify-center flex-wrap gap-8">
