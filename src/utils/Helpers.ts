@@ -48,7 +48,8 @@
     "angelscript",
     "nemerle",
     "antlr",
-    "nesc"
+    "nesc",
+    "odin"
   ];
 
 export const switchLanguage = (language: any) => {
