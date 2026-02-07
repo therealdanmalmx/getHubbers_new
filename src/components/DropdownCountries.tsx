@@ -23,10 +23,10 @@ const DropdownCountries = () => {
         { name: "Sverige", code: "se" },
     ];
 
-    const {setCountryCode, setCountry, country } = useContext(CountryContext)
+    const {setCountryCode, setCountry } = useContext(CountryContext)
     const getInitialCountry = () => {
         const savedCode = localStorage.getItem("country_code");
-        return countryList.find(c => c.code.toLowerCase() === savedCode) || countryList[0];
+        return countryList.find(c => c.code.toLowerCase() === savedCode) || countryList[12];
     };
 
     const [selected, setSelected] = useState<{ name: string; code: string }>(getInitialCountry());
