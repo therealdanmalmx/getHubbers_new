@@ -16,7 +16,7 @@ import fi from "./locales/fi/fi.json";
 import pl from "./locales/pl/pl.json";
 import ie from "./locales/ie/ie.json";
 
-const country = localStorage.getItem("country_code");
+const countryCode = localStorage.getItem("country_code");
 
 const resources = {
   gb: {
@@ -66,7 +66,8 @@ i18n
   .init({
     resources,
     fallbackLng: "gb",
-    lng: country || "gb",
+    lng: countryCode!,
+    supportedLngs: ["gb", "se", "pt", "de", "fr", "es", "nl", "it", "no", "dk", "fi", "pl", "ie"],
     interpolation: {
       escapeValue: false,
     },
