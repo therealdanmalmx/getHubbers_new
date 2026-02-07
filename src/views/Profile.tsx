@@ -43,7 +43,6 @@ const Profile = () => {
     else {
       toast.error(t("alreadyInList"));
     }
-    profileList.forEach((profile) => console.log(profile))
   };
 
 
