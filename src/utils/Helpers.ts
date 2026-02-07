@@ -46,7 +46,9 @@
     "rpgle",
     "vcl",
     "angelscript",
-    "nemerle"
+    "nemerle",
+    "antlr",
+    "nesc"
   ];
 
 export const switchLanguage = (language: any) => {
