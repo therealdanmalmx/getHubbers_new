@@ -1,6 +1,7 @@
 "use client";
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import i18n from "../utils/i18n"; 
 
 type CountryContextType = {
   formattedCountry: string;
@@ -112,14 +113,16 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
     }
   };
 
-  console.log({country});
-
   useEffect(() => {
     getUserCountry();
-  }, [country]);
+  }, []);
 
   useEffect(() => {
     getCountry();
+    if (countryCode) {
+      i18n.changeLanguage(countryCode);
+      localStorage.setItem("country_code", countryCode);
+    }
   }, [countryCode]);
 
   return (
