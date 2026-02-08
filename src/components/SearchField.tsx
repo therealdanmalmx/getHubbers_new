@@ -9,7 +9,7 @@ const SearchField = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={`flex flex-col justify-start small-screen:justify-start small-screen:pt-8 h-[calc(100vh_-_416px)] pt-24 lg:pt-20 space-y-4 items-center mx-auto ${window.innerHeight === 600 && "pt-12"}}`}>
+    <div className={`flex flex-col justify-start small-screen:justify-start small-screen:pt-8 pt-20 lg:pt-32 space-y-4 items-center mx-auto ${window.innerHeight === 600 && "pt-12"}}`}>
       <h1 className="w-full text-balance text-center text-lg lg:text-2xl xl:w-[500px]">
         {t("searchFieldHeading", {
           formattedCountry,
