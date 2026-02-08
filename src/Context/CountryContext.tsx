@@ -1,7 +1,8 @@
 "use client";
+
 import { FC, ReactNode, createContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import i18n from "../utils/i18n"; 
+import i18n from "../utils/i18n";
 
 type CountryContextType = {
   formattedCountry: string;
@@ -34,11 +35,6 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
         setCountryCode(storedCountryCode);
         return;
       }
-
-      // if(country) {
-      //   setCountry(country)
-      //   return;
-      // }
 
       const response = await fetch(`https://api.ipinfo.io/lite/me?token=${import.meta.env.VITE_IP_INFO_TOKEN}`);
       const data = await response.json();
