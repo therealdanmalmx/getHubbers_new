@@ -57,15 +57,16 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
     if (cityCache.has(countryCode!)) {
       setCityList(cityCache.get(countryCode!)!);
     } else {
-      import( /* @vite-ignore */ `../utils/cities/${countryCode}`)
-        .then((module) => {
-          cityCache.set(countryCode!, module.default);
-          setCityList(module.default);
-        })
-        .catch((error) => {
-          console.error("Error loading cities:", error);
-          setCityList([]);
-        });
+      const modules = import.meta.glob('../utils/cities/*.ts', { eager: true });
+      const module = modules[`../utils/cities/${countryCode}.ts`] as any;
+
+      if (module) {
+        cityCache.set(countryCode!, module.default);
+        setCityList(module.default);
+      } else {
+        console.error("Error loading cities:", countryCode);
+        setCityList([]);
+      }
     }
   }, [countryCode]);
 
