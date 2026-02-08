@@ -49,7 +49,11 @@
     "nemerle",
     "antlr",
     "nesc",
-    "odin"
+    "odin",
+    "dm",
+    "nimrod",
+    "bru",
+    "pascal"
   ];
 
 export const switchLanguage = (language: any) => {
