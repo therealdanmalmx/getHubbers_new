@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { FaChevronCircleLeft } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { CountryContext } from "../Context/CountryContext";
 import { FetchContext } from "../Context/FetchContext";
 import { SearchContext } from "../Context/SearchContext";
-import { FaChevronCircleLeft } from "react-icons/fa";
 
 
 const Profiles = () => {
@@ -33,9 +33,6 @@ const Profiles = () => {
       }
       return sentence;
   }
-
-  useEffect(() => {
-  }, [profiles]);
 
   return (
     <div>
