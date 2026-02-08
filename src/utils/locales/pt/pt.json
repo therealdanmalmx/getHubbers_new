@@ -30,7 +30,7 @@
   "searchFieldHeading": "Pesquise uma cidade ou deixe em branco para pesquisar em todo o país",
   "searchFieldPlaceholder": "Cidade / em branco",
   "developers": "programadores",
-  "savedProfiles": "Seus perfis guardados"
-
-
+  "savedProfiles": "Seus perfis guardados",
+  "profileerror": "Não foi possível carregar o perfil agora. Por favor, tente novamente mais tarde",
+  "alreadyInList": "Perfil já adicionado"
 }

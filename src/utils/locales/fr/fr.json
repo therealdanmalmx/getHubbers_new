@@ -31,6 +31,9 @@
   "searchFieldPlaceholder": "Ville ou laissez vide",
   "missingIconAlert": "Choisissez au moins un langage / framework",
   "developers": "développeurs",
-  "savedProfiles": "Vos profils enregistrés"
+  "savedProfiles": "Vos profils enregistrés",
+  "profileerror": "Impossible de charger le profil en ce moment. Veuillez réessayer plus tard",
+  "alreadyInList": "Profil déjà ajouté"
+
 
 }

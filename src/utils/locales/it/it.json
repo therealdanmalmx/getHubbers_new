@@ -31,6 +31,9 @@
   "searchFieldPlaceholder": "Inserisci città / lascia vuoto",
   "missingIconAlert": "Seleziona almeno un linguaggio / framework",
   "developers": "sviluppatori",
-  "savedProfiles": "I tuoi profili salvati"
+  "savedProfiles": "I tuoi profili salvati",
+  "profileerror": "Impossibile caricare il profilo in questo momento. Riprova più tardi",
+  "alreadyInList": "Profilo già aggiunto"
+
 
 }

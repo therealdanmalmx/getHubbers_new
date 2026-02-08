@@ -31,5 +31,8 @@
     "searchFieldPlaceholder": "Ciudad o deja en blanco",
     "missingIconAlert": "Elige al menos un lenguaje / framework",
     "developers": "desarrolladores",
-    "savedProfiles": "Tus perfiles guardados"
+    "savedProfiles": "Tus perfiles guardados",
+    "profileerror": "No se pudo cargar el perfil en este momento. Por favor, intenta de nuevo más tarde",
+    "alreadyInList": "Perfil ya agregado"
+
 }

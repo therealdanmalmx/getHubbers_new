@@ -31,6 +31,9 @@
   "searchFieldPlaceholder": "Indtast by / lad stå tomt",
   "missingIconAlert": "Vælg mindst ét sprog / framework",
   "developers": "udviklere",
-  "savedProfiles": "Dine gemte profiler"
+  "savedProfiles": "Dine gemte profiler",
+  "profileerror": "Kunne ikke indlæse profilen lige nu. Prøv igen senere",
+  "alreadyInList": "Profil allerede tilføjet"
+
 
 }

@@ -31,6 +31,7 @@
   "searchFieldPlaceholder": "City or leave blank",
   "missingIconAlert": "Chose at least one language / framework",
   "developers": "developers",
-  "savedProfiles": "Your saved profiles"
-
+  "savedProfiles": "Your saved profiles",
+  "profileerror": "Could not load the profile right now. Please try again later",
+  "alreadyInList": "Profile already added"
 }

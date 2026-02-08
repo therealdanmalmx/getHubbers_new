@@ -31,6 +31,9 @@
   "searchFieldPlaceholder": "Voer stad in / laat leeg",
   "missingIconAlert": "Kies minstens één taal / framework",
   "developers": "ontwikkelaars",
-  "savedProfiles": "Je opgeslagen profielen"
+  "savedProfiles": "Je opgeslagen profielen",
+  "profileerror": "Kon het profiel op dit moment niet laden. Probeer het later opnieuw",
+  "alreadyInList": "Profiel al toegevoegd"
+
 
 }

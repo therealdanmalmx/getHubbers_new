@@ -31,6 +31,7 @@
   "searchFieldPlaceholder": "Miasto lub pozostaw puste",
   "missingIconAlert": "Wybierz co najmniej jeden język / framework",
   "developers": "programiści",
-  "savedProfiles": "Twoje zapisane profile"
-
+  "savedProfiles": "Twoje zapisane profile",
+  "profileerror": "Nie udało się załadować profilu. Spróbuj ponownie później",
+  "alreadyInList": "Profil już dodany"
 }

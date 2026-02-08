@@ -31,6 +31,7 @@
   "searchFieldPlaceholder": "Skriv inn by / la stå tomt",
   "missingIconAlert": "Velg minst ett språk / rammeverk",
   "developers": "utviklere",
-  "savedProfiles": "Dine lagrede profiler"
-
+  "savedProfiles": "Dine lagrede profiler",
+  "profileerror": "Kunne ikke laste profilen nå. Prøv igjen senere",
+  "alreadyInList": "Profilen er allerede lagt til"
 }

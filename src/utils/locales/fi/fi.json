@@ -31,5 +31,8 @@
   "searchFieldPlaceholder": "Kirjoita kaupunki / jätä tyhjäksi",
   "missingIconAlert": "Valitse vähintään yksi kieli / kehys",
   "developers": "kehittäjää",
-  "savedProfiles": "Tallennetut profiilit"
+  "savedProfiles": "Tallennetut profiilit",
+  "profileerror": "Profiilia ei voitu ladata juuri nyt. Yritä uudelleen myöhemmin",
+  "alreadyInList": "Profiili on jo lisätty"
+
 }
