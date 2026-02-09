@@ -53,7 +53,12 @@
     "dm",
     "nimrod",
     "bru",
-    "pascal"
+    "pascal",
+    "brainfuck",
+    "al",
+    "purebasic"
+
+
   ];
 
 export const switchLanguage = (language: any) => {
