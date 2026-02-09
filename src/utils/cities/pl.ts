@@ -1,4 +1,4 @@
-const polishCities = [
+const cities = [
   "Bełchatów",
   "Będzin",
   "Biała Podlaska",
@@ -101,4 +101,4 @@ const polishCities = [
   "Żory",
 ];
 
-export { polishCities };
+export default cities;
