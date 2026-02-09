@@ -47,85 +47,82 @@ const Profile = () => {
   };
 
 
-useEffect(() => {
-  const loadProfile = async () => {
-    setIsLoading(true);
-    await Promise.all([
-      getIndividualProfile(login!),
-      getIndividualRepos(login!)
-    ]);
-    setIsLoading(false);
-  };
+  useEffect(() => {
+    const loadProfile = async () => {
+      setIsLoading(true);
+      await Promise.all([
+        getIndividualProfile(login!),
+        getIndividualRepos(login!)
+      ]);
+      setIsLoading(false);
+    };
 
-  loadProfile();
-}, [login, navigate]);
+    loadProfile();
+  }, [login, navigate]);
 
-useEffect(() => {
-  if (!isLoading && Object.keys(profile).length === 0) {
-    navigate("/profiles");
-  }
-}, [isLoading, profile, navigate]);
+  useEffect(() => {
+    if (!isLoading && Object.keys(profile).length === 0) {
+      navigate("/profiles");
+    }
+  }, [isLoading, profile, navigate]);
 
-    {
-      return (
-        <div className="mx-2 lg:m-0">
-          <div className="flex justify-between">
-            <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-2 lg:mx-36 duration-300 ease-in-out cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
-            <Link to="/profile-list">
-              <div className="flex flex-col items-center justify-center size-12 mx-auto my-2 lg:mx-36 cursor-pointer">
-                {profileList.length > 0 &&
-                <div className="relative flex items-start justify-center duration-300 ease-in-out hover:text-slate-500 cursor-pointer">
-                  <FaBookmark className="size-12 cursor-pointer"/>
-                  <span className="absolute pt-1 text-white cursor-pointer font-bold text-xl">{profileList.length}</span>
-                </div>
-                }
-              </div>
-            </Link>
+  return (
+    <div className="mx-2 lg:m-0">
+      <div className="flex justify-between">
+        <div onClick={() => navigate(-1)}><FaChevronCircleLeft className="size-12 mx-auto my-2 lg:mx-36 duration-300 ease-in-out cursor-pointer hover:bg-slate-500 hover:rounded-full"/></div>
+        <Link to="/profile-list">
+          <div className="flex flex-col items-center justify-center size-12 mx-auto my-2 lg:mx-36 cursor-pointer">
+            {profileList.length > 0 &&
+            <div className="relative flex items-start justify-center duration-300 ease-in-out hover:text-slate-500 cursor-pointer">
+              <FaBookmark className="size-12 cursor-pointer"/>
+              <span className="absolute pt-1 text-white cursor-pointer font-bold text-xl">{profileList.length}</span>
+            </div>
+            }
           </div>
-          <div className="w-full lg:w-10/12 p-2 border-2 mx-auto h-4/6 flex justify-start flex-col lg:flex-row">
-            <img src={profile.avatar_url} alt="" className="h-full w-full lg:w-1/2 object-cover"/>
-            <div className="flex lg:flex-row flex-col w-full justify-between">
-              <div className="mx-4 flex flex-col items-start justify-between space-y-2">
-                <div>
-                  <div className="flex items-center justify-between lg:justify-start mt-2">
-                    <p className="text-2xl font-bold">{profile.name}</p>
-                    {profile.hireable ? <FaCheckCircle className="size-8 text-green-700 lg:mx-6" title="available for hire"/> : <GoXCircleFill className="size-8 text-red-700 lg:mx-6" title="not available for hire" />}
-                  </div>
-                  <div className="space-y-2 lg:space-y-0">
-                    {profile.company && <p className="text-xl"> {profile.company}</p>}
-                    {profile.location && <p className="text-xl">{profile.location} </p>}
-                    {profile.bio && <p className="text-base lg:text-xl lg:pt-24 lg:max-w-full w-full">{profile.bio}</p>}
-                  </div>
-                </div>
-                <div className="flex mx-auto flex-wrap lg:mx-0">
-                  {Array.from(uniqueLanguages).map((language) => (
-                      language === undefined || langugaesWithNoLogo.includes(language) ? <span className="m-0" /> :
-                      language === "less" ?
-                      <i className={`devicon-less-plain-wordmark colored text-3xl lg:text-5xl m-2`} title={`${language}`}></i> :
-                      language == "emacs lisp" ?
-                      <i className={`devicon-emacs-original colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
-                      language === "purescript" ?
-                      <i className={`devicon-purescript-original colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
-                      <i className={`devicon-${switchLanguage(language)}-plain colored text-2xl lg:text-5xl m-2`} title={`${language === "azuresqldatabase" ? "sql" : language}`}></i>
-                    )
-                  )}
-                </div>
+        </Link>
+      </div>
+      <div className="w-full lg:w-10/12 p-2 border-2 mx-auto h-4/6 flex justify-start flex-col lg:flex-row">
+        <img src={profile.avatar_url} alt="" className="h-full w-full lg:w-1/2 object-cover"/>
+        <div className="flex lg:flex-row flex-col w-full justify-between">
+          <div className="mx-4 flex flex-col items-start justify-between space-y-2">
+            <div>
+              <div className="flex items-center justify-between lg:justify-start mt-2">
+                <p className="text-2xl font-bold">{profile.name}</p>
+                {profile.hireable ? <FaCheckCircle className="size-8 text-green-700 lg:mx-6" title="available for hire"/> : <GoXCircleFill className="size-8 text-red-700 lg:mx-6" title="not available for hire" />}
               </div>
-              <div className={`flex flex-row-reverse lg:flex-col mt-6 lg:mt-0 ${profile.blog && profile.email && profile.twitter_username ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
-                {profile.html_url && <Link to={profile.html_url} target="_blank" title={`GitHub profile: ${profile.html_url}`}><FaGithub className="size-12 lg:size-24"/></Link>}
-                {profile.blog && <Link to={profile.blog.includes("https") || profile.blog.includes("http") ? profile.blog : `https://${profile.blog}`} target="_blank" title={`Website: ${profile.blog}`}><IoIosGlobe className="size-12 lg:size-24" /></Link>}
-                {profile.twitter_username && <Link to={`https://x.com/${profile.twitter_username}`} target="_blank" title={`X profile: ${profile.twitter_username}`}  aria-label={`See X profile: ${profile.twitter_username}`}><FaXTwitter className="size-12 lg:size-24" /></Link>}
-                {profile.email && <a href={`mailto:${profile.email}`} title={`Email: ${profile.email}`} aria-label={`Send email to ${profile.email}`}><IoIosMail className="size-12 lg:size-24" /></a>}
+              <div className="space-y-2 lg:space-y-0">
+                {profile.company && <p className="text-xl"> {profile.company}</p>}
+                {profile.location && <p className="text-xl">{profile.location} </p>}
+                {profile.bio && <p className="text-base lg:text-xl lg:pt-24 lg:max-w-full w-full">{profile.bio}</p>}
               </div>
             </div>
+            <div className="flex mx-auto flex-wrap lg:mx-0">
+              {Array.from(uniqueLanguages).map((language) => (
+                  language === undefined || langugaesWithNoLogo.includes(language) ? <span className="m-0" /> :
+                  language === "less" ?
+                  <i className={`devicon-less-plain-wordmark colored text-3xl lg:text-5xl m-2`} title={`${language}`}></i> :
+                  language == "emacs lisp" ?
+                  <i className={`devicon-emacs-original colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
+                  language === "purescript" ?
+                  <i className={`devicon-purescript-original colored text-2xl lg:text-5xl m-2`} title={`${language}`}></i> :
+                  <i className={`devicon-${switchLanguage(language)}-plain colored text-2xl lg:text-5xl m-2`} title={`${language === "azuresqldatabase" ? "sql" : language}`}></i>
+                )
+              )}
+            </div>
           </div>
-          <div className="flex justify-center mt-2">
-            <button onClick={() => addProfileToList(profile.id)} className="w-full lg:w-10/12 text-center py-4 transition-colors duration-300 ease-in-out bg-slate-500 hover:bg-slate-400 text-white">Add to list</button>
+          <div className={`flex flex-row-reverse lg:flex-col mt-6 lg:mt-0 ${profile.blog && profile.email && profile.twitter_username ? "justify-center gap-12 lg:justify-between" : "justify-start gap-4 lg:gap-12"}`}>
+            {profile.html_url && <Link to={profile.html_url} target="_blank" title={`GitHub profile: ${profile.html_url}`}><FaGithub className="size-12 lg:size-24"/></Link>}
+            {profile.blog && <Link to={profile.blog.includes("https") || profile.blog.includes("http") ? profile.blog : `https://${profile.blog}`} target="_blank" title={`Website: ${profile.blog}`}><IoIosGlobe className="size-12 lg:size-24" /></Link>}
+            {profile.twitter_username && <Link to={`https://x.com/${profile.twitter_username}`} target="_blank" title={`X profile: ${profile.twitter_username}`}  aria-label={`See X profile: ${profile.twitter_username}`}><FaXTwitter className="size-12 lg:size-24" /></Link>}
+            {profile.email && <a href={`mailto:${profile.email}`} title={`Email: ${profile.email}`} aria-label={`Send email to ${profile.email}`}><IoIosMail className="size-12 lg:size-24" /></a>}
           </div>
         </div>
-      )
-
-    }
+      </div>
+      <div className="flex justify-center mt-2">
+        <button onClick={() => addProfileToList(profile.id)} className="w-full lg:w-10/12 text-center py-4 transition-colors duration-300 ease-in-out bg-slate-500 hover:bg-slate-400 text-white">Add to list</button>
+      </div>
+    </div>
+  )
 }
 
 export default Profile
