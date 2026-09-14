@@ -64,8 +64,8 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    resources,
     load: "languageOnly",
+    resources,
     fallbackLng: "en",
     // lng: countryCode!,
     supportedLngs: [
