@@ -19,10 +19,10 @@ import se from "./locales/se/se.json";
 // const countryCode = localStorage.getItem("country_code");
 
 export const resources = {
-  gb: {
+  en: {
     translation: gb,
   },
-  se: {
+  sv: {
     translation: se,
   },
   pt: {
@@ -46,7 +46,7 @@ export const resources = {
   no: {
     translation: no,
   },
-  dk: {
+  da: {
     translation: dk,
   },
   fi: {
