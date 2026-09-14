@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-cd /srv/apps/app3
+cd /apps/gethubbers
 git pull
 npm ci
 npm run build
