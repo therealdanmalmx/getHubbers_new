@@ -12,6 +12,22 @@ type CountryContextType = {
   setCountry: (code: string) => void;
 };
 
+const COUNTRIES = {
+  se: { name: "Sweden", key: "sverige", lang: "sv" },
+  pt: { name: "Portugal", key: "portugal", lang: "pt" },
+  gb: { name: "United Kingdom", key: "united kingdom", lang: "en" },
+  es: { name: "Spain", key: "espanha", lang: "es" },
+  fr: { name: "France", key: "france", lang: "fr" },
+  nl: { name: "Netherlands", key: "nederland", lang: "nl" },
+  de: { name: "Germany", key: "deutschland", lang: "de" },
+  it: { name: "Italy", key: "italia", lang: "it" },
+  no: { name: "Norway", key: "norge", lang: "no" },
+  dk: { name: "Denmark", key: "danmark", lang: "da" },
+  fi: { name: "Finland", key: "suomi", lang: "fi" },
+  pl: { name: "Poland", key: "polska", lang: "pl" },
+  ie: { name: "Ireland", key: "ireland", lang: "en" },
+} as const;
+
 export const CountryContext = createContext<CountryContextType>({
   formattedCountry: "",
   country: "",
@@ -23,7 +39,6 @@ export const CountryContext = createContext<CountryContextType>({
 export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const { t } = useTranslation();
 
-  const [formattedCountry, setFormattedCountry] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const [countryCode, setCountryCode] = useState<string>("");
 
@@ -41,8 +56,9 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
       );
       const data = await response.json();
 
+      console.log("ipinfo:", data.country_code, data.country);
+
       const newCountryCode = data.country_code.toLowerCase();
-      setCountry(data.country);
       setCountryCode(newCountryCode);
     } catch (error) {
       console.error("Error detecting country:", error);
@@ -50,78 +66,24 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
     }
   };
 
-  const getCountry = () => {
-    switch (countryCode) {
-      case "se":
-        setCountry("Sweden");
-        setFormattedCountry(t("sverige"));
-        break;
-      case "pt":
-        setCountry("Portugal");
-        setFormattedCountry(t("portugal"));
-        break;
-      case "gb":
-        setCountry("United Kingdom");
-        setFormattedCountry(t("united kingdom"));
-        break;
-      case "es":
-        setCountry("Spain");
-        setFormattedCountry(t("espanha"));
-        break;
-      case "fr":
-        setCountry("France");
-        setFormattedCountry(t("france"));
-        break;
-      case "nl":
-        setCountry("Netherlands");
-        setFormattedCountry(t("nederland"));
-        break;
-      case "de":
-        setCountry("Germany");
-        setFormattedCountry(t("deutschland"));
-        break;
-      case "it":
-        setCountry("Italy");
-        setFormattedCountry(t("italia"));
-        break;
-      case "no":
-        setCountry("Norway");
-        setFormattedCountry(t("norge"));
-        break;
-      case "dk":
-        setCountry("Denmark");
-        setFormattedCountry(t("danmark"));
-        break;
-      case "fi":
-        setCountry("Finland");
-        setFormattedCountry(t("suomi"));
-        break;
-      case "pl":
-        setCountry("Poland");
-        setFormattedCountry(t("polska"));
-        break;
-      case "ie":
-        setCountry("Ireland");
-        setFormattedCountry(t("ireland"));
-        break;
-      default:
-        setFormattedCountry(t("united kingdom"));
-        break;
-    }
-  };
-
   useEffect(() => {
     getUserCountry();
   }, []);
 
-  useEffect(() => {
-    getCountry();
-    if (countryCode) {
-      i18n.changeLanguage(countryCode);
-      localStorage.setItem("country_code", countryCode);
-    }
-  }, [countryCode]);
+  const entry =
+    COUNTRIES[countryCode as keyof typeof COUNTRIES] ?? COUNTRIES.gb;
+  const formattedCountry = countryCode ? t(entry.key) : "";
 
+  useEffect(() => {
+    if (!countryCode) {
+      return;
+    }
+
+    setCountry(entry.name);
+    i18n.changeLanguage(entry.lang);
+    const code = countryCode in COUNTRIES ? countryCode : "gb";
+    localStorage.setItem("country_code", code);
+  }, [countryCode]);
   return (
     <CountryContext.Provider
       value={{
