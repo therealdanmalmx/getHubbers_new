@@ -64,6 +64,10 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
+    detection: {
+      order: ["navigator"],
+      caches: [],
+    },
     load: "languageOnly",
     resources,
     fallbackLng: "en",
