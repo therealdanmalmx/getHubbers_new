@@ -45,9 +45,10 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const getUserCountry = async () => {
     try {
       const storedCountryCode = localStorage.getItem("country_code");
-
       if (storedCountryCode) {
-        setCountryCode(storedCountryCode);
+        setCountryCode(
+          storedCountryCode in COUNTRIES ? storedCountryCode : "gb",
+        );
         return;
       }
 
@@ -56,13 +57,11 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
       );
       const data = await response.json();
 
-      console.log("ipinfo:", data.country_code, data.country);
-
       const newCountryCode = data.country_code.toLowerCase();
-      setCountryCode(newCountryCode);
+      setCountryCode(newCountryCode in COUNTRIES ? newCountryCode : "gb");
     } catch (error) {
       console.error("Error detecting country:", error);
-      return null;
+      setCountryCode("gb");
     }
   };
 
@@ -81,8 +80,7 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     setCountry(entry.name);
     i18n.changeLanguage(entry.lang);
-    const code = countryCode in COUNTRIES ? countryCode : "gb";
-    localStorage.setItem("country_code", code);
+    localStorage.setItem("country_code", countryCode);
   }, [countryCode]);
   return (
     <CountryContext.Provider
