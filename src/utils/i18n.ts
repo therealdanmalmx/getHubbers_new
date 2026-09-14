@@ -2,23 +2,23 @@ import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
+import de from "./locales/de/de.json";
+import dk from "./locales/dk/dk.json";
+import es from "./locales/es/es.json";
+import fi from "./locales/fi/fi.json";
+import fr from "./locales/fr/fr.json";
 import gb from "./locales/gb/gb.json";
+import ie from "./locales/ie/ie.json";
+import it from "./locales/it/it.json";
+import nl from "./locales/nl/nl.json";
+import no from "./locales/no/no.json";
+import pl from "./locales/pl/pl.json";
 import pt from "./locales/pt/pt.json";
 import se from "./locales/se/se.json";
-import de from "./locales/de/de.json";
-import fr from "./locales/fr/fr.json";
-import es from "./locales/es/es.json";
-import nl from "./locales/nl/nl.json";
-import it from "./locales/it/it.json";
-import no from "./locales/no/no.json";
-import dk from "./locales/dk/dk.json";
-import fi from "./locales/fi/fi.json";
-import pl from "./locales/pl/pl.json";
-import ie from "./locales/ie/ie.json";
 
 // const countryCode = localStorage.getItem("country_code");
 
-const resources = {
+export const resources = {
   gb: {
     translation: gb,
   },
@@ -67,7 +67,21 @@ i18n
     resources,
     fallbackLng: "gb",
     // lng: countryCode!,
-    supportedLngs: ["gb", "se", "pt", "de", "fr", "es", "nl", "it", "no", "dk", "fi", "pl", "ie"],
+    supportedLngs: [
+      "gb",
+      "se",
+      "pt",
+      "de",
+      "fr",
+      "es",
+      "nl",
+      "it",
+      "no",
+      "dk",
+      "fi",
+      "pl",
+      "ie",
+    ],
     interpolation: {
       escapeValue: false,
     },
