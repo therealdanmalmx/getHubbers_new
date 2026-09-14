@@ -65,11 +65,11 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: "gb",
+    fallbackLng: "en",
     // lng: countryCode!,
     supportedLngs: [
-      "gb",
-      "se",
+      "en",
+      "sv",
       "pt",
       "de",
       "fr",
@@ -77,10 +77,9 @@ i18n
       "nl",
       "it",
       "no",
-      "dk",
+      "da",
       "fi",
       "pl",
-      "ie",
     ],
     interpolation: {
       escapeValue: false,
