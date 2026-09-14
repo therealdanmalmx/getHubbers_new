@@ -65,13 +65,9 @@ const DropdownCountries = () => {
                 onClick={() => {
                   setSelected(country);
                   setCountry(country.name);
-                  setCountryCode(country.code.toLowerCase());
-                  localStorage.setItem(
-                    "country_code",
-                    country.code.toLowerCase(),
-                  );
+                  setCountryCode(country.code);
+                  localStorage.setItem("country_code", country.code);
                   setIsOpen(false);
-                  window.location.reload();
                 }}
                 className={`flex cursor-pointer items-center gap-2 p-4 hover:bg-slate-100 ${country.name === selected.name && "bg-slate-200"}`}
               >

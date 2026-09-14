@@ -57,6 +57,8 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
       );
       const data = await response.json();
 
+      console.log("ipinfo:", data.country_code, data.country);
+
       const newCountryCode = data.country_code.toLowerCase();
       setCountryCode(newCountryCode in COUNTRIES ? newCountryCode : "gb");
     } catch (error) {
