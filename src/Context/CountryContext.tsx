@@ -17,7 +17,7 @@ export const CountryContext = createContext<CountryContextType>({
   country: "",
   countryCode: "",
   setCountryCode: () => {},
-  setCountry: () => {}
+  setCountry: () => {},
 });
 
 export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
@@ -36,13 +36,14 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
         return;
       }
 
-      const response = await fetch(`https://api.ipinfo.io/lite/me?token=${import.meta.env.VITE_IP_INFO_TOKEN}`);
+      const response = await fetch(
+        `https://api.ipinfo.io/lite/me?token=${import.meta.env.VITE_IP_INFO_TOKEN}`,
+      );
       const data = await response.json();
 
       const newCountryCode = data.country_code.toLowerCase();
       setCountry(data.country);
       setCountryCode(newCountryCode);
-
     } catch (error) {
       console.error("Error detecting country:", error);
       return null;
@@ -52,60 +53,60 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const getCountry = () => {
     switch (countryCode) {
       case "se":
-          setCountry("Sweden")
-          setFormattedCountry(t("sverige"));
+        setCountry("Sweden");
+        setFormattedCountry(t("sverige"));
         break;
-        case "pt":
-          setCountry("Portugal")
-          setFormattedCountry(t("portugal"));
+      case "pt":
+        setCountry("Portugal");
+        setFormattedCountry(t("portugal"));
         break;
-        case "gb":
-          setCountry("United Kingdom")
-          setFormattedCountry(t("united kingdom"));
+      case "gb":
+        setCountry("United Kingdom");
+        setFormattedCountry(t("united kingdom"));
         break;
-        case "es":
-          setCountry("Spain")
-          setFormattedCountry(t("espanha"));
+      case "es":
+        setCountry("Spain");
+        setFormattedCountry(t("espanha"));
         break;
-        case "fr":
-          setCountry("France")
-          setFormattedCountry(t("france"));
+      case "fr":
+        setCountry("France");
+        setFormattedCountry(t("france"));
         break;
-        case "nl":
-          setCountry("Netherlands")
-          setFormattedCountry(t("nederland"));
+      case "nl":
+        setCountry("Netherlands");
+        setFormattedCountry(t("nederland"));
         break;
-        case "de":
-          setCountry("Germany")
-          setFormattedCountry(t("deutschland"));
+      case "de":
+        setCountry("Germany");
+        setFormattedCountry(t("deutschland"));
         break;
-        case "it":
-          setCountry("Italy")
-          setFormattedCountry(t("italia"));
+      case "it":
+        setCountry("Italy");
+        setFormattedCountry(t("italia"));
         break;
-        case "no":
-          setCountry("Norway")
-          setFormattedCountry(t("norge"));
+      case "no":
+        setCountry("Norway");
+        setFormattedCountry(t("norge"));
         break;
-        case "dk":
-          setCountry("Denmark")
-          setFormattedCountry(t("danmark"));
+      case "dk":
+        setCountry("Denmark");
+        setFormattedCountry(t("danmark"));
         break;
-        case "fi":
-          setCountry("Finland")
-          setFormattedCountry(t("suomi"));
+      case "fi":
+        setCountry("Finland");
+        setFormattedCountry(t("suomi"));
         break;
-        case "pl":
-          setCountry("Poland")
-          setFormattedCountry(t("polska"));
+      case "pl":
+        setCountry("Poland");
+        setFormattedCountry(t("polska"));
         break;
-        case "ie":
-          setCountry("Ireland")
-          setFormattedCountry(t("ireland"));
+      case "ie":
+        setCountry("Ireland");
+        setFormattedCountry(t("ireland"));
         break;
       default:
         setFormattedCountry(t("united kingdom"));
-      break;
+        break;
     }
   };
 
@@ -122,7 +123,15 @@ export const CountryProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, [countryCode]);
 
   return (
-    <CountryContext.Provider value={{ formattedCountry, country, countryCode, setCountry, setCountryCode }}>
+    <CountryContext.Provider
+      value={{
+        formattedCountry,
+        country,
+        countryCode,
+        setCountry,
+        setCountryCode,
+      }}
+    >
       {children}
     </CountryContext.Provider>
   );
