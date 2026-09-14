@@ -25,8 +25,8 @@ const DropdownCountries = () => {
   const getInitialCountry = () => {
     const savedCode = localStorage.getItem("country_code");
     return (
-      countryList.find((c) => c.code.toLowerCase() === savedCode) ??
-      countryList[12]
+      countryList.find((c) => c.code === savedCode) ??
+      countryList.find((c) => c.code === "gb")!
     );
   };
 
