@@ -1,4 +1,3 @@
-// src/utils/ProfileList.ts  (no JSX here, so .ts is enough)
 const STORAGE_KEY = "profileList";
 
 export type SavedProfile = Record<string, any>;
@@ -8,7 +7,7 @@ export const getSavedProfiles = (): SavedProfile[] => {
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "[]");
     return Array.isArray(stored) ? stored : [];
   } catch {
-    return []; // also clears up the bad "undefined" value saved earlier
+    return [];
   }
 };
 
