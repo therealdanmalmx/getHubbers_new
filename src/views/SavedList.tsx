@@ -12,11 +12,9 @@ const SavedList = () => {
   const [savedList, setSavedList] = useState(getSavedProfiles);
 
   const removeProfile = (id: number) => {
-    const index = savedList.findIndex((p) => p.id === id);
-    if (index > -1) {
-      savedList.splice(index, 1);
-      setSavedList(savedList.filter((p) => p.id !== id));
-    }
+    const updated = savedList.filter((p) => p.id !== id);
+    setSavedList(updated);
+    localStorage.setItem("profileList", JSON.stringify(updated));
   };
 
   useEffect(() => {
@@ -38,7 +36,7 @@ const SavedList = () => {
         )}
       </div>
       <div className="flex flex-wrap justify-center gap-8">
-        {savedList?.map((profile) => (
+        {savedList.map((profile) => (
           <div key={profile.id} className="relative cursor-pointer text-center">
             <img
               src={profile.avatar_url}
