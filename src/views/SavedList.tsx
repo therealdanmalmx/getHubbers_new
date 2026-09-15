@@ -4,7 +4,6 @@ import { MdDeleteForever } from "react-icons/md";
 
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { profileList } from "../utils/ProfileList";
 import { getSavedProfiles } from "../utils/savedList";
 
 const SavedList = () => {
@@ -15,7 +14,7 @@ const SavedList = () => {
   const removeProfile = (id: number) => {
     const index = savedList.findIndex((p) => p.id === id);
     if (index > -1) {
-      profileList.splice(index, 1);
+      savedList.splice(index, 1);
       setSavedList(savedList.filter((p) => p.id !== id));
     }
   };
