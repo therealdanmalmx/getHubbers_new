@@ -33,5 +33,6 @@
   "developers": "developers",
   "savedProfiles": "Your saved profiles",
   "profileerror": "Could not load the profile right now. Please try again later",
-  "alreadyInList": "Profile already added"
+  "alreadyInList": "Profile already added",
+  "profileAddedToList": "Profile added to saved items."
 }

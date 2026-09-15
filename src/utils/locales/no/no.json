@@ -33,5 +33,6 @@
   "developers": "utviklere",
   "savedProfiles": "Dine lagrede profiler",
   "profileerror": "Kunne ikke laste profilen nå. Prøv igjen senere",
-  "alreadyInList": "Profilen er allerede lagt til"
+  "alreadyInList": "Profilen er allerede lagt til",
+  "profileAddedToList": "Profilen ble lagt til i lagrede elementer."
 }

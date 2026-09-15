@@ -32,5 +32,6 @@
   "developers": "programadores",
   "savedProfiles": "Seus perfis guardados",
   "profileerror": "Não foi possível carregar o perfil agora. Por favor, tente novamente mais tarde",
-  "alreadyInList": "Perfil já adicionado"
+  "alreadyInList": "Perfil já adicionado",
+  "profileAddedToList": "Perfil adicionado aos itens guardados."
 }

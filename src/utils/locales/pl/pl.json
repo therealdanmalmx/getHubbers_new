@@ -33,5 +33,6 @@
   "developers": "programiści",
   "savedProfiles": "Twoje zapisane profile",
   "profileerror": "Nie udało się załadować profilu. Spróbuj ponownie później",
-  "alreadyInList": "Profil już dodany"
+  "alreadyInList": "Profil już dodany",
+  "profileAddedToList": "Profil dodany do zapisanych profili."
 }

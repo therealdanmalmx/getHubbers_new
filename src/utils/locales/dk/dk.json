@@ -33,7 +33,7 @@
   "developers": "udviklere",
   "savedProfiles": "Dine gemte profiler",
   "profileerror": "Kunne ikke indlæse profilen lige nu. Prøv igen senere",
-  "alreadyInList": "Profil allerede tilføjet"
+  "profileAddedToList": "Profil føjet til gemte elementer."
 
 
 }

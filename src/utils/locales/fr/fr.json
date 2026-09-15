@@ -33,7 +33,6 @@
   "developers": "développeurs",
   "savedProfiles": "Vos profils enregistrés",
   "profileerror": "Impossible de charger le profil en ce moment. Veuillez réessayer plus tard",
-  "alreadyInList": "Profil déjà ajouté"
-
-
+  "alreadyInList": "Profil déjà ajouté",
+  "profileAddedToList": "Profil ajouté aux éléments enregistrés."
 }

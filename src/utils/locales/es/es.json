@@ -33,6 +33,8 @@
     "developers": "desarrolladores",
     "savedProfiles": "Tus perfiles guardados",
     "profileerror": "No se pudo cargar el perfil en este momento. Por favor, intenta de nuevo más tarde",
-    "alreadyInList": "Perfil ya agregado"
+    "alreadyInList": "Perfil ya agregado",
+    "profileAddedToList": "Perfil añadido a los elementos guardados."
+
 
 }

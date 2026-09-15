@@ -33,6 +33,6 @@
   "developers": "kehittäjää",
   "savedProfiles": "Tallennetut profiilit",
   "profileerror": "Profiilia ei voitu ladata juuri nyt. Yritä uudelleen myöhemmin",
-  "alreadyInList": "Profiili on jo lisätty"
-
+  "alreadyInList": "Profiili on jo lisätty",
+  "profileAddedToList": "Profiili lisättiin tallennettuihin kohteisiin."
 }
