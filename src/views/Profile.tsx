@@ -14,15 +14,15 @@ import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { FetchContext } from "../Context/FetchContext";
 import { langugaesWithNoLogo, switchLanguage } from "../utils/Helpers";
-import { profileList } from "../utils/ProfileList";
+import { getSavedProfiles, setSavedProfiles } from "../utils/savedList";
 
 const Profile = () => {
+  const [savedList, setSavedList] = useState(getSavedProfiles);
   const { login } = useParams();
   const { profile, repos, getIndividualProfile, getIndividualRepos } =
     useContext(FetchContext);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
-  const [_, setSavedList] = useState<Record<string, any>>();
 
   useEffect(() => {
     const storedList = localStorage.getItem("profileList");
@@ -40,14 +40,14 @@ const Profile = () => {
   const uniqueLanguages = new Set(repoFiltered);
 
   const addProfileToList = (id: number) => {
-    const profileExists = profileList.some((p) => p.id === id);
-    if (!profileExists) {
-      setSavedList(profile);
-      profileList.push(profile);
-      toast.success(t("profileAddedToList"));
-    } else {
+    if (savedList.some((p) => p.id === id)) {
       toast.error(t("alreadyInList"));
+      return;
     }
+    const updated = [...savedList, profile];
+    setSavedList(updated);
+    setSavedProfiles(updated);
+    toast.success(t("profileAddedToList"));
   };
 
   useEffect(() => {
@@ -77,11 +77,11 @@ const Profile = () => {
         </div>
         <Link to="/profile-list">
           <div className="mx-auto my-2 flex size-12 cursor-pointer flex-col items-center justify-center lg:mx-36">
-            {profileList.length > 0 && (
+            {savedList.length > 0 && (
               <div className="relative flex cursor-pointer items-start justify-center duration-300 ease-in-out hover:text-slate-500">
                 <FaBookmark className="size-12 cursor-pointer" />
                 <span className="absolute cursor-pointer pt-1 text-xl font-bold text-white">
-                  {profileList.length}
+                  {savedList.length}
                 </span>
               </div>
             )}
