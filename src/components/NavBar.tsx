@@ -1,12 +1,10 @@
 // import { useTranslation } from "react-i18next";
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import gethubberslogo from "../assets/logos/gethubberslogo.png";
 
 const NavBar = () => {
-  const { t } = useTranslation();
   return (
-    <div className="bg-nordic z-10 flex h-12 w-full items-center justify-center py-2 md:justify-between md:px-4">
+    <div className="bg-nordic z-10 flex h-16 w-full items-center justify-center md:justify-between">
       <div>
         <Link to="/" className="navbar">
           <div>
@@ -14,9 +12,6 @@ const NavBar = () => {
               <span>Get</span>
               <span className="text-nordic_salmon">Hubbers</span>
             </h1>
-            {/* <p className="m-0 p-0 text-center text-xl uppercase text-logo-text md:text-left md:text-2xl">
-              {t("logoText")}
-            </p> */}
           </div>
         </Link>
       </div>
