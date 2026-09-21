@@ -35,5 +35,7 @@
   "profileerror": "Kon het profiel op dit moment niet laden. Probeer het later opnieuw",
   "alreadyInList": "Profiel al toegevoegd",
   "profileAddedToList": "Profiel toegevoegd aan opgeslagen items.",
-  "chosenLanguages": "Gekozen talen / frameworks"
+  "chosenLanguages": "Gekozen talen / frameworks",
+  "availableForHire": "Beschikbaar voor werk",
+  "availableNotForHire": "Niet beschikbaar voor werk"
 }

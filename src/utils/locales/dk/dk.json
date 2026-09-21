@@ -34,5 +34,7 @@
   "savedProfiles": "Dine gemte profiler",
   "profileerror": "Kunne ikke indlæse profilen lige nu. Prøv igen senere",
   "profileAddedToList": "Profil føjet til gemte elementer.",
-  "chosenLanguages": "Valgte sprog / frameworks"
+  "chosenLanguages": "Valgte sprog / frameworks",
+  "availableForHire": "Tilgængelig for ansættelse",
+  "availableNotForHire": "Ikke tilgængelig for ansættelse"
 }

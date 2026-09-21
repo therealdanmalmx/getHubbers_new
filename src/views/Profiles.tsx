@@ -35,7 +35,7 @@ const Profiles = () => {
     <div>
       <div className="my-4 flex flex-col items-center justify-center lg:flex-row">
         <div onClick={() => navigate("/")}>
-          <FaChevronCircleLeft className="bg-nord bg-nordic_salmon mx-auto my-2 size-12 cursor-pointer rounded-full hover:rounded-full hover:bg-slate-500 lg:mx-16" />
+          <FaChevronCircleLeft className="bg-nordic_salmon mx-auto my-2 size-12 cursor-pointer rounded-full hover:rounded-full hover:bg-red-300 lg:mx-16" />
         </div>
         {profiles.items.length > 0 && (
           <div className="text-nordic_salmon text-center text-2xl font-bold uppercase lg:flex-1 lg:text-5xl">

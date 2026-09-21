@@ -35,5 +35,7 @@
   "profileerror": "Profiilia ei voitu ladata juuri nyt. Yritä uudelleen myöhemmin",
   "alreadyInList": "Profiili on jo lisätty",
   "profileAddedToList": "Profiili lisättiin tallennettuihin kohteisiin.",
-  "chosenLanguages": "Valitut kielet / kehykset"
+  "chosenLanguages": "Valitut kielet / kehykset",
+  "availableForHire": "Vapaana töihin",
+  "availableNotForHire": "Ei vapaana töihin"
 }

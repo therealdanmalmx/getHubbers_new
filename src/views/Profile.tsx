@@ -1,14 +1,8 @@
 import { t } from "i18next";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import {
-  FaBookmark,
-  FaCheckCircle,
-  FaChevronCircleLeft,
-  FaGithub,
-} from "react-icons/fa";
+import { FaBookmark, FaChevronCircleLeft, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { GoXCircleFill } from "react-icons/go";
 import { IoIosGlobe, IoIosMail } from "react-icons/io";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
@@ -97,29 +91,48 @@ const Profile = () => {
         <div className="flex w-full flex-col justify-between lg:flex-row">
           <div className="mx-4 flex flex-col items-start justify-between space-y-2">
             <div>
-              <div className="mt-2 flex items-center justify-between lg:justify-start">
-                <p className="text-2xl font-bold">{profile.name}</p>
+              <div className="mt-2 flex items-center justify-between space-x-12 lg:justify-start">
+                <p className="text-nordic_salmon text-2xl font-bold">
+                  {profile.name}
+                </p>
                 {profile.hireable ? (
-                  <FaCheckCircle
-                    className="size-8 text-green-700 lg:mx-6"
+                  <div
+                    className="w-max rounded-full bg-green-700 px-4 py-2 text-white"
                     title="available for hire"
-                  />
+                  >
+                    {t("availableForHire")}
+                  </div>
                 ) : (
-                  <GoXCircleFill
-                    className="size-8 text-red-700 lg:mx-6"
+                  // <FaCheckCircle
+                  //   className="size-8 text-green-700 lg:mx-6"
+                  //   values="Available for hire"
+                  // />
+                  <div
+                    className="w-max rounded-full bg-red-700 px-4 py-2 text-white"
                     title="not available for hire"
-                  />
+                  >
+                    {t("availableNotForHire")}
+                  </div>
+                  // <GoXCircleFill
+                  //   className="size-8 text-red-700 lg:mx-6"
+                  //   title="not available for hire"
+                  // />
                 )}
               </div>
               <div className="space-y-2 lg:space-y-0">
                 {profile.company && (
-                  <p className="text-xl"> {profile.company}</p>
+                  <p className="text-nordic_salmon text-xl">
+                    {" "}
+                    {profile.company}
+                  </p>
                 )}
                 {profile.location && (
-                  <p className="text-xl">{profile.location} </p>
+                  <p className="text-nordic_salmon text-xl">
+                    {profile.location}{" "}
+                  </p>
                 )}
                 {profile.bio && (
-                  <p className="w-full text-base lg:max-w-full lg:pt-24 lg:text-xl">
+                  <p className="text-nordic_salmon w-full text-base lg:max-w-full lg:pt-24 lg:text-xl">
                     {profile.bio}
                   </p>
                 )}
@@ -163,7 +176,7 @@ const Profile = () => {
                 target="_blank"
                 title={`GitHub profile: ${profile.html_url}`}
               >
-                <FaGithub className="size-12 lg:size-24" />
+                <FaGithub className="text-nordic_salmon size-12 lg:size-24" />
               </Link>
             )}
             {profile.blog && (
@@ -177,7 +190,7 @@ const Profile = () => {
                 target="_blank"
                 title={`Website: ${profile.blog}`}
               >
-                <IoIosGlobe className="size-12 lg:size-24" />
+                <IoIosGlobe className="text-nordic_salmon size-12 lg:size-24" />
               </Link>
             )}
             {profile.twitter_username && (
@@ -187,7 +200,7 @@ const Profile = () => {
                 title={`X profile: ${profile.twitter_username}`}
                 aria-label={`See X profile: ${profile.twitter_username}`}
               >
-                <FaXTwitter className="size-12 lg:size-24" />
+                <FaXTwitter className="text-nordic_salmon size-12 lg:size-24" />
               </Link>
             )}
             {profile.email && (
@@ -196,7 +209,7 @@ const Profile = () => {
                 title={`Email: ${profile.email}`}
                 aria-label={`Send email to ${profile.email}`}
               >
-                <IoIosMail className="size-12 lg:size-24" />
+                <IoIosMail className="text-nordic_salmon size-12 lg:size-24" />
               </a>
             )}
           </div>

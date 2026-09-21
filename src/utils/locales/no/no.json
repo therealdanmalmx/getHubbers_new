@@ -35,5 +35,7 @@
   "profileerror": "Kunne ikke laste profilen nå. Prøv igjen senere",
   "alreadyInList": "Profilen er allerede lagt til",
   "profileAddedToList": "Profilen ble lagt til i lagrede elementer.",
-  "chosenLanguages": "Valgte språk / rammeverk"
+  "chosenLanguages": "Valgte språk / rammeverk",
+  "availableForHire": "Tilgjengelig for ansettelse",
+  "availableNotForHire": "Ikke tilgjengelig for ansettelse"
 }

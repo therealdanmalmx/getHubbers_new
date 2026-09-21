@@ -34,5 +34,7 @@
   "profileerror": "Não foi possível carregar o perfil agora. Por favor, tente novamente mais tarde",
   "alreadyInList": "Perfil já adicionado",
   "profileAddedToList": "Perfil adicionado aos itens guardados.",
-  "chosenLanguages": "Linguagens / frameworks escolhidos"
+  "chosenLanguages": "Linguagens / frameworks escolhidos",
+  "availableForHire": "Disponível para contratação",
+  "availableNotForHire": "Não disponível para contratação"
 }

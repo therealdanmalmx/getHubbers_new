@@ -35,5 +35,7 @@
   "alreadyInList": "Profil redan tillagd",
   "profileerror": "Kunde inte ladda profilen just nu. Försök igen senare",
   "profileAddedToList": "Profil tillagd bland sparade objekt.",
-  "chosenLanguages": "Valda språk / ramverk"
+  "chosenLanguages": "Valda språk / ramverk",
+  "availableForHire": "Öppen för anställning",
+  "availableNotForHire": "Inte öppen för anställning"
 }

@@ -35,5 +35,7 @@
   "profileerror": "Could not load the profile right now. Please try again later",
   "alreadyInList": "Profile already added",
   "profileAddedToList": "Profile added to saved items.",
-  "chosenLanguages": "Chosen languages / frameworks"
+  "chosenLanguages": "Chosen languages / frameworks",
+  "availableForHire": "Available for hire",
+  "availableNotForHire": "Not available for hire"
 }

@@ -35,5 +35,7 @@
   "profileerror": "Das Profil konnte gerade nicht geladen werden. Bitte versuchen Sie es später erneut",
   "alreadyInList": "Profil bereits hinzugefügt",
   "profileAddedToList": "Profil zu den gespeicherten Profilen hinzugefügt.",
-  "chosenLanguages": "Ausgewählte Sprachen / Frameworks"
+  "chosenLanguages": "Ausgewählte Sprachen / Frameworks",
+  "availableForHire": "Für Aufträge verfügbar",
+  "availableNotForHire": "Nicht für Aufträge verfügbar"
 }
