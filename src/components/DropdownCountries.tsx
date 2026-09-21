@@ -1,7 +1,7 @@
 import { t } from "i18next";
 import { useContext, useState } from "react";
+import { CircleFlag } from "react-circle-flags";
 import { IoChevronDownSharp, IoChevronUpOutline } from "react-icons/io5";
-import Flag from "react-world-flags";
 import { CountryContext } from "../Context/CountryContext";
 
 const DropdownCountries = () => {
@@ -37,24 +37,25 @@ const DropdownCountries = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative w-56">
+    <div className="relative w-52">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between border-2 border-slate-400 bg-white p-4"
+        className="bg-nordic flex w-full items-center justify-between p-4"
       >
-        <div
-          className={
-            "flex items-center justify-between gap-4 lg:justify-start lg:gap-2"
-          }
-        >
-          <Flag code={selected.code} className="size-8" />
-          {t(selected.name.toLowerCase())}
-          {isOpen ? <IoChevronUpOutline /> : <IoChevronDownSharp />}
+        <div className={"flex w-full items-center justify-between text-white"}>
+          <span className="text-nordic_salmon flex items-center gap-2">
+            <CircleFlag countryCode={selected.code} className="size-5" />
+            {/* <Flag code={selected.code} className="size-8" /> */}
+            {t(selected.name.toLowerCase())}
+          </span>
+          <span>
+            {isOpen ? <IoChevronUpOutline /> : <IoChevronDownSharp />}
+          </span>
         </div>
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-full z-50 mb-2 max-h-60 w-full overflow-y-auto border-2 border-slate-400 bg-white">
+        <div className="bg-nordic absolute bottom-full z-50 mb-2 max-h-60 w-full overflow-y-auto">
           {[...countryList]
             .sort((a, b) =>
               t(a.name.toLowerCase()).localeCompare(t(b.name.toLowerCase())),
@@ -69,9 +70,10 @@ const DropdownCountries = () => {
                   localStorage.setItem("country_code", country.code);
                   setIsOpen(false);
                 }}
-                className={`flex cursor-pointer items-center gap-2 p-4 hover:bg-slate-100 ${country.name === selected.name && "bg-slate-200"}`}
+                className={`hover:bg-nordic_asccent flex cursor-pointer items-center gap-2 p-4 text-white ${country.name === selected.name && "bg-nordic_shade"}`}
               >
-                <Flag code={country.code} className="size-8" />
+                <CircleFlag countryCode={country.code} className="size-5" />
+                {/* <Flag code={country.code} className="size-8" /> */}
                 {t(country.name.toLowerCase())}
               </div>
             ))}
