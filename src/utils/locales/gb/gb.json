@@ -28,11 +28,12 @@
   "opendropdownclose": "close",
   "noprofilesfound": "No profiles were found based on your search criteria.",
   "searchFieldHeading": "Search for a city or leave blank to search the entire country",
-  "searchFieldPlaceholder": "City or leave blank",
+  "searchFieldPlaceholder": "City or blank for country wide",
   "missingIconAlert": "Chose at least one language / framework",
   "developers": "developers",
   "savedProfiles": "Your saved profiles",
   "profileerror": "Could not load the profile right now. Please try again later",
   "alreadyInList": "Profile already added",
-  "profileAddedToList": "Profile added to saved items."
+  "profileAddedToList": "Profile added to saved items.",
+  "chosenLanguages": "Chosen languages / frameworks"
 }

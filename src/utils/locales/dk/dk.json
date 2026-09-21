@@ -28,12 +28,11 @@
   "opendropdownclose": "lukke",
   "noprofilesfound": "Ingen profiler fundet baseret på dine valg.",
   "searchFieldHeading": "Søg efter et sted eller lad stå tomt for at søge i hele landet",
-  "searchFieldPlaceholder": "Indtast by / lad stå tomt",
+  "searchFieldPlaceholder": "By eller tomt for hele landet",
   "missingIconAlert": "Vælg mindst ét sprog / framework",
   "developers": "udviklere",
   "savedProfiles": "Dine gemte profiler",
   "profileerror": "Kunne ikke indlæse profilen lige nu. Prøv igen senere",
-  "profileAddedToList": "Profil føjet til gemte elementer."
-
-
+  "profileAddedToList": "Profil føjet til gemte elementer.",
+  "chosenLanguages": "Valgte sprog / frameworks"
 }

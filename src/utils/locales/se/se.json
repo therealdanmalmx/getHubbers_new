@@ -28,11 +28,12 @@
   "opendropdownclose": "stänga",
   "noprofilesfound": "Inga profiler hittades baserat på dina val.",
   "searchFieldHeading": "Sök efter en ort eller lämna tomt för att söka i hela landet",
-  "searchFieldPlaceholder": "Ange stad / lämna tomt",
+  "searchFieldPlaceholder": "Ange stad / tomt för hela landet",
   "missingIconAlert": "Välj minst ett språk / ramverk",
   "developers": "utvecklare",
   "savedProfiles": "Dina sparade profiler",
   "alreadyInList": "Profil redan tillagd",
   "profileerror": "Kunde inte ladda profilen just nu. Försök igen senare",
-  "profileAddedToList": "Profil tillagd bland sparade objekt."
+  "profileAddedToList": "Profil tillagd bland sparade objekt.",
+  "chosenLanguages": "Valda språk / ramverk"
 }

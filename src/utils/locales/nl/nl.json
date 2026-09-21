@@ -28,11 +28,12 @@
   "opendropdownclose": "sluiten",
   "noprofilesfound": "Geen profielen gevonden op basis van je selectie.",
   "searchFieldHeading": "Zoek naar een stad of laat leeg om in heel laand te zoeken",
-  "searchFieldPlaceholder": "Voer stad in / laat leeg",
+  "searchFieldPlaceholder": "Stad of leeg voor het hele land",
   "missingIconAlert": "Kies minstens één taal / framework",
   "developers": "ontwikkelaars",
   "savedProfiles": "Je opgeslagen profielen",
   "profileerror": "Kon het profiel op dit moment niet laden. Probeer het later opnieuw",
   "alreadyInList": "Profiel al toegevoegd",
-  "profileAddedToList": "Profiel toegevoegd aan opgeslagen items."
+  "profileAddedToList": "Profiel toegevoegd aan opgeslagen items.",
+  "chosenLanguages": "Gekozen talen / frameworks"
 }

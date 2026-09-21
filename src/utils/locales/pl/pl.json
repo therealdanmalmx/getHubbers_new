@@ -28,11 +28,12 @@
   "opendropdownclose": "zamknąć",
   "noprofilesfound": "Nie znaleziono profili na podstawie Twoich kryteriów wyszukiwania.",
   "searchFieldHeading": "Wyszukaj miasto lub pozostaw puste, aby przeszukać cały kraj",
-  "searchFieldPlaceholder": "Miasto lub pozostaw puste",
+  "searchFieldPlaceholder": "Miasto lub puste, aby przeszukać cały kraj",
   "missingIconAlert": "Wybierz co najmniej jeden język / framework",
   "developers": "programiści",
   "savedProfiles": "Twoje zapisane profile",
   "profileerror": "Nie udało się załadować profilu. Spróbuj ponownie później",
   "alreadyInList": "Profil już dodany",
-  "profileAddedToList": "Profil dodany do zapisanych profili."
+  "profileAddedToList": "Profil dodany do zapisanych profili.",
+  "chosenLanguages": "Wybrane języki / frameworki"
 }

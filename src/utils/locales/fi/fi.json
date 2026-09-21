@@ -28,11 +28,12 @@
   "opendropdownclose": "sulkeaksesi",
   "noprofilesfound": "Profiileja ei löytynyt valintojesi perusteella.",
   "searchFieldHeading": "Etsi paikkaa tai jätä tyhjäksi etsiäksesi koko maasta",
-  "searchFieldPlaceholder": "Kirjoita kaupunki / jätä tyhjäksi",
+  "searchFieldPlaceholder": "Kaupunki tai tyhjä koko maalle",
   "missingIconAlert": "Valitse vähintään yksi kieli / kehys",
   "developers": "kehittäjää",
   "savedProfiles": "Tallennetut profiilit",
   "profileerror": "Profiilia ei voitu ladata juuri nyt. Yritä uudelleen myöhemmin",
   "alreadyInList": "Profiili on jo lisätty",
-  "profileAddedToList": "Profiili lisättiin tallennettuihin kohteisiin."
+  "profileAddedToList": "Profiili lisättiin tallennettuihin kohteisiin.",
+  "chosenLanguages": "Valitut kielet / kehykset"
 }

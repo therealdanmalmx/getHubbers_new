@@ -28,11 +28,12 @@
   "opendropdownclose": "chiudere",
   "noprofilesfound": "Nessun profilo trovato in base alle tue selezioni.",
   "searchFieldHeading": "Cerca una città o lascia vuoto per cercare in tutto il paese",
-  "searchFieldPlaceholder": "Inserisci città / lascia vuoto",
+  "searchFieldPlaceholder": "Città o lascia vuoto per tutto il paese",
   "missingIconAlert": "Seleziona almeno un linguaggio / framework",
   "developers": "sviluppatori",
   "savedProfiles": "I tuoi profili salvati",
   "profileerror": "Impossibile caricare il profilo in questo momento. Riprova più tardi",
   "alreadyInList": "Profilo già aggiunto",
-  "profileAddedToList": "Profilo aggiunto agli elementi salvati."
+  "profileAddedToList": "Profilo aggiunto agli elementi salvati.",
+  "chosenLanguages": "Linguaggi / framework scelti"
 }
