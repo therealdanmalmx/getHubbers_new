@@ -6,10 +6,12 @@ import SearchField from "./components/SearchField";
 
 function App() {
   return (
-    <div className="bg-nordic flex h-screen w-full flex-col justify-start">
-      <NavBar />
-      <SearchBar />
-      <SearchField />
+    <div>
+      <div className="bg-nordic flex h-screen w-full flex-col justify-start px-4">
+        <NavBar />
+        <SearchBar />
+        <SearchField />
+      </div>
       <Footer />
     </div>
   );
