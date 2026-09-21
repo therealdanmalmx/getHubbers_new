@@ -1,61 +1,74 @@
-import { useContext } from "react";
+import { t } from "i18next";
+import { useContext, useEffect, useState } from "react";
 import { SearchContext } from "../Context/SearchContext";
 import iconsData from "../data/iconsData";
 
 const SearchBar = () => {
   const { selectedIcons, toggleChosenIcons } = useContext(SearchContext);
+  const [showHelperText, setShowHelperText] = useState(false);
 
+  useEffect(() => {
+    selectedIcons.length ? setShowHelperText(true) : setShowHelperText(false);
+  }, [selectedIcons]);
 
   return (
     <div>
-      <div className="grid grid-cols-5 lg:grid-cols-none lg:grid-flow-col auto-rows-max items-center justify-items-center bg-gray-500/80 gap-2 lg:gap-4 p-2 py-2">
+      <div className="bg-nordic grid auto-rows-max grid-cols-5 items-center justify-items-center gap-2 p-2 lg:grid-flow-col lg:grid-cols-none lg:gap-4">
         {iconsData.map((icon) => {
           let isSelected = selectedIcons.includes(icon.value);
           const iconColor =
             `devicon-${icon.name}-plain` +
-            (isSelected ? " text-slate-950" : " text-white") +
+            (isSelected ? " text-nordic_salmon" : " text-white") +
             (icon.name === "express"
               ? " devicon-" + icon.name + "-original"
               : "") +
-            " cursor-pointer text-2xl md:text-4xl";
+            " cursor-pointer";
 
           return (
-            <div key={icon.id}>
-              <label htmlFor={icon.value}>
-                <input
-                  type="checkbox"
-                  value={icon.value}
-                  id={icon.value}
-                  className="appearance-none"
-                />
-                {icon.value && (
-                  <i
-                    className={iconColor}
-                    title={icon.name}
-                    onClick={() => toggleChosenIcons(icon.value)}
-                  ></i>
-                )}
-              </label>
+            <div
+              className="bg-nordic_shade flex w-max items-center justify-center p-1"
+              key={icon.id}
+            >
+              <input
+                type="checkbox"
+                value={icon.value}
+                id={icon.value}
+                className="appearance-none"
+              />
+              {icon.value && (
+                <i
+                  className={`${iconColor} flex items-center`}
+                  title={icon.name}
+                  onClick={() => {
+                    toggleChosenIcons(icon.value);
+                  }}
+                >
+                  <span className="pl-1 text-xs capitalize">{icon.name}</span>
+                </i>
+              )}
             </div>
           );
         })}
       </div>
-      <div className="h-1 text-center">
+      <div className="text-nordic_salmon h-1 text-center">
+        {showHelperText && (
+          <p className="text-slate-500">{t("chosenLanguages")}:</p>
+        )}
         {selectedIcons
           .flatMap((icon) =>
             icon === "azuresqldatabase"
-              ? "SQL" :
-            icon === ".net"
-              ? ".NET"
-              : icon === ".net core"
-                ? ".NET Core"
-                : icon === "csharp"
-                  ? "C#"
-                  : icon === "javascript"
-                    ? "JavaScript"
-                    : icon === "typescript"
-                      ? "TypeScript"
-                      : icon.charAt(0).toUpperCase() + icon.slice(1),
+              ? "SQL"
+              : icon === ".net"
+                ? ".NET"
+                : icon === ".net core"
+                  ? ".NET Core"
+                  : icon === "csharp"
+                    ? "C#"
+                    : icon === "javascript"
+                      ? "JavaScript"
+                      : icon === "typescript"
+                        ? "TypeScript"
+                        : icon.charAt(0).toUpperCase() + icon.slice(1),
           )
           .join(", ")}
       </div>
