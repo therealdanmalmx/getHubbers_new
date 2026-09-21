@@ -57,7 +57,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
     if (cityCache.has(countryCode!)) {
       setCityList(cityCache.get(countryCode!)!);
     } else {
-      const modules = import.meta.glob('../utils/cities/*.ts', { eager: true });
+      const modules = import.meta.glob("../utils/cities/*.ts", { eager: true });
       const module = modules[`../utils/cities/${countryCode}.ts`] as any;
 
       if (module) {
@@ -71,9 +71,8 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, [countryCode]);
 
   const getSearchCity = async (e: React.MouseEvent<HTMLButtonElement>) => {
-
     if (selectedIcons.length === 0) {
-      toast.error(t("showAlertCode"))
+      toast.error(t("showAlertCode"));
     } else {
       let searchCity = (
         (e.target as HTMLButtonElement)
@@ -83,29 +82,30 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       if (searchCity.length) {
         if (cityList && new Set(cityList).has(searchCity)) {
           setSearchText(searchCity);
-          const result: any = await getHubberProfiles(selectedIcons, searchCity);
-          if (!result)
-          {
+          const result: any = await getHubberProfiles(
+            selectedIcons,
+            searchCity,
+          );
+          if (!result) {
             return;
           } else {
             navigate("/profiles");
           }
-
         } else {
           toast.error(
             t("showAlertCity", {
-            searchCity,
-            formattedCountry,
-            }));
+              searchCity,
+              formattedCountry,
+            }),
+          );
         }
       } else {
-          const result: any = await getHubberProfiles(selectedIcons, country);
-          if (!result)
-          {
-            return;
-          } else {
-            navigate("/profiles");
-          }
+        const result: any = await getHubberProfiles(selectedIcons, country);
+        if (!result) {
+          return;
+        } else {
+          navigate("/profiles");
+        }
       }
     }
   };
