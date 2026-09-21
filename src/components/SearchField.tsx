@@ -9,27 +9,31 @@ const SearchField = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={`flex flex-col justify-start small-screen:justify-start small-screen:pt-8 pt-20 lg:pt-32 space-y-4 items-center mx-auto ${window.innerHeight === 600 && "pt-12"}}`}>
-      <h1 className="w-full text-balance text-center text-lg lg:text-2xl xl:w-[500px]">
+    <div
+      className={`mx-auto flex flex-col items-center justify-start space-y-4 pt-20 lg:pt-32 small-screen:justify-start small-screen:pt-8 ${window.innerHeight === 600 && "pt-12"}}`}
+    >
+      <h1 className="text-nordic_salmon w-full text-balance text-center text-lg xl:w-[500px]">
         {t("searchFieldHeading", {
           formattedCountry,
         })}
       </h1>
-      <div className="flex items-center justify-center w-11/12 lg:w-full">
+      <div className="flex w-11/12 items-center justify-center lg:w-full">
         <input
           type="text"
           placeholder={t("searchFieldPlaceholder", {
-          formattedCountry,
-        })}
-          className="w-5/6 border-2 border-r-0 border-gray-500 p-4 outline-none md:w-96"
+            formattedCountry,
+          })}
+          className="bg-nordic_shade text-nordic_salmon border-nordic_shade w-5/6 border-2 border-r-0 p-4 outline-none md:w-96"
         />
         <button
           onClick={getSearchCity}
-          className="border-2 border-l-0 border-black bg-black p-4 text-white"
-        > Search
-          {/* {t("searchButton", {
-          formattedCountry,
-        })} */}
+          className="border-nordic_salmon bg-nordic_salmon text-nordic border-2 border-l-0 p-4"
+        >
+          {" "}
+          {/* Search */}
+          {t("searchButton", {
+            formattedCountry,
+          })}
         </button>
       </div>
     </div>
