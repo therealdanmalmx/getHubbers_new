@@ -40,12 +40,11 @@ const DropdownCountries = () => {
     <div className="relative w-52">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-nordic flex w-full items-center justify-between p-4"
+        className="bg-nordic flex w-full items-center justify-between rounded-full px-4 py-2"
       >
         <div className={"flex w-full items-center justify-between text-white"}>
           <span className="text-nordic_salmon flex items-center gap-2">
             <CircleFlag countryCode={selected.code} className="size-5" />
-            {/* <Flag code={selected.code} className="size-8" /> */}
             {t(selected.name.toLowerCase())}
           </span>
           <span>
@@ -73,7 +72,6 @@ const DropdownCountries = () => {
                 className={`hover:bg-nordic_asccent flex cursor-pointer items-center gap-2 p-4 text-white ${country.name === selected.name && "bg-nordic_shade"}`}
               >
                 <CircleFlag countryCode={country.code} className="size-5" />
-                {/* <Flag code={country.code} className="size-8" /> */}
                 {t(country.name.toLowerCase())}
               </div>
             ))}
