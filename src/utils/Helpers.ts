@@ -1,117 +1,121 @@
-  export const langugaesWithNoLogo: any[] = [
-    "actionscript",
-    "shaderlab",
-    "jinja",
-    "hcl",
-    "openscad",
-    "nix",
-    "renderscript",
-    "scss",
-    "ejs",
-    "supercollider",
-    "mdx",
-    "d",
-    "dtrace",
-    "batchfile",
-    "starlark",
-    "nsis",
-    "assembly",
-    "pike",
-    "moonscript",
-    "shell",
-    "jsonnet",
-    "makefile",
-    "cue",
-    "smarty",
-    "gdscript",
-    "gherkin",
-    "meson",
-    "verilog",
-    "isabelle",
-    "agda",
-    "plpgsql",
-    "cuda",
-    "nunjucks",
-    "protocol buffer",
-    "mustache",
-    "systemverilog",
-    "typst",
-    "blade",
-    "nushell",
-    "just",
-    "reason",
-    "autohotkey",
-    "qml",
-    "nwscript",
-    "rpgle",
-    "vcl",
-    "angelscript",
-    "nemerle",
-    "antlr",
-    "nesc",
-    "odin",
-    "dm",
-    "nimrod",
-    "bru",
-    "pascal",
-    "brainfuck",
-    "al",
-    "purebasic"
-
-
-  ];
+export const langugaesWithNoLogo: any[] = [
+  "actionscript",
+  "shaderlab",
+  "jinja",
+  "hcl",
+  "openscad",
+  "nix",
+  "renderscript",
+  "scss",
+  "ejs",
+  "supercollider",
+  "mdx",
+  "d",
+  "dtrace",
+  "batchfile",
+  "starlark",
+  "nsis",
+  "assembly",
+  "pike",
+  "moonscript",
+  "shell",
+  "jsonnet",
+  "makefile",
+  "cue",
+  "smarty",
+  "gdscript",
+  "gherkin",
+  "meson",
+  "verilog",
+  "isabelle",
+  "agda",
+  "plpgsql",
+  "cuda",
+  "nunjucks",
+  "protocol buffer",
+  "mustache",
+  "systemverilog",
+  "typst",
+  "blade",
+  "nushell",
+  "just",
+  "reason",
+  "autohotkey",
+  "qml",
+  "nwscript",
+  "rpgle",
+  "vcl",
+  "angelscript",
+  "nemerle",
+  "antlr",
+  "nesc",
+  "odin",
+  "dm",
+  "nimrod",
+  "bru",
+  "pascal",
+  "brainfuck",
+  "al",
+  "purebasic",
+  "glsl",
+  "g-code",
+  "pddl",
+  "monkey c",
+  "xslt",
+  "grammatical framework",
+];
 
 export const switchLanguage = (language: any) => {
-    switch (language) {
+  switch (language) {
     case "css":
-        language = "css3"
-        break;
+      language = "css3";
+      break;
     case "c#":
-        language = "csharp"
-        break;
+      language = "csharp";
+      break;
     case "c++":
-        language = "cplusplus"
-        break;
+      language = "cplusplus";
+      break;
     case "vue":
-        language = "vuejs"
-        break;
+      language = "vuejs";
+      break;
     case "html":
-        language = "html5"
-        break;
+      language = "html5";
+      break;
     case "objective-c":
-        language = "objectivec"
-        break;
+      language = "objectivec";
+      break;
     case "jupyter notebook":
-        language = "jupyter"
-        break;
+      language = "jupyter";
+      break;
     case "powershell":
-        language = "powershell"
-        break;
+      language = "powershell";
+      break;
     case "f#":
-        language = "fsharp"
-        break;
+      language = "fsharp";
+      break;
     case "dockerfile":
-        language = "docker"
-        break;
+      language = "docker";
+      break;
     case "vba":
-        language = "visualbasic"
-        break;
+      language = "visualbasic";
+      break;
     case "vim script":
     case "vim snippet":
     case "viml":
-        language = "vim"
-        break;
+      language = "vim";
+      break;
     case "tsql":
     case "plpgsql":
-        language = "azuresqldatabase"
-    break;
+      language = "azuresqldatabase";
+      break;
     case "asp":
     case "visual basic .net":
-        language = "dot-net"
-    break;
+      language = "dot-net";
+      break;
     default:
-        break;
-    }
+      break;
+  }
 
-    return language
-}
+  return language;
+};
