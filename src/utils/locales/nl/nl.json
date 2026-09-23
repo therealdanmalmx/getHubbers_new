@@ -37,5 +37,6 @@
   "profileAddedToList": "Profiel toegevoegd aan opgeslagen items.",
   "chosenLanguages": "Gekozen talen / frameworks",
   "availableForHire": "Beschikbaar voor werk",
-  "availableNotForHire": "Niet beschikbaar voor werk"
+  "availableNotForHire": "Niet beschikbaar voor werk",
+  "gitHubLimits": "Je hebt de zoeklimiet van GitHub bereikt. Probeer het over 60 minuten opnieuw"
 }

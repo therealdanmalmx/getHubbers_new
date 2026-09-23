@@ -37,5 +37,6 @@
   "profileAddedToList": "Profiili lisättiin tallennettuihin kohteisiin.",
   "chosenLanguages": "Valitut kielet / kehykset",
   "availableForHire": "Vapaana töihin",
-  "availableNotForHire": "Ei vapaana töihin"
+  "availableNotForHire": "Ei vapaana töihin",
+  "gitHubLimits": "Olet saavuttanut GitHubin hakurajan. Yritä uudelleen 60 minuutin kuluttua"
 }

@@ -37,5 +37,6 @@
   "profileAddedToList": "Profil tillagd bland sparade objekt.",
   "chosenLanguages": "Valda språk / ramverk",
   "availableForHire": "Öppen för anställning",
-  "availableNotForHire": "Inte öppen för anställning"
+  "availableNotForHire": "Inte öppen för anställning",
+  "gitHubLimits": "Du har nått GitHubs sökgräns. Prova igen om 60 min"
 }

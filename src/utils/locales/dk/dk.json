@@ -36,5 +36,6 @@
   "profileAddedToList": "Profil føjet til gemte elementer.",
   "chosenLanguages": "Valgte sprog / frameworks",
   "availableForHire": "Tilgængelig for ansættelse",
-  "availableNotForHire": "Ikke tilgængelig for ansættelse"
+  "availableNotForHire": "Ikke tilgængelig for ansættelse",
+  "gitHubLimits": "Du har nået GitHubs søgegrænse. Prøv igen om 60 minutter"
 }

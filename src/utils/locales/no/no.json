@@ -37,5 +37,6 @@
   "profileAddedToList": "Profilen ble lagt til i lagrede elementer.",
   "chosenLanguages": "Valgte språk / rammeverk",
   "availableForHire": "Tilgjengelig for ansettelse",
-  "availableNotForHire": "Ikke tilgjengelig for ansettelse"
+  "availableNotForHire": "Ikke tilgjengelig for ansettelse",
+  "gitHubLimits": "Du har nådd GitHub sin søkegrense. Prøv igjen om 60 minutter"
 }

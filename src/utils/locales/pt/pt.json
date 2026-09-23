@@ -36,5 +36,6 @@
   "profileAddedToList": "Perfil adicionado aos itens guardados.",
   "chosenLanguages": "Linguagens / frameworks escolhidos",
   "availableForHire": "Disponível para contratação",
-  "availableNotForHire": "Não disponível para contratação"
+  "availableNotForHire": "Não disponível para contratação",
+  "gitHubLimits": "Atingiu o limite de pesquisas do GitHub. Tente novamente dentro de 60 minutos"
 }
