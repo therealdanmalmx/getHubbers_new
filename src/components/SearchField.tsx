@@ -23,11 +23,6 @@ const SearchField = () => {
           placeholder={t("searchFieldPlaceholder", {
             formattedCountry,
           })}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              getSearchCity;
-            }
-          }}
           className="bg-nordic_shade text-nordic_salmon border-nordic_shade w-5/6 border-2 border-r-0 p-4 outline-none md:w-96"
         />
         <button
