@@ -1,9 +1,10 @@
 import { t } from "i18next";
 import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { FaBookmark, FaChevronCircleLeft, FaGithub } from "react-icons/fa";
+import { FaBookmark, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoIosGlobe, IoIosMail } from "react-icons/io";
+import { LuArrowLeft, LuDot } from "react-icons/lu";
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { FetchContext } from "../Context/FetchContext";
@@ -64,13 +65,17 @@ const Profile = () => {
   }, [isLoading, profile, navigate]);
 
   return (
-    <div className="mx-2 lg:m-0">
-      <div className="flex justify-between">
-        <div onClick={() => navigate(-1)}>
-          <FaChevronCircleLeft className="mx-auto my-2 size-12 cursor-pointer duration-300 ease-in-out hover:rounded-full hover:bg-slate-500 lg:mx-36" />
+    <div className="m-8">
+      <div
+        onClick={() => navigate(-1)}
+        className="flex items-center justify-start"
+      >
+        <div className="bg-nordic_asccent mx-0 flex w-max cursor-pointer items-center justify-start gap-4 rounded-full py-1 pr-2 duration-300 ease-in-out hover:bg-slate-700">
+          <LuArrowLeft className="text-nordic_salmon size-6 cursor-pointer rounded duration-300 ease-in-out" />
+          <span className="text-white">Tillbaka till utvecklare</span>
         </div>
         <Link to="/profile-list">
-          <div className="mx-auto my-2 flex size-12 cursor-pointer flex-col items-center justify-center lg:mx-36">
+          <div className="mx-auto my-2 flex size-12 cursor-pointer flex-col items-center justify-center">
             {savedList.length > 0 && (
               <div className="relative flex cursor-pointer items-start justify-center duration-300 ease-in-out hover:text-slate-500">
                 <FaBookmark className="size-12 cursor-pointer" />
@@ -82,55 +87,50 @@ const Profile = () => {
           </div>
         </Link>
       </div>
-      <div className="mx-auto flex h-4/6 w-full flex-col justify-start border-2 p-2 lg:w-10/12 lg:flex-row">
+      <div className="bg-nordic_asccent flex w-full flex-col justify-start p-4 lg:flex-row">
         <img
           src={profile.avatar_url}
           alt=""
-          className="h-full w-full object-cover lg:w-1/2"
+          className="size-48 rounded object-contain"
         />
         <div className="flex w-full flex-col justify-between lg:flex-row">
           <div className="mx-4 flex flex-col items-start justify-between space-y-2">
             <div>
               <div className="mt-2 flex items-center justify-between space-x-12 lg:justify-start">
-                <p className="text-nordic_salmon text-2xl font-bold">
-                  {profile.name}
-                </p>
+                <p className="text-3xl font-bold text-white">{profile.name}</p>
                 {profile.hireable ? (
                   <div
-                    className="w-max rounded-full bg-green-700 px-4 py-2 text-white"
-                    title="available for hire"
+                    className="bg-nordic_light flex w-full items-center justify-start px-4 py-1 text-center text-white lg:w-max"
+                    title={t("availableForHire")}
                   >
+                    <LuDot className="size-8" />
                     {t("availableForHire")}
                   </div>
                 ) : (
-                  // <FaCheckCircle
-                  //   className="size-8 text-green-700 lg:mx-6"
-                  //   values="Available for hire"
-                  // />
                   <div
-                    className="w-max rounded-full bg-red-700 px-4 py-2 text-white"
-                    title="not available for hire"
+                    className="w-full rounded-full bg-red-700 px-2 py-1 text-center text-white lg:w-max"
+                    title={t("availableNotForHire")}
                   >
                     {t("availableNotForHire")}
                   </div>
-                  // <GoXCircleFill
-                  //   className="size-8 text-red-700 lg:mx-6"
-                  //   title="not available for hire"
-                  // />
                 )}
               </div>
               <div className="space-y-2 lg:space-y-0">
-                {profile.company && (
-                  <p className="text-nordic_salmon text-xl">
-                    {" "}
-                    {profile.company}
-                  </p>
-                )}
-                {profile.location && (
-                  <p className="text-nordic_salmon text-xl">
-                    {profile.location}{" "}
-                  </p>
-                )}
+                <span>
+                  {profile.company && (
+                    <p className="text-nordic_salmon text-xl">
+                      {" "}
+                      {profile.company}
+                    </p>
+                  )}
+                </span>
+                <span>
+                  {profile.location && (
+                    <p className="text-nordic_salmon text-xl">
+                      {profile.location}{" "}
+                    </p>
+                  )}
+                </span>
                 {profile.bio && (
                   <p className="text-nordic_salmon w-full text-base lg:max-w-full lg:pt-24 lg:text-xl">
                     {profile.bio}
@@ -218,7 +218,7 @@ const Profile = () => {
       <div className="mt-2 flex justify-center">
         <button
           onClick={() => addProfileToList(profile.id)}
-          className="w-full bg-slate-500 py-4 text-center text-white transition-colors duration-300 ease-in-out hover:bg-slate-400 lg:w-10/12"
+          className="w-full bg-slate-500 py-4 text-center text-white transition-colors duration-300 ease-in-out hover:bg-slate-400"
         >
           Add to list
         </button>
