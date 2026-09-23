@@ -79,7 +79,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           .previousElementSibling as HTMLInputElement
       )?.value.trim();
 
-      if (searchCity.length) {
+      if (searchCity) {
         if (cityList && new Set(cityList).has(searchCity)) {
           setSearchText(searchCity);
           const result: any = await getHubberProfiles(
