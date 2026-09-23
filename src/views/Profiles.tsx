@@ -33,7 +33,7 @@ const Profiles = () => {
 
   return (
     <div>
-      <div className="my-4 flex flex-col items-center justify-center lg:flex-row">
+      <div className="flex flex-col items-center justify-center lg:flex-row">
         <div onClick={() => navigate("/")}>
           <FaChevronCircleLeft className="bg-nordic_salmon mx-auto my-2 size-12 cursor-pointer rounded-full hover:rounded-full hover:bg-red-300 lg:mx-16" />
         </div>
@@ -49,18 +49,25 @@ const Profiles = () => {
           </div>
         )}
       </div>
-      <div className="bg-nordic flex flex-wrap justify-center gap-8">
+      <div className="my-12 flex flex-wrap justify-center gap-8">
         {profiles?.items?.map((profile) => (
-          <div key={profile.id} className="relative cursor-pointer text-center">
+          <div
+            key={profile.id}
+            className="bg-nordic_asccent border-t-nordic_salmon relative h-72 w-80 border-t-4 p-2 text-center lg:h-80 lg:w-96"
+          >
             <img
               src={profile.avatar_url}
               alt={profile.login}
-              className="b-white mx-auto h-96 w-96 rounded-xl border-2 border-slate-100 object-cover p-2 lg:w-64"
+              className="b-white bg-nordic_asccent mx-auto size-32 rounded-xl object-contain p-2 lg:w-64"
             />
+            <p className="text-xl text-white">@{profile.login}</p>
+            <p className="text-nordic_salmon text-xs">
+              {profile.html_url.split("//")[1]}
+            </p>
             <Link to={`/profile/${profile.login}`}>
-              <div className="absolute inset-4 flex items-end justify-end">
-                <button className="rounded-full bg-white px-4 py-2 transition-colors duration-300 ease-in-out hover:bg-opacity-50">
-                  {profile.login}
+              <div className="absolute bottom-5 left-0 flex w-full items-center justify-center px-4">
+                <button className="bg-nordic_salmon w-full rounded px-4 py-2 text-sm transition-colors duration-300 ease-in-out hover:bg-red-300">
+                  GitHub Profile
                 </button>
               </div>
             </Link>
