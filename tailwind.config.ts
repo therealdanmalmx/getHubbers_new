@@ -9,6 +9,7 @@ export default {
         "logo-text": "#D7DBDD",
         navbar: "#212F3D",
         nordic: "#0b1326",
+        nordic_light: "#282231",
         nordic_shade: "#121b2e",
         nordic_asccent: "#0e1c34",
         nordic_salmon: "#ffb4ab",
