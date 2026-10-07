@@ -11,9 +11,9 @@ const SearchField = () => {
 
   return (
     <div
-      className={`h-fullz-_300px)] mx-auto flex flex-col items-center justify-center xl:h-[calc(100%_-_200px)] small-screen:justify-start small-screen:pt-8 ${window.innerHeight === 600 && "pt-12"}}`}
+      className={`mx-auto flex h-[calc(100%_-_450px)] flex-col items-center justify-center sm:h-[calc(100%_-_300px)] small-screen:justify-between small-screen:pt-8 ${window.innerHeight === 600 && "pt-12"}`}
     >
-      <h1 className="text-nordic_salmon bg-nordic_shade my-4 flex w-max items-center gap-2 text-balance rounded-full px-4 py-2 text-center text-lg">
+      <h1 className="my-4 flex w-max items-center gap-2 text-balance rounded-full bg-nordic_shade px-4 py-2 text-center text-lg text-nordic_salmon">
         <LuCrosshair />
         {t("logoText")}
       </h1>
@@ -23,17 +23,17 @@ const SearchField = () => {
           placeholder={t("searchFieldPlaceholder", {
             formattedCountry,
           })}
-          className="bg-nordic_shade text-nordic_salmon border-nordic_shade w-5/6 border-2 border-r-0 p-4 outline-none md:w-96"
+          className="w-5/6 border-nordic_shade bg-nordic_shade p-4 text-nordic_salmon outline-none md:w-96 xl:p-5"
         />
         <button
           onClick={getSearchCity}
-          className="border-nordic_salmon bg-nordic_salmon text-nordic border-2 border-l-0 p-4 font-bold"
+          className="border-nordic_salmon bg-nordic_salmon p-4 font-bold text-nordic"
         >
           {" "}
           {t("searchButton", {
             formattedCountry,
           })}
-          <span className="mx-2 rounded bg-red-300 px-3 py-1 font-mono text-base font-semibold">
+          <span className="mx-2 hidden rounded bg-red-300 px-3 py-1 font-mono text-base font-semibold lg:inline-flex">
             ↵ Enter
           </span>
         </button>

@@ -13,7 +13,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <div className="bg-nordic grid auto-rows-max grid-cols-5 items-center justify-items-center gap-2 lg:grid-flow-col lg:grid-cols-none">
+      <div className="grid w-full auto-rows-max grid-cols-5 items-center justify-items-center gap-2 bg-nordic sm:justify-items-stretch md:w-full md:grid-flow-col md:grid-rows-3 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-2 lg:items-start xl:grid-rows-none">
         {iconsData.map((icon) => {
           let isSelected = selectedIcons.includes(icon.value);
           const iconColor =
@@ -26,7 +26,7 @@ const SearchBar = () => {
 
           return (
             <div
-              className="bg-nordic_shade flex w-max items-center justify-center p-1"
+              className="flex items-center justify-center bg-nordic_shade p-1"
               key={icon.id}
             >
               <input
@@ -50,7 +50,7 @@ const SearchBar = () => {
           );
         })}
       </div>
-      <div className="text-nordic_salmon h-2 pt-2 text-center">
+      <div className="h-2 pt-2 text-center text-nordic_salmon">
         {showHelperText && (
           <p className="text-slate-500">{t("chosenLanguages")}:</p>
         )}
