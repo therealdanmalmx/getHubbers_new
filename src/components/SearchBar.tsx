@@ -13,7 +13,7 @@ const SearchBar = () => {
 
   return (
     <div>
-      <div className="grid w-full auto-rows-max grid-cols-5 items-center justify-items-center gap-2 bg-nordic sm:justify-items-stretch md:w-full md:grid-flow-col md:grid-rows-3 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-2 lg:items-start xl:grid-rows-none">
+      <div className="grid w-full auto-rows-max grid-cols-5 justify-items-stretch gap-2 bg-nordic md:grid-flow-col md:grid-rows-3 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-2 lg:items-start xl:grid-rows-none">
         {iconsData.map((icon) => {
           let isSelected = selectedIcons.includes(icon.value);
           const iconColor =
@@ -26,7 +26,7 @@ const SearchBar = () => {
 
           return (
             <div
-              className="flex items-center justify-center bg-nordic_shade p-1"
+              className="flex min-w-max items-center justify-center bg-nordic_shade p-1"
               key={icon.id}
             >
               <input
