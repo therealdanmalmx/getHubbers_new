@@ -18,12 +18,12 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <Toaster
         position="top-center"
         toastOptions={{
-          className: 'p-4 text-xl',
+          className: "p-4 text-xl",
           duration: 5000,
           style: {
-            background: '#363636',
-            color: '#fff',
-          }
+            background: "#363636",
+            color: "#fff",
+          },
         }}
       />
       <FetchProvider>
@@ -33,11 +33,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
               <Route path="/" element={<App />} />
               <Route path="/profiles" element={<Profiles />} />
               <Route path="/profile/:login" element={<Profile />} />
-              <Route path="/profile-list/" element={<SavedList />} />
+              <Route path="/profile-list" element={<SavedList />} />
             </Routes>
-            </SearchProvider>
-          </CountryProvider>
-        </FetchProvider>
+          </SearchProvider>
+        </CountryProvider>
+      </FetchProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );
