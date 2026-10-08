@@ -13,6 +13,7 @@ export default {
         nordic_shade: "#121b2e",
         nordic_asccent: "#0e1c34",
         nordic_salmon: "#ffb4ab",
+        nordic_blue: "#38BDF8",
       },
       textColor: {
         "!text-green-500": "#10B981 !important",
