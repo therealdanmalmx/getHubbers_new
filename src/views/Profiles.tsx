@@ -1,12 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FaChevronCircleLeft } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { CountryContext } from "../Context/CountryContext";
 import { FetchContext } from "../Context/FetchContext";
 import { SearchContext } from "../Context/SearchContext";
+import BackButton from "../components/BackButton";
 
 const Profiles = () => {
+  useEffect(() => {
+    if (!profiles) {
+      navigate("/");
+    }
+  });
   const { profiles } = useContext(FetchContext);
   const { selectedIcons, searchText } = useContext(SearchContext);
   const { formattedCountry } = useContext(CountryContext);
@@ -33,12 +38,10 @@ const Profiles = () => {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center lg:flex-row">
-        <div onClick={() => navigate("/")}>
-          <FaChevronCircleLeft className="bg-nordic_salmon mx-auto my-2 size-12 cursor-pointer rounded-full hover:rounded-full hover:bg-red-300 lg:mx-16" />
-        </div>
+      <div className="flex flex-col items-center justify-center p-4 lg:flex-row">
+        <BackButton route="/" routeName="söksidan" />
         {profiles.items.length > 0 && (
-          <div className="text-nordic_salmon text-center text-2xl font-bold uppercase lg:flex-1 lg:text-5xl">
+          <div className="gap-6 text-center text-2xl font-bold uppercase text-nordic_salmon md:ml-20 md:text-left lg:flex-1 lg:text-5xl">
             {counrySentence(
               country_code,
               selectedIcons
@@ -49,24 +52,24 @@ const Profiles = () => {
           </div>
         )}
       </div>
-      <div className="my-12 flex flex-wrap justify-center gap-8">
+      <div className="my-8 flex flex-wrap justify-center gap-8">
         {profiles?.items?.map((profile) => (
           <div
             key={profile.id}
-            className="bg-nordic_asccent border-t-nordic_salmon relative h-72 w-80 border-t-4 p-2 text-center lg:h-80 lg:w-96"
+            className="relative h-72 w-80 border-t-4 border-t-nordic_salmon bg-nordic_asccent p-2 text-center"
           >
             <img
               src={profile.avatar_url}
               alt={profile.login}
-              className="b-white bg-nordic_asccent mx-auto size-32 rounded-xl object-contain p-2 lg:w-64"
+              className="b-white mx-auto size-32 rounded-xl bg-nordic_asccent object-contain p-2 lg:w-64"
             />
             <p className="text-xl text-white">@{profile.login}</p>
-            <p className="text-nordic_salmon text-xs">
+            <p className="text-xs text-nordic_salmon">
               {profile.html_url.split("//")[1]}
             </p>
             <Link to={`/profile/${profile.login}`}>
               <div className="absolute bottom-5 left-0 flex w-full items-center justify-center px-4">
-                <button className="bg-nordic_salmon w-full rounded px-4 py-2 text-sm transition-colors duration-300 ease-in-out hover:bg-red-300">
+                <button className="w-full rounded bg-nordic_salmon px-4 py-2 text-sm transition-colors duration-300 ease-in-out hover:bg-red-300">
                   GitHub Profile
                 </button>
               </div>
