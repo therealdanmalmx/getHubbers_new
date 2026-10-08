@@ -17,13 +17,13 @@ const SearchField = () => {
         <LuCrosshair />
         {t("logoText")}
       </h1>
-      <div className="flex w-11/12 items-center justify-center lg:w-full">
+      <div className="flex w-11/12 items-center justify-center gap-2 lg:w-full">
         <input
           type="text"
           placeholder={t("searchFieldPlaceholder", {
             formattedCountry,
           })}
-          className="w-5/6 border-nordic_shade bg-nordic_shade p-4 text-nordic_salmon outline-none md:w-96 xl:p-5"
+          className="w-5/6 border-nordic_shade bg-nordic_shade p-4 text-nordic_salmon outline-none md:w-96 lg:p-5"
         />
         <button
           onClick={getSearchCity}
