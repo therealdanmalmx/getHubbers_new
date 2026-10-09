@@ -79,7 +79,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
           .previousElementSibling as HTMLInputElement
       )?.value.trim();
 
-      if (searchCity) {
+      if (searchCity.length) {
         if (cityList && new Set(cityList).has(searchCity)) {
           setSearchText(searchCity);
           const result: any = await getHubberProfiles(
@@ -99,15 +99,14 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
             }),
           );
         }
+      } else {
+        const result: any = await getHubberProfiles(selectedIcons, country);
+        if (!result) {
+          return;
+        } else {
+          navigate("/profiles");
+        }
       }
-      // else {
-      //   const result: any = await getHubberProfiles(selectedIcons, country);
-      //   if (!result) {
-      //     return;
-      //   } else {
-      //     navigate("/profiles");
-      //   }
-      // }
     }
   };
 
