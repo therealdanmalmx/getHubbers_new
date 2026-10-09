@@ -99,14 +99,15 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
             }),
           );
         }
-      } else {
-        const result: any = await getHubberProfiles(selectedIcons, country);
-        if (!result) {
-          return;
-        } else {
-          navigate("/profiles");
-        }
       }
+      // else {
+      //   const result: any = await getHubberProfiles(selectedIcons, country);
+      //   if (!result) {
+      //     return;
+      //   } else {
+      //     navigate("/profiles");
+      //   }
+      // }
     }
   };
 
