@@ -60,8 +60,6 @@ export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const getHubberProfiles = async (selectedIcons: string[], city: string) => {
     if (city !== undefined) {
-      console.log({ selectedIcons });
-      console.log({ city });
       try {
         const query = `language:${selectedIcons.join("+")}+location:${city}`;
         const res = await axios.get(
