@@ -17,7 +17,7 @@ type SearchContextType = {
   selectedIcons: string[];
   setSelectedIcons: (value: string[]) => void;
   toggleChosenIcons: (icon: string) => void;
-  getSearchCity: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  getSearchCity: (input: string) => void;
   searchText: string;
 };
 
@@ -63,6 +63,7 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       if (module) {
         cityCache.set(countryCode!, module.default);
         setCityList(module.default);
+        cityList.forEach((c) => console.log(c));
       } else {
         console.error("Error loading cities:", countryCode);
         setCityList([]);
@@ -70,43 +71,36 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
     }
   }, [countryCode]);
 
-  const getSearchCity = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const getSearchCity = async (input: string) => {
     if (selectedIcons.length === 0) {
       toast.error(t("showAlertCode"));
-    } else {
-      let searchCity = (
-        (e.target as HTMLButtonElement)
-          .previousElementSibling as HTMLInputElement
-      )?.value.trim();
+      return;
+    }
 
-      if (searchCity.length) {
-        if (cityList && new Set(cityList).has(searchCity)) {
-          setSearchText(searchCity);
-          const result: any = await getHubberProfiles(
-            selectedIcons,
-            searchCity,
-          );
-          if (!result) {
-            return;
-          } else {
-            navigate("/profiles");
-          }
-        } else {
-          toast.error(
-            t("showAlertCity", {
-              searchCity,
-              formattedCountry,
-            }),
-          );
-        }
-      } else {
-        const result: any = await getHubberProfiles(selectedIcons, country);
-        if (!result) {
-          return;
-        } else {
-          navigate("/profiles");
-        }
-      }
+    const searchCity = input.trim();
+    const matchedCity = cityList?.find(
+      (c) =>
+        c.toLocaleLowerCase().trim() === searchCity.toLocaleLowerCase().trim(),
+    );
+
+    if (searchCity && !matchedCity) {
+      toast.error(t("showAlertCity", { searchCity, formattedCountry }));
+      setSearchText("");
+      return;
+    }
+
+    // Empty input means search the whole country
+    const location = matchedCity ?? country;
+    if (matchedCity) {
+      setSearchText(matchedCity);
+    }
+
+    try {
+      await getHubberProfiles(selectedIcons, location);
+      navigate("/profiles");
+    } catch (err) {
+      console.error(err);
+      toast.error(t("searchFailed")); // add this key to your translations
     }
   };
 
