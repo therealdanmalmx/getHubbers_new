@@ -17,7 +17,7 @@ const SearchField = () => {
 
   return (
     <div
-      className={`mx-auto flex h-[calc(100%_-_500px)] flex-col items-center justify-center md:h-[calc(100%_-_100px)] small-screen:justify-between small-screen:pt-8 ${window.innerHeight === 600 && "pt-12"}`}
+      className={`mx-auto flex h-[calc(100%_-_550px)] flex-col items-center justify-center sm:h-[calc(100%_-_300px)] small-screen:justify-between small-screen:pt-8 ${window.innerHeight === 600 && "pt-12"}`}
     >
       <h1 className="my-4 flex w-max items-center gap-2 text-balance rounded-full bg-nordic_shade px-4 py-2 text-center text-lg text-nordic_salmon">
         <LuCrosshair />
