@@ -50,80 +50,85 @@ export const FetchContext = createContext<FetchContextType>({
 });
 
 export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
+  const [profiles, setProfiles] = useState<GithubProfilesResponse>({
+    items: [],
+    total_count: 0,
+    incomplete_results: false,
+  });
+  const [profile, setProfile] = useState<Record<string, any>>({});
+  const [repos, setRepos] = useState([]);
+  const { country } = useContext(CountryContext);
+  const { t } = useTranslation();
 
-const [profiles, setProfiles] = useState<GithubProfilesResponse>({ items: [], total_count: 0, incomplete_results: false });  const [profile, setProfile] = useState<Record<string, any>>({});
-const [repos, setRepos] = useState([]);
-const { country } = useContext(CountryContext)
-const { t } = useTranslation();
+  const getHubberProfiles = async (selectedIcons: string[], city: string) => {
+    if (city !== undefined) {
+      try {
+        // Check if country is better to use
+        const query = `language:${selectedIcons.join("+")}+location:${city ? city : country}`;
+        const res = await axios.get(
+          `https://api.github.com/search/users?q=${query}`,
+        );
 
-const getHubberProfiles = async (selectedIcons: string[], city: string) => {
-  if (city !== undefined) {
-    try {
-      // Check if country is better to use
-      const query = `language:${selectedIcons.join("+")}+location:${city ? city : country }`
-      const res = await axios.get(
-        `https://api.github.com/search/users?q=${query}&client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
-      );
-
-      if (!res.data.items.length) {
-        toast.error(t("noprofilesfound"))
-      } else {
-        setProfiles(await res.data);
-        return await res.data;
-      }
-
-    } catch (error) {
+        if (!res.data.items.length || res.data.items === undefined) {
+          toast.error(t("noprofilesfound"));
+          setProfiles({
+            items: [],
+            total_count: 0,
+            incomplete_results: true,
+          });
+        } else {
+          setProfiles(await res.data);
+          return await res.data;
+        }
+      } catch (error) {
         console.error("Fetch error:", error);
-        toast.error(t("fetcherror"))
-
+        toast.error(t("fetcherror"));
+      }
     }
-  }
-};
+  };
 
-const getIndividualProfile = async (login: string) => {
-  try {
-    const res = await axios.get(
-      `https://api.github.com/users/${login}?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
-    );
-    setProfile(await res.data);
-    return await res.data;
-
-  } catch (error) {
+  const getIndividualProfile = async (login: string) => {
+    try {
+      const res = await axios.get(
+        `https://api.github.com/users/${login}?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
+      );
+      setProfile(await res.data);
+      return await res.data;
+    } catch (error) {
       console.error("Profile fetch error:", error);
-      toast.error(t("profileerror"))
-  }
-};
+      toast.error(t("profileerror"));
+    }
+  };
 
-const getIndividualRepos = async (login: string) => {
-  try {
-    const res = await axios.get(
-      `https://api.github.com/users/${login}/repos?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
-    );
-    setRepos(await res.data);
-    return await res.data;
-
-  } catch (error) {
+  const getIndividualRepos = async (login: string) => {
+    try {
+      const res = await axios.get(
+        `https://api.github.com/users/${login}/repos?client_id=${import.meta.env.VITE_GH_CID}&client_secret=${import.meta.env.VITE_GH_CSC}`,
+      );
+      setRepos(await res.data);
+      return await res.data;
+    } catch (error) {
       console.error("Repo fetch error:", error);
       return;
       // toast.error(t("profileerror"))
-  }
-};
+    }
+  };
 
-// useEffect(async () => {
-//   // Octokit.js
-// // https://github.com/octokit/core.js#readme
-//   const octokit = new Octokit({
-//     auth: 'YOUR-TOKEN'
-//   })
+  // useEffect(async () => {
+  //   // Octokit.js
+  // // https://github.com/octokit/core.js#readme
+  //   const octokit = new Octokit({
+  //     auth: 'YOUR-TOKEN'
+  //   })
 
-//   await octokit.request('PATCH /user', {
-//     blog: 'https://github.com/blog',
-//     name: 'monalisa octocat',
-//     headers: {
-//       'X-GitHub-Api-Version': '2022-11-28'
-//     }
-//   })
-// })
+  //   await octokit.request('PATCH /user', {
+  //     blog: 'https://github.com/blog',
+  //     name: 'monalisa octocat',
+  //     headers: {
+  //       'X-GitHub-Api-Version': '2022-11-28'
+  //     }
+  //   })
+  // })
 
   return (
     <FetchContext.Provider
@@ -134,7 +139,6 @@ const getIndividualRepos = async (login: string) => {
         getHubberProfiles,
         getIndividualProfile,
         getIndividualRepos,
-
       }}
     >
       {children}
