@@ -68,6 +68,9 @@ export const langugaesWithNoLogo: any[] = [
   "rich text format",
   "q",
   "scheme",
+  "kakounescript",
+  "slint",
+  "hack",
 ];
 
 export const switchLanguage = (language: any) => {
@@ -185,6 +188,11 @@ export const getLanguageName = (language: string) => {
     vue: "Vue",
     react: "React",
     angular: "Angular",
+    astro: "Astro",
+    nim: "Nim",
+    matlab: "MATLAB",
+    apex: "Apex",
+    handlebars: "Handlebars",
   };
   return name[language];
 };
