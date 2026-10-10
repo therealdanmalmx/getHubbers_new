@@ -38,5 +38,9 @@
   "chosenLanguages": "Valgte språk / rammeverk",
   "availableForHire": "Tilgjengelig for ansettelse",
   "availableNotForHire": "Ikke tilgjengelig for ansettelse",
-  "gitHubLimits": "Du har nådd GitHub sin søkegrense. Prøv igjen om 60 minutter"
+  "gitHubLimits": "Du har nådd GitHub sin søkegrense. Prøv igjen om 60 minutter",
+  "addToList": "Legg til i listen",
+  "backTo": "Tilbake til",
+  "developer": "utvikler",
+  "homePage": "søkeside"
 }

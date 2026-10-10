@@ -38,5 +38,9 @@
   "chosenLanguages": "Chosen languages / frameworks",
   "availableForHire": "Available for hire",
   "availableNotForHire": "Not available for hire",
-  "gitHubLimits": "You have reached GitHub's search limit. Try again in 60 minutes"
+  "gitHubLimits": "You have reached GitHub's search limit. Try again in 60 minutes",
+  "addToList": "Add to list",
+  "backTo": "Back to",
+  "developer": "developer",
+  "homePage": "search page"
 }

@@ -37,5 +37,9 @@
   "chosenLanguages": "Linguagens / frameworks escolhidos",
   "availableForHire": "Disponível para contratação",
   "availableNotForHire": "Não disponível para contratação",
-  "gitHubLimits": "Atingiu o limite de pesquisas do GitHub. Tente novamente dentro de 60 minutos"
+  "gitHubLimits": "Atingiu o limite de pesquisas do GitHub. Tente novamente dentro de 60 minutos",
+  "addToList": "Adicionar à lista",
+  "backTo": "Voltar para",
+  "developer": "programador",
+  "homePage": "página de pesquisa"
 }

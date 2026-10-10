@@ -38,5 +38,9 @@
   "chosenLanguages": "Valitut kielet / kehykset",
   "availableForHire": "Vapaana töihin",
   "availableNotForHire": "Ei vapaana töihin",
-  "gitHubLimits": "Olet saavuttanut GitHubin hakurajan. Yritä uudelleen 60 minuutin kuluttua"
+  "gitHubLimits": "Olet saavuttanut GitHubin hakurajan. Yritä uudelleen 60 minuutin kuluttua",
+  "addToList": "Lisää listaan",
+  "backTo": "Takaisin",
+  "developer": "kehittäjä",
+  "homePage": "hakusivu"
 }

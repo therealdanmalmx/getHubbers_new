@@ -30,7 +30,6 @@
   "searchFieldHeading": "Sök efter en ort eller lämna tomt för att söka i hela landet",
   "searchFieldPlaceholder": "Ange stad / tomt för hela landet",
   "missingIconAlert": "Välj minst ett språk / ramverk",
-  "developers": "utvecklare",
   "savedProfiles": "Dina sparade profiler",
   "alreadyInList": "Profil redan tillagd",
   "profileerror": "Kunde inte ladda profilen just nu. Försök igen senare",
@@ -38,5 +37,9 @@
   "chosenLanguages": "Valda språk / ramverk",
   "availableForHire": "Öppen för anställning",
   "availableNotForHire": "Inte öppen för anställning",
-  "gitHubLimits": "Du har nått GitHubs sökgräns. Prova igen om 60 min"
+  "gitHubLimits": "Du har nått GitHubs sökgräns. Prova igen om 60 min",
+  "addToList": "Lägg till i listan",
+  "backTo": "Tillbaka till",
+  "homePage": "söksida",
+  "developers": "utvecklare"
 }

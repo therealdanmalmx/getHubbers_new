@@ -38,5 +38,9 @@
   "chosenLanguages": "Ausgewählte Sprachen / Frameworks",
   "availableForHire": "Für Aufträge verfügbar",
   "availableNotForHire": "Nicht für Aufträge verfügbar",
-  "gitHubLimits": "Sie haben das GitHub-Suchlimit erreicht. Versuchen Sie es in 60 Minuten erneut"
+  "gitHubLimits": "Sie haben das GitHub-Suchlimit erreicht. Versuchen Sie es in 60 Minuten erneut",
+  "addToList": "Zur Liste hinzufügen",
+  "backTo": "Zurück zu",
+  "developer": "Entwickler",
+  "homePage": "Suchseite"
 }
