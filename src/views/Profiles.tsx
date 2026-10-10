@@ -7,16 +7,18 @@ import { SearchContext } from "../Context/SearchContext";
 import BackButton from "../components/BackButton";
 
 const Profiles = () => {
-  useEffect(() => {
-    if (!profiles) {
-      navigate("/");
-    }
-  });
   const { profiles } = useContext(FetchContext);
   const { selectedIcons, searchText } = useContext(SearchContext);
   const { formattedCountry } = useContext(CountryContext);
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(typeof profiles);
+    if (!profiles.items.length) {
+      navigate("/");
+    }
+  }, [profiles]);
 
   const country_code = localStorage.getItem("country_code") ?? "";
 
@@ -37,9 +39,9 @@ const Profiles = () => {
   };
 
   return (
-    <div>
+    <div className="mx-8">
       <div className="flex flex-col items-center justify-center p-4 lg:flex-row">
-        <BackButton route="/" routeName={t("homePage")} />
+        <BackButton route="/" />
         {profiles.items.length > 0 && (
           <div className="gap-6 text-center text-2xl font-bold uppercase text-nordic_salmon md:ml-20 md:text-left lg:flex-1 lg:text-5xl">
             {counrySentence(
