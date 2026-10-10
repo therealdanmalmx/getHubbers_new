@@ -39,7 +39,7 @@ const Profiles = () => {
   return (
     <div>
       <div className="flex flex-col items-center justify-center p-4 lg:flex-row">
-        <BackButton route="/" routeName="söksidan" />
+        <BackButton route="/" routeName={t("homePage")} />
         {profiles.items.length > 0 && (
           <div className="gap-6 text-center text-2xl font-bold uppercase text-nordic_salmon md:ml-20 md:text-left lg:flex-1 lg:text-5xl">
             {counrySentence(
