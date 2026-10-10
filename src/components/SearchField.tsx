@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { LuCrosshair } from "react-icons/lu";
 import { CountryContext } from "../Context/CountryContext";
@@ -8,6 +8,12 @@ const SearchField = () => {
   const { getSearchCity } = useContext(SearchContext);
   const { formattedCountry } = useContext(CountryContext);
   const { t } = useTranslation();
+  const [cityInput, setCityInput] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // stops the browser from reloading the page
+    getSearchCity(cityInput);
+  };
 
   return (
     <div
@@ -17,7 +23,31 @@ const SearchField = () => {
         <LuCrosshair />
         {t("logoText")}
       </h1>
-      <div className="flex w-11/12 items-center justify-center gap-2 lg:w-full">
+      <form
+        onSubmit={handleSubmit}
+        className="flex w-11/12 items-center justify-center gap-2 lg:w-full"
+      >
+        <input
+          value={cityInput}
+          onChange={(e) =>
+            setCityInput(e.target.value.toLocaleLowerCase().trim())
+          }
+          className="w-5/6 border-nordic_shade bg-nordic_shade p-4 text-nordic_salmon outline-none md:w-96 lg:p-5"
+          placeholder={t("searchFieldPlaceholder", {
+            formattedCountry,
+          })}
+        />
+        <button
+          className="border-nordic_salmon bg-nordic_salmon p-4 font-bold text-nordic"
+          type="submit"
+        >
+          {t("search")}
+          <span className="mx-2 hidden rounded bg-red-300 px-3 py-1 font-mono text-base font-semibold lg:inline-flex">
+            ↵ Enter
+          </span>
+        </button>
+      </form>
+      {/* <div className="flex w-11/12 items-center justify-center gap-2 lg:w-full">
         <input
           type="text"
           placeholder={t("searchFieldPlaceholder", {
@@ -37,7 +67,7 @@ const SearchField = () => {
             ↵ Enter
           </span>
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
