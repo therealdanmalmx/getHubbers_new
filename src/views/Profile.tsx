@@ -3,14 +3,18 @@ import { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FaBookmark, FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { IoIosGlobe, IoIosMail } from "react-icons/io";
+import { HiOutlineMail } from "react-icons/hi";
+import { IoIosGlobe } from "react-icons/io";
 import { MdOutlinePinDrop, MdOutlineWorkOutline } from "react-icons/md";
-
 import { useNavigate, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import { FetchContext } from "../Context/FetchContext";
-import { langugaesWithNoLogo, switchLanguage } from "../utils/Helpers";
+import {
+  getLanguageName,
+  langugaesWithNoLogo,
+  switchLanguage,
+} from "../utils/Helpers";
 import { getSavedProfiles, setSavedProfiles } from "../utils/savedList";
 
 const Profile = () => {
@@ -31,10 +35,17 @@ const Profile = () => {
   const repoFiltered: any = [];
 
   repos.forEach((repo) => {
-    repoFiltered.push(repo?.language?.toLowerCase());
+    if (repo === undefined) {
+      return;
+    }
+
+    repoFiltered.push(
+      repo?.language?.toLowerCase() !== undefined &&
+        repo?.language?.toLowerCase(),
+    );
   });
 
-  const uniqueLanguages = new Set(repoFiltered);
+  const uniqueLanguages = new Set(repoFiltered.filter(Boolean));
 
   const addProfileToList = (id: number) => {
     if (savedList.some((p) => p.id === id)) {
@@ -67,13 +78,13 @@ const Profile = () => {
   }, [isLoading, profile, navigate]);
 
   return (
-    <div className="m-8">
+    <div className="mx-36 my-8">
       <div className="flex items-center justify-between">
-        <BackButton route="/profiles" routeName="utvecklare" />
+        <BackButton route="/profiles" routeName={t("developers")} />
         <Link to="/profile-list">
           <div className="mx-auto my-2 flex size-12 cursor-pointer flex-col items-center justify-center">
             {savedList.length > 0 && (
-              <div className="relative flex cursor-pointer items-start justify-center text-nordic_salmon duration-300 ease-in-out hover:text-red-200">
+              <div className="text-nordic_blue relative flex cursor-pointer items-start justify-center duration-300 ease-in-out hover:text-blue-400">
                 <FaBookmark className="bg size-12 cursor-pointer" />
                 <span className="absolute cursor-pointer pt-1 text-xl font-bold text-white">
                   {savedList.length}
@@ -83,17 +94,17 @@ const Profile = () => {
           </div>
         </Link>
       </div>
-      <div className="flex w-full flex-col justify-start rounded-lg bg-nordic_asccent p-5 lg:flex-row">
+      <div className="flex flex-col justify-start rounded-lg bg-nordic_asccent p-5 lg:flex-row">
         <img
           src={profile.avatar_url}
           alt=""
-          className="size-36 rounded object-contain"
+          className="size-44 rounded object-contain"
         />
         <div className="flex w-full flex-col justify-between lg:flex-row">
-          <div className="mx-4 flex flex-col flex-wrap items-start justify-center space-y-2">
+          <div className="mx-4 flex flex-col flex-wrap items-start justify-between space-y-2">
             <div>
               <div className="flex items-center justify-start gap-4">
-                <p className="w-fit whitespace-nowrap text-3xl font-bold text-white">
+                <p className="w-fit whitespace-nowrap text-4xl font-bold text-white">
                   {profile.name}
                 </p>
                 {profile.hireable ? (
@@ -113,18 +124,18 @@ const Profile = () => {
                 )}
               </div>
               {profile.bio && (
-                <p className="w-3/4 text-base text-nordic_salmon">
+                <p className="w-fit text-base text-nordic_salmon">
                   {profile.bio}
                 </p>
               )}
             </div>
+            {profile.company && (
+              <div className="flex items-center gap-2">
+                <MdOutlineWorkOutline className="size-5 text-nordic_salmon" />
+                <p className="text-nordic_salmon"> {profile.company}</p>
+              </div>
+            )}
             <div>
-              {profile.company && (
-                <div className="flex items-center gap-2">
-                  <MdOutlineWorkOutline className="size-5 text-nordic_salmon" />
-                  <p className="text-nordic_salmon"> {profile.company}</p>
-                </div>
-              )}
               {profile.location && (
                 <div className="flex items-center gap-2">
                   <span>
@@ -187,46 +198,71 @@ const Profile = () => {
                 title={`Email: ${profile.email}`}
                 aria-label={`Send email to ${profile.email}`}
               >
-                <IoIosMail className="size-12 text-nordic_salmon lg:size-24" />
+                <HiOutlineMail className="size-12 text-slate-300" />
               </a>
             )}
           </div>
         </div>
       </div>
-      <div className="mt-2 flex justify-center">
+      {!Array.from(uniqueLanguages).length ? (
+        <span className="hidden" />
+      ) : (
+        <div className="my-2 rounded-lg bg-nordic_shade p-4">
+          <p className="mb-2 text-nordic_salmon">Technology & Skills</p>
+          <div className="flex flex-wrap gap-2">
+            {Array.from(uniqueLanguages).map((language) =>
+              language === undefined ||
+              langugaesWithNoLogo.includes(language) ? (
+                <span className="hidden" />
+              ) : language === "less" ? (
+                <i
+                  className={`devicon-less-plain-wordmark colored text-3xl lg:text-5xl`}
+                  title={`${language}`}
+                ></i>
+              ) : language == "emacs lisp" ? (
+                <i
+                  className={`devicon-emacs-original colored flex size-[110px] flex-col items-center justify-center rounded-lg bg-nordic text-2xl lg:text-5xl`}
+                  title={`${language}`}
+                >
+                  <p className="mt-2 text-center text-xs text-white">
+                    {getLanguageName(String(language ?? ""))}
+                  </p>
+                </i>
+              ) : language == "fortran" ? (
+                <i
+                  className={`devicon-fortran-original colored flex size-[110px] flex-col items-center justify-center rounded-lg bg-nordic text-2xl lg:text-5xl`}
+                  title={`${language}`}
+                >
+                  <p className="mt-2 text-center text-xs text-white">
+                    {getLanguageName(String(language ?? ""))}
+                  </p>
+                </i>
+              ) : language === "purescript" ? (
+                <i
+                  className={`devicon-purescript-original colored m-2 text-2xl lg:text-5xl`}
+                  title={`${language}`}
+                ></i>
+              ) : (
+                <i
+                  className={`flex size-[110px] flex-col items-center justify-center rounded-lg bg-nordic devicon-${switchLanguage(language)}-plain colored text-2xl lg:text-5xl`}
+                  title={`${language === "azuresqldatabase" ? "sql" : language}`}
+                >
+                  <p className="mt-2 text-center text-xs text-slate-300">
+                    {getLanguageName(String(language ?? ""))}
+                  </p>
+                </i>
+              ),
+            )}
+          </div>
+        </div>
+      )}
+      <div className="mt-2">
         <button
           onClick={() => addProfileToList(profile.id)}
           className="w-full bg-nordic_shade py-4 text-center text-nordic_salmon transition-colors duration-300 ease-in-out hover:bg-nordic_asccent"
         >
-          Add to list
+          {t("addToList")}
         </button>
-      </div>
-      <div className="mx-auto flex flex-wrap lg:mx-0">
-        {Array.from(uniqueLanguages).map((language) =>
-          language === undefined || langugaesWithNoLogo.includes(language) ? (
-            <span className="m-0" />
-          ) : language === "less" ? (
-            <i
-              className={`devicon-less-plain-wordmark colored m-2 text-3xl lg:text-5xl`}
-              title={`${language}`}
-            ></i>
-          ) : language == "emacs lisp" ? (
-            <i
-              className={`devicon-emacs-original colored m-2 text-2xl lg:text-5xl`}
-              title={`${language}`}
-            ></i>
-          ) : language === "purescript" ? (
-            <i
-              className={`devicon-purescript-original colored m-2 text-2xl lg:text-5xl`}
-              title={`${language}`}
-            ></i>
-          ) : (
-            <i
-              className={`devicon-${switchLanguage(language)}-plain colored m-2 text-2xl lg:text-5xl`}
-              title={`${language === "azuresqldatabase" ? "sql" : language}`}
-            ></i>
-          ),
-        )}
       </div>
     </div>
   );
