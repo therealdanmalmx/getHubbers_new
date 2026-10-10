@@ -1,8 +1,7 @@
 import axios from "axios";
-import { FC, ReactNode, createContext, useContext, useState } from "react";
+import { FC, ReactNode, createContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
-import { CountryContext } from "./CountryContext";
 
 type GithubProfilesResponse = {
   incomplete_results: boolean;
@@ -57,25 +56,22 @@ export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   });
   const [profile, setProfile] = useState<Record<string, any>>({});
   const [repos, setRepos] = useState([]);
-  const { country } = useContext(CountryContext);
+  // const { country } = useContext(CountryContext);
   const { t } = useTranslation();
 
   const getHubberProfiles = async (selectedIcons: string[], city: string) => {
     if (city !== undefined) {
+      console.log({ selectedIcons });
+      console.log({ city });
       try {
         // Check if country is better to use
-        const query = `language:${selectedIcons.join("+")}+location:${city ? city : country}`;
+        const query = `language:${selectedIcons.join("+")}+location:${city}`;
         const res = await axios.get(
           `https://api.github.com/search/users?q=${query}`,
         );
 
         if (!res.data.items.length || res.data.items === undefined) {
           toast.error(t("noprofilesfound"));
-          setProfiles({
-            items: [],
-            total_count: 0,
-            incomplete_results: true,
-          });
         } else {
           setProfiles(await res.data);
           return await res.data;
