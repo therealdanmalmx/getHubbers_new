@@ -56,7 +56,6 @@ export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
   });
   const [profile, setProfile] = useState<Record<string, any>>({});
   const [repos, setRepos] = useState([]);
-  // const { country } = useContext(CountryContext);
   const { t } = useTranslation();
 
   const getHubberProfiles = async (selectedIcons: string[], city: string) => {
@@ -64,7 +63,6 @@ export const FetchProvider: FC<{ children: ReactNode }> = ({ children }) => {
       console.log({ selectedIcons });
       console.log({ city });
       try {
-        // Check if country is better to use
         const query = `language:${selectedIcons.join("+")}+location:${city}`;
         const res = await axios.get(
           `https://api.github.com/search/users?q=${query}`,
