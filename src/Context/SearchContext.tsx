@@ -93,14 +93,17 @@ export const SearchProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const location = matchedCity ?? country;
     if (matchedCity) {
       setSearchText(matchedCity);
+    } else {
+      setSearchText("");
     }
 
     try {
       await getHubberProfiles(selectedIcons, location);
+      // setSearchText("");
       navigate("/profiles");
     } catch (err) {
       console.error(err);
-      toast.error(t("searchFailed")); // add this key to your translations
+      // toast.error(t("searchFailed")); // add this key to your translations
     }
   };
 
