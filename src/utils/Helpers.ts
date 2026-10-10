@@ -63,12 +63,21 @@ export const langugaesWithNoLogo: any[] = [
   "monkey c",
   "xslt",
   "grammatical framework",
+  "j",
+  "hlsl",
+  "rich text format",
+  "q",
+  "scheme",
 ];
 
 export const switchLanguage = (language: any) => {
   switch (language) {
     case "css":
       language = "css3";
+      break;
+    case "scss":
+    case "sass":
+      language = "sass";
       break;
     case "c#":
       language = "csharp";
@@ -113,9 +122,69 @@ export const switchLanguage = (language: any) => {
     case "visual basic .net":
       language = "dot-net";
       break;
+    case "gdshader":
+    case "godot":
+      language = "godot";
+      break;
+    case "perl 6":
+      language = "perl";
+      break;
     default:
       break;
   }
 
   return language;
+};
+
+export const getLanguageName = (language: string) => {
+  const name: Record<string, string> = {
+    javascript: "JavaScript",
+    "c++": "C++",
+    php: "PHP",
+    html: "HTML",
+    python: "Python",
+    "vim script": "Vim",
+    "c#": "C#",
+    c: "C",
+    powershell: "Powershell",
+    ruby: "Ruby",
+    "emacs lisp": "Emacs Lisp",
+    haskell: "Haskell",
+    java: "Java",
+    processing: "Processing",
+    godot: "Godot",
+    gdshader: "Godot",
+    go: "Go",
+    llvm: "LLVM",
+    rust: "Rust",
+    cmake: "CMake",
+    typescript: "TypeScript",
+    swift: "Swift",
+    "objective-c": "Objective-C",
+    css: "CSS",
+    perl: "Perl",
+    groovy: "Groovy",
+    docker: "Docker",
+    dockerfile: "Docker",
+    "jupyter notebook": "Jupyter Notebook",
+    kotlin: "Kotlin",
+    dart: "Dart",
+    r: "R",
+    "perl 6": "Perl",
+    julia: "Julia",
+    ocaml: "OCaml",
+    clojure: "Clojure",
+    scala: "Scala",
+    lua: "Lua",
+    coffeescript: "CoffeeScript",
+    elixir: "Elixir",
+    zig: "Zig",
+    fortran: "Fortran",
+    tex: "Tex",
+    svelte: "Svelte",
+    vue: "Vue",
+    react: "React",
+    angular: "Angular",
+  };
+  return name[language];
 };
