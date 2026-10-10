@@ -25,7 +25,7 @@ const SavedList = () => {
   return (
     <div>
       <div className="m-4 flex flex-col items-center justify-center lg:flex-row">
-        <BackButton route="/profiles" routeName={t("developers")} />
+        <BackButton route="/profiles" />
         {savedList.length > 0 && (
           <div className="text-2xl font-bold uppercase text-nordic_salmon md:ml-28 md:text-left lg:flex-1 lg:text-5xl">
             {t("savedProfiles")}

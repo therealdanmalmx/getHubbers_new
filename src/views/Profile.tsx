@@ -80,7 +80,7 @@ const Profile = () => {
   return (
     <div className="mx-36 my-8">
       <div className="flex items-center justify-between">
-        <BackButton route="/profiles" routeName={t("developers")} />
+        <BackButton route="/profiles" />
         <Link to="/profile-list">
           <div className="mx-auto my-2 flex size-12 cursor-pointer flex-col items-center justify-center">
             {savedList.length > 0 && (
